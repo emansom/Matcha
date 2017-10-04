@@ -31,7 +31,7 @@
     var habboReqPath = "";
     var habboStaticFilePath = "/web-gallery";
     var habboImagerUrl = "/habbo-imaging/";
-    document.habboLoggedIn = { s->has('logged_in'); };
+    document.habboLoggedIn = {{ loggedIn|json_encode }};
     window.name = "habboMain";
     </script>
 

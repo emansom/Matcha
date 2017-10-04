@@ -16,6 +16,7 @@ use Phalcon\Text;
 use Kepler\Security as Security;
 use Kepler\ExternalTextsTranslateAdapter as ExternalTextsTranslateAdapter;
 use Kepler\PageElements as PageElements;
+use Kepler\RemoteConnection as RemoteConnection;
 
 /**
  * Shared configuration service
@@ -173,6 +174,18 @@ $di->setShared('session', function () {
  */
 $di->setShared('security', function() {
     return new Security();
+});
+
+/*
+ * Inject RemoteConnection for Kepler
+ */
+$di->setShared('rcon', function() {
+    return new RemoteConnection(
+        [
+            'host' => $config->emulator->host,
+            'port' => $config->emulator->port
+        ]
+    );
 });
 
 /**

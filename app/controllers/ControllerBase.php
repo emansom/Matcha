@@ -7,12 +7,10 @@ class ControllerBase extends Controller
     public function initialize()
     {
         $this->view->t = $this->di->getTranslation();
-        $this->view->s = $this->di->getSession();
-        $this->view->onlineCount = '1,337'; // TODO: query via RCON and use Internationalization
+        $this->view->loggedIn = $this->di->getSession()->has('user_id');
 
-        // TODO: verify getBestLanguage
-        // better TODO: contribute validation for getBestLanguage to Phalcon
-        //$fmt = new \NumberFormatter($this->request->getBestLanguage(), \NumberFormatter::DECIMAL);
-
+        // TODO: verify getBestLanguage with available languages
+        $fmt = new \NumberFormatter($this->request->getBestLanguage(), \NumberFormatter::DECIMAL);
+        $this->view->onlineCount = $fmt->format($this->rcon->getOnlineCount());
     }
 }

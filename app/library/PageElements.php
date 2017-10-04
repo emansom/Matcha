@@ -124,9 +124,12 @@ class PageElements extends Component
 
     private function _getEnterHotelButton()
     {
-        return '<div id="enter-hotel">
+        // if (!$this->rcon->ping()) {
+        return '<div id="hotel-closed"></div>';
+        // TODO: if SSO is enabled, change link to /login
+        /*return '<div id="enter-hotel">
             ' . Tag::linkTo(['/client', '', 'target' => 'client', 'id' => 'enter-hotel-link']) . '
-        </div>';
+        </div>';*/
     }
 
     public function getPromoArea()
