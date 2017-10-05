@@ -12,6 +12,9 @@ use Phalcon\Mvc\Dispatcher as MvcDispatcher;
 use Phalcon\Events\Event;
 use Phalcon\Events\Manager as EventsManager;
 use Phalcon\Text;
+use Phalcon\Cache\Frontend\Igbinary as FrontendData;
+use Phalcon\Cache\Frontend\Output as OutputFrontend;
+use Phalcon\Cache\Backend\Redis as BackendCache;
 
 use Kepler\Security as Security;
 use Kepler\ExternalTextsTranslateAdapter as ExternalTextsTranslateAdapter;
@@ -139,6 +142,62 @@ $di->setShared('db', function () {
     return $connection;
 });
 
+/*
+ * Set the cache service
+ */
+$di->set('cache', function() {
+    $config = $this->getConfig();
+
+    // Cache data for one day (default setting)
+    $frontCache = new FrontendData(
+        [
+            'lifetime' => 86400,
+        ]
+    );
+
+    // Memcached connection settings
+    $cache = new BackendCache(
+        $frontCache,
+        [
+            'host'       => $config->redis->socket,
+            'port'       => 0,
+            'persistent' => true,
+            'index'      => 1
+        ]
+    );
+
+    return $cache;
+});
+
+/*
+ * Set the models cache service
+ */
+$di->set('modelsCache', function () {
+    return $this->getCache();
+});
+
+/*
+ * Set the views cache service
+ */
+$di->set('viewCache', function() {
+    // Cache data for one day by default
+    $frontCache = new OutputFrontend(
+        [
+            "lifetime" => 86400,
+        ]
+    );
+
+    // Memcached connection settings
+    $cache = new BackendCache(
+        $frontCache,
+        [
+            "host" => "localhost",
+            "port" => "11211",
+        ]
+    );
+
+    return $cache;
+});
 
 /**
  * If the configuration specify the use of metadata adapter use it or use memory otherwise
@@ -180,10 +239,13 @@ $di->setShared('security', function() {
  * Inject RemoteConnection for Kepler
  */
 $di->setShared('rcon', function() {
+    $config = $this->getConfig();
+
     return new RemoteConnection(
         [
             'host' => $config->emulator->host,
-            'port' => $config->emulator->port
+            'port' => $config->emulator->port,
+            'ttl' => $config->emulator->rconTTL
         ]
     );
 });

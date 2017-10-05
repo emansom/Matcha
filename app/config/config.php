@@ -28,5 +28,14 @@ return new \Phalcon\Config([
         //'baseUri'          => preg_replace('/public([\/\\\\])index.php$/', '', $_SERVER["PHP_SELF"]),
         'baseUri'          => '/',
         'defaultLanguage'  => 'en'
+    ],
+    'emulator' => [
+        // TODO: use unix sockets
+        'host' => '127.0.0.1',
+        'port' => '12309',
+        'rconTTL' => 30 // TTL of RCON cache
+    ],
+    'redis' => [
+        'socket' => '/run/redis/redis.sock'
     ]
 ]);

@@ -11,10 +11,20 @@ class PageElements extends Component
     {
         $controllerName = $this->view->getControllerName();
         $actionName = $this->view->getActionName();
+        $cacheKey = 'mainmenu-' . $controllerName;
+
+        // Differentiate cache if logged in
+        if ($this->session->has('user_id')) {
+            $cacheKey .= '-' . $this->session->get('user_id');
+        }
 
         $menu = \SiteMenu::find([
             'parent_id = 0',
-            'order' => 'order_id ASC'
+            'order' => 'order_id ASC',
+            'cache' => [
+                'key' => $cacheKey,
+                'lifetime' => 300 // five minutes
+            ]
         ]);
 
         $menuItems = [];
@@ -68,13 +78,23 @@ class PageElements extends Component
     {
         $controllerName = $this->view->getControllerName();
         $actionName = $this->view->getActionName();
+        $cacheKey = 'submenu-' . $controllerName;
+
+        // Differentiate cache if logged in
+        if ($this->session->has('user_id')) {
+            $cacheKey .= '-' . $this->session->get('user_id');
+        }
 
         $menus = \SiteMenu::find([
             'conditions' => 'parent_id != 0 AND controller = ?1',
             'bind' => [
                 1 => $controllerName
             ],
-            'order' => 'order_id ASC'
+            'order' => 'order_id ASC',
+            'cache' => [
+                'key' => $cacheKey,
+                'lifetime' => 300 // five minutes
+            ]
         ]);
 
         $subMenu = [];
@@ -124,12 +144,15 @@ class PageElements extends Component
 
     private function _getEnterHotelButton()
     {
-        // if (!$this->rcon->ping()) {
-        return '<div id="hotel-closed"></div>';
-        // TODO: if SSO is enabled, change link to /login
-        /*return '<div id="enter-hotel">
-            ' . Tag::linkTo(['/client', '', 'target' => 'client', 'id' => 'enter-hotel-link']) . '
-        </div>';*/
+        // If emulator is offline, respond with hotel closed
+        if (!$this->rcon->ping()) {
+            return '<div id="hotel-closed"></div>';
+        } else {
+            // TODO: if SSO is enabled, change link to /login
+            return '<div id="enter-hotel">
+                ' . Tag::linkTo(['/client', '', 'target' => 'client', 'id' => 'enter-hotel-link']) . '
+            </div>';
+        }
     }
 
     public function getPromoArea()
