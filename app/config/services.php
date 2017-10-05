@@ -21,6 +21,26 @@ use Kepler\ExternalTextsTranslateAdapter as ExternalTextsTranslateAdapter;
 use Kepler\PageElements as PageElements;
 use Kepler\RemoteConnection as RemoteConnection;
 
+
+use Phalcon\Flash\Direct as FlashDirect;
+use Phalcon\Flash\Session as FlashSession;
+
+// Set up the flash service
+$di->set(
+    'flash',
+    function () {
+        return new FlashDirect();
+    }
+);
+
+// Set up the flash session service
+$di->set(
+    'flashSession',
+    function () {
+        return new FlashSession();
+    }
+);
+
 /**
  * Shared configuration service
  */
@@ -65,7 +85,8 @@ $di->setShared('view', function () {
 
             $volt->setOptions([
                 'compiledPath' => $config->application->cacheDir,
-                'compiledSeparator' => '_'
+                'compiledSeparator' => '_',
+                'compileAlways' => true
             ]);
 
             $volt->getCompiler()->addFunction('_', function ($resolvedArgs, $exprArgs) {

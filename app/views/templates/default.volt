@@ -13,13 +13,11 @@
         background-image: url(/c_images/album2121/top_bar_room_UK.gif) !important;
     }
     #topdim {
-        opacity: .20 !important;
+        opacity: .10 !important;
     }
     </style>
 
-     <!--<script src="/web-gallery/js/webcomponents.js"></script>-->
-
-    <title>Habbo ~ Habbo</title>
+    <title>Habbo ~ {% block title %}{% endblock %}</title>
 
     <!-- TODO: favicon x2 (xBR or HQx scaled) -->
     <!--<link rel="icon" sizes="64x64" href="/favicon-x2.png">-->
@@ -31,7 +29,7 @@
     var habboReqPath = "";
     var habboStaticFilePath = "/web-gallery";
     var habboImagerUrl = "/habbo-imaging/";
-    document.habboLoggedIn = {{ loggedIn|json_encode }};
+    document.habboLoggedIn = {{ logged_in|json_encode }};
     window.name = "habboMain";
     </script>
 
@@ -43,6 +41,9 @@
     <meta content="" name="keywords">
     <meta content="" name="description">
 
+    {% block custom_styles %}
+    {% endblock %}
+
     <!--<link href="/web-gallery/styles/style_custom_nl.css" rel="stylesheet" type="text/css">-->
     <link href="/news/rss.xml" rel="alternate" title="Habbo Vandaag" type="application/rss+xml">
 
@@ -50,7 +51,7 @@
 
 </head>
 
-<body id="home">
+<body {% block body_attributes %}{% endblock %}>
 
   <div id="overlay"></div>
 
@@ -68,7 +69,7 @@
             <table id="topbar">
                 <tbody>
                     <tr>
-                      <td id="topbar-count">{{ onlineCount }} members online</td>
+                      <td id="topbar-count">{{ online_count }} members online</td>
 
                       <td align="center" id="topbar-menu">
                         <ul>
@@ -99,15 +100,17 @@
                     </tr>
                 </tbody>
             </table>
+
             {{ elements.getTopElements() }}
 
             <div id="tabmenu" onmouseout="fadeTab('myhabbo')" onmouseover="lockCurrentTab();" style="left: 260px;">
               <div id="tabmenu-content">
+                {% if not logged_in %}
                 <div class="tabmenu-inner selected" id="myhabbo-content">
                   <img alt="" class="tabmenu-image" height="85" src="/web-gallery/images/top_bar/myhabbo_frank.gif" width="60">
 
                   <h3>
-                    Welcome! Please sign in or register
+                      Welcome! Please sign in or register
                   </h3>
 
                   <div class="tabmenu-inner-content">
@@ -131,27 +134,24 @@
 
                 <div class="tabmenu-inner" id="mycredits-content">
                   <h3>
-                    <!-- <a href="/login">Log in</a> om je Portemonnee te zien -->
-                    <a href="/login">{{ _("Login") }}</a> {{ _("to see your Purse") }}
+                    Please {{ link_to('/login', 'sign in') }} to see your balance
                   </h3>
 
                   <div class="tabmenu-inner-content">
                     <p>
-                      <img alt="" class="tabmenu-image coins" height="21" src="/web-gallery/images/top_bar/icon_mycredits.gif" width="47">
+                      <img alt="" class="tabmenu-image coins" height="21" src="/web-gallery/images/top_bar/mycredits_coins.gif" width="47">
 
-                      <a class="arrow" href="/tab/credits">
+                      <a class="arrow" href="/credits">
                         <span>
-                          <!-- Credits kopen -->
-                          {{ _("Buy credits") }}
+                          Buy more credits
                         </span>
                       </a>
                     </p>
 
                     <p>
-                      <a class="arrow" href="/tab/redeem">
+                      <a class="arrow" href="/credits">
                         <span>
-                          <!-- Een Credit- of Meubicode verzilveren -->
-                          {{ _("Redeem your Credit- or Furnicode") }}
+                            Redeem a voucher code
                         </span>
                       </a>
                     </p>
@@ -160,26 +160,64 @@
 
                 <div class="tabmenu-inner" id="habboclub-content">
                   <h3>
-                    <!-- <a href="/login">Log in</a> om je Clubstatus te zien -->
-                    <a href="/login">{{ _("Login") }}</a> {{ _("to see your club status") }}
+                    Please {{ link_to('/login', 'sign in') }} to see your Club status
                   </h3>
 
                   <div class="tabmenu-inner-content">
                     <p>
-                      <!-- Habbo Club biedt vele extra opties in Habbo Hotel. -->
-                      {{ _("Habbo Club extra options blaat") }}
+                      Habbo Club gives you the best benefits as a Habbo.
                     </p>
 
                     <p>
-                      <a class="arrow" href="/tab/habboclub">
+                      <a class="arrow" href="/club">
                         <span>
-                          <!-- Het laatste Habbo Club nieuws -->
-                          {{ _("Latest Habbo Club news") }}
+                            More on Habbo Club
                         </span>
                       </a>
                     </p>
                   </div>
                 </div>
+                {% else %}
+                <div id="myhabbo-content" class="tabmenu-inner selected">
+                    <h3>Welcome {{ user.username }}</h3>
+
+                    <div class="tabmenu-inner-content">
+                        <p>
+                            <a href="<?php echo("$sitepath"); ?>client" class="arrow" target="client" onclick="openOrFocusHabbo(this); return false;"><span>Enter <?php echo("$name"); ?> Hotel</span></a>
+                        </p>
+                        <p>
+                            <a href="<?php echo("$sitepath"); ?>home/<?php echo("$habboname"); ?>" class="arrow"><span>My <?php echo("$name"); ?> home</span></a>
+                        </p>
+                        <p>
+                            <a href="<?php echo("$sitepath"); ?>profile" class="arrow"><span>Update My Profile</span></a>
+                        </p>
+                        <p>
+                            <a href="<?php echo("$sitepath"); ?>account/logout" class="colorlink orange last"><span>Sign Out</span></a>
+                        </p>
+                    </div>
+                </div>
+                <div id="mycredits-content" class="tabmenu-inner">
+                    <h3>My Credits</h3>
+
+                    <div class="tabmenu-inner-content">
+                        <p id="credits-status">
+                            <img src="<?php echo("$imgpath") ?>images/progress_bubbles.gif" alt="" width="29" height="6" />
+                        </p>
+    <p>
+                            <img src="<?php echo("$imgpath"); ?>images/top_bar/mycredits_coins.gif" alt="" width="47" height="21" class="tabmenu-image coins" />
+                            <a href="<?php echo("$sitepath"); ?>credits" class="arrow"><span>Redeem a Coin or Furni Code</span></a>
+                        </p>
+                    </div>
+                </div>
+                <div id="habboclub-content" class="tabmenu-inner">
+                    <h3>My <?php echo("$name"); ?> Club status</h3>
+                    <div class="tabmenu-inner-content">
+                    <p id="habboclub-status">
+                            <img src="<?php echo("$imgpath"); ?>images/top_bar/mycredits_coins.gif" alt="" width="47" height="21" class="tabmenu-image coins" />
+                        </p>
+                    </div>
+                </div>
+                {% endif %}
 
                 <div class="clear"></div>
               </div>
@@ -194,7 +232,7 @@
     </div>
 
     <div id="main-content">
-        {{ content() }}
+        {% block content %}{% endblock %}
     </div>
 
     <div id="outer">
@@ -226,10 +264,7 @@
                             {{ link_to("/help/parents_guide", "Parents' Guide") }} |
                             {{ link_to("/footer_pages/terms_and_conditions", "Terms &amp; Conditions") }}
                         </p>
-          	    		<p class="footer-legal">
-                            oldHabbo is not affiliated with, endorsed, sponsored, or specifically approved by Sulake Corporation Oy or its Affiliates.<br />
-                            Sulake Corporation Oy are not responsible for any content on oldHabbo and the views and opinions expressed herein are not necessarily the views and opinions of Sulake.
-                        </p>
+          	    		<p class="footer-legal">{{ elements.getFooterText() }}</p>
           </div></div>
           	<div id="footer-bottom"><div id="footer-bottom-content"></div></div>
           </div>
@@ -246,12 +281,6 @@
   </script>-->
 </div>
 
-<!-- <script src="/web-gallery/js/grapnel.min.js"></script>
-<script>var Router = new Grapnel({pushState: true});</script> -->
-<!--<script src="/web-gallery/js/react.min.js"></script>-->
-<!--<script src="/web-gallery/js/tag.min.js"></script>-->
-<!-- <script src="/web-gallery/js/bundle.js"></script> -->
-<!-- <script src="/web-gallery/js/app.js"></script> -->
 <script>
 var playPreview;
 playPreview = function(target) {

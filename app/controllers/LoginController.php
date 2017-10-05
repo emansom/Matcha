@@ -2,17 +2,14 @@
 
 class LoginController extends ControllerBase
 {
-
     public function indexAction()
     {
+        $this->view->pick('login/login');
 
-    }
-
-    public function loginAction() {
-        $sessions = $this->getDI()->getShared("session");
+        $session = $this->getDI()->getShared("session");
 
         // Redirect to homepage if already logged in
-        if ($sessions->has("user_id")) {
+        if ($session->has("user_id")) {
             return $this->response->redirect("/");
         }
 
@@ -21,13 +18,13 @@ class LoginController extends ControllerBase
             $password = $this->request->getPost("password");
 
             if ($username === "") {
-                $this->flashSession->error("return enter your username");
+                $this->flash->error('Please enter your username');
                 //pick up the same view to display the flash session errors
                 return $this->view->pick("login");
             }
 
             if ($password === "") {
-                $this->flashSession->error("return enter your password");
+                $this->flash->error('Please enter your password');
                 //pick up the same view to display the flash session errors
                 return $this->view->pick("login");
             }
@@ -50,14 +47,16 @@ class LoginController extends ControllerBase
                     // Clear password from memory securely
                     $this->security->memZeroPassword($password);
 
-                    $sessions->set("user_id", $user->id);
+                    $session->set("user_id", $user->id);
                     return $this->response->redirect("/");
                 }
             } else {
                 // To protect against timing attacks. Regardless of whether a user exists or not, the script will take roughly the same amount as it will always be computing a hash.
                 $this->security->hash(rand());
 
-                $this->flashSession->error("wrong username / password");
+                $this->flash->error("Wrong username or password");
+                //pick up the same view to display the flash session errors
+                return $this->view->pick("login");
             }
         }
 

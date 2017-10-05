@@ -41,6 +41,22 @@ $router->add(
     ]
 )->setName('footer_pages');
 
+$router->add(
+    '/login[/]{0,1}(\/?\?{0}|\/?\?{1}.*)',
+    [
+        'controller' => 'login',
+        'action'     => 'index'
+    ]
+)->setName('login');
+
+$router->add(
+    '/register[/]{0,1}(\/?\?{0}|\/?\?{1}.*)',
+    [
+        'controller' => 'register',
+        'action'     => 'index'
+    ]
+)->setName('register');
+
 $router->notFound(array(
     "controller" => "index",
     "action" => "notFound"

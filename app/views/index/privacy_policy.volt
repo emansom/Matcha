@@ -1,3 +1,10 @@
+{% extends 'templates/default.volt' %}
+
+{% block title %}Privacy Policy{% endblock %}
+
+{% block body_attributes %}id="home"{% endblock %}
+
+{% block content %}
 <div id="page-headline">
 	<div id="page-headline-breadcrums">
 	<a href="/web/20070326175618/http://www.habbo.co.uk:80/">Home</a>
@@ -64,3 +71,4 @@ Here at Habbo Hotel we want everyone to have a good time, and we promise to keep
 </tbody></table>
 
 <br style="clear: both;">
+{% endblock %}

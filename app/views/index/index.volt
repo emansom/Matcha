@@ -1,3 +1,10 @@
+{% extends 'templates/default.volt' %}
+
+{% block title %}Home{% endblock %}
+
+{% block body_attributes %}id="home"{% endblock %}
+
+{% block content %}
 <table border="0" cellpadding="0" cellspacing="0" width="100%" class="content-home">
 
 	<tbody><tr><td colspan="6" style="height: 4px;"></td></tr>
@@ -111,16 +118,16 @@ The <span style="font-weight: bold;">Sports </span>range is here - catch it whil
 
 	<div class="v3box-content"><div class="v3box-body">
 
-<img vspace="0" hspace="0" border="0" align="left" src="/c_images/album1282/frank_welcome1.gif" alt="">This is an testing ground for the new emulation server being build, <a href="https://github.com/Quackster/Kepler">Kepler</a>, feel free to create and decorate your own personal space and take part in a wide variety of games, activities and competitions. If you encounter any bugs, please report them <a href="http://forum.ragezone.com/f333/some-bug-report-thread-for-kepler/">here</a>.<br><br><a href="https://web.archive.org/web/20070329131433/http://www.habbo.co.uk/client" target="client" onclick="openOrFocusHabbo(this); return false;">Check in now!</a><br><br><a target="_self" href="https://web.archive.org/web/20070329131433/http://www.habbo.co.uk/hotel/welcome_to_habbo_hotel/">New here?</a><br><br>
+<img vspace="0" hspace="0" border="0" align="left" src="/c_images/album1282/frank_welcome1.gif" alt="">This is an testing ground for the new emulation server being build, <a href="http://forum.ragezone.com/f331/kepler-v18-emulator-c11-sqlite3-1143928/">Kepler</a>, feel free to create and decorate your own personal space and take part in a wide variety of games, activities and competitions. If you encounter any bugs, please report them <a href="http://forum.ragezone.com/f333/some-bug-report-thread-for-kepler/">here</a>.<br><br><a href="https://web.archive.org/web/20070329131433/http://www.habbo.co.uk/client" target="client" onclick="openOrFocusHabbo(this); return false;">Check in now!</a><br><br><a target="_self" href="https://web.archive.org/web/20070329131433/http://www.habbo.co.uk/hotel/welcome_to_habbo_hotel/">New here?</a><br><br>
 		<div class="clear"></div></div>
 	</div>
 	<div class="v3box-bottom"><div></div></div>
 </div>
 <div class="v3box orange light">
-	<div class="v3box-top"><h3>Habbo Credits</h3></div>
+	<div class="v3box-top"><h3>Credits</h3></div>
 	<div class="v3box-content"><div class="v3box-body">
 
-<br><img vspace="0" hspace="0" border="0" align="right" src="/c_images/album1054/coins_big.gif" alt=""><a target="_self" href="https://web.archive.org/web/20070329131433/http://www.habbo.co.uk/credits">Habbo Credits</a> have many uses including decorating your own Guest Room with Habbo Furni, playing Battle Ball, adopting a Pet, joining Habbo Club, buying gifts for your friends and much more!<br><br>There are many secure ways to buy Habbo Credits - Find out which is best for you <a target="_self" href="https://web.archive.org/web/20070329131433/http://www.habbo.co.uk/credits">Here</a><br><br>
+<br><img vspace="0" hspace="0" border="0" align="right" src="/c_images/album1054/coins_big.gif" alt=""><a target="_self" href="https://web.archive.org/web/20070329131433/http://www.habbo.co.uk/credits">Credits</a> have many uses including decorating your own Guest Room with Furniture, playing Battle Ball, adopting a Pet, joining Habbo Club, buying gifts for your friends and much more!<br><br>There are many secure ways to buy Habbo Credits - Find out which is best for you <a target="_self" href="https://web.archive.org/web/20070329131433/http://www.habbo.co.uk/credits">Here</a><br><br>
 		<div class="clear"></div></div>
 	</div>
 	<div class="v3box-bottom"><div></div></div>
@@ -151,7 +158,7 @@ The <span style="font-weight: bold;">Sports </span>range is here - catch it whil
 
 	<div class="v3box-content"><div class="v3box-body">
 
-<br><center><img src="/c_images/Habbowealth/basket_trophy.gif" alt=""><br><br><span style="font-weight: bold;">Sports Furni</span><br><a target="_self" href="https://web.archive.org/web/20070329131433/http://www.habbo.co.uk/news/article159.html">This Week Only - Buy it now!</a><br><br><a href="https://web.archive.org/web/20070329131433/http://www.habbo.co.uk/hotel/furniture" target="_self">Habbo Furni</a> / <a target="_self" href="https://web.archive.org/web/20070329131433/http://www.habbo.co.uk/hotel/furniture">How to buy</a><br><br></center>
+<br><center><img src="/c_images/Habbowealth/basket_trophy.gif" alt=""><br><br><span style="font-weight: bold;">Sports Furni</span><br><a target="_self" href="https://web.archive.org/web/20070329131433/http://www.habbo.co.uk/news/article159.html">This Week Only - Buy it now!</a><br><br><a href="/hotel/furniture" target="_self">Furniture</a> / <a target="_self" href="https://web.archive.org/web/20070329131433/http://www.habbo.co.uk/hotel/furniture">How to buy</a><br><br></center>
 		<div class="clear"></div></div>
 	</div>
 	<div class="v3box-bottom"><div></div></div>
@@ -167,13 +174,13 @@ The <span style="font-weight: bold;">Sports </span>range is here - catch it whil
 	<div class="v3box-bottom"><div></div></div>
 </div>
 <div class="v3box green light">
-	<div class="v3box-top"><h3>Habbo Spotlight</h3></div>
+	<div class="v3box-top"><h3>Weekly Spotlight</h3></div>
 
 	<div class="v3box-content"><div class="v3box-body">
 
 <table width="100%" border="0" id="table1">
 	<tbody><tr>
-		<td>We're taking sneaky photos of random Habbos and making them famous by placing them right here on the Habbo homepage. <br></td>
+		<td>We're taking sneaky photos of random members and making them famous by placing them right here on the homepage. <br></td>
 		<td>
 <script type="text/javascript">
 <!--
@@ -397,3 +404,4 @@ The <span style="font-weight: bold;">Sports </span>range is here - catch it whil
 </tbody></table>
 
 <br style="clear: both;">
+{% endblock %}
