@@ -93,10 +93,15 @@
                         </ul>
                       </td>
 
-                      <td class="notloggedin" id="topbar-status">
-                        <!-- Welcome <b>PEjump<b>! -->
-                        Not logged in
-                      </td>
+                        {% if not logged_in %}
+                            <td class="notloggedin" id="topbar-status">
+                                Not logged in
+                            </td>
+                        {% else %}
+                            <td class="loggedin" id="topbar-status">
+                                Logged in as <b>{{ user.username }}</b>
+                            </td>
+                        {% endif %}
                     </tr>
                 </tbody>
             </table>
@@ -183,13 +188,13 @@
 
                     <div class="tabmenu-inner-content">
                         <p>
-                            <a href="<?php echo("$sitepath"); ?>client" class="arrow" target="client" onclick="openOrFocusHabbo(this); return false;"><span>Enter <?php echo("$name"); ?> Hotel</span></a>
+                            <a href="<?php echo("$sitepath"); ?>client" class="arrow" target="client" onclick="openOrFocusHabbo(this); return false;"><span>Enter the Hotel</span></a>
                         </p>
                         <p>
-                            <a href="<?php echo("$sitepath"); ?>home/<?php echo("$habboname"); ?>" class="arrow"><span>My <?php echo("$name"); ?> home</span></a>
+                            <a href="<?php echo("$sitepath"); ?>home/<?php echo("$habboname"); ?>" class="arrow"><span>View your personal homepage</span></a>
                         </p>
                         <p>
-                            <a href="<?php echo("$sitepath"); ?>profile" class="arrow"><span>Update My Profile</span></a>
+                            <a href="<?php echo("$sitepath"); ?>profile" class="arrow"><span>Edit your settings</span></a>
                         </p>
                         <p>
                             <a href="<?php echo("$sitepath"); ?>account/logout" class="colorlink orange last"><span>Sign Out</span></a>
