@@ -44,10 +44,18 @@ $router->add(
 $router->add(
     '/login[/]{0,1}(\/?\?{0}|\/?\?{1}.*)',
     [
-        'controller' => 'login',
-        'action'     => 'index'
+        'controller' => 'account',
+        'action'     => 'login'
     ]
 )->setName('login');
+
+$router->add(
+    '/account/logout[/]{0,1}(\/?\?{0}|\/?\?{1}.*)',
+    [
+        'controller' => 'account',
+        'action'     => 'logout'
+    ]
+)->setName('logout');
 
 $router->add(
     '/register[/]{0,1}(\/?\?{0}|\/?\?{1}.*)',

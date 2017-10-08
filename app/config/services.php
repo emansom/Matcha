@@ -245,7 +245,6 @@ $di->set('flash', function () {
 $di->setShared('session', function () {
     $session = new SessionAdapter();
     $session->start();
-
     return $session;
 });
 

@@ -1,15 +1,13 @@
 <?php
 
-class LoginController extends ControllerBase
+class AccountController extends ControllerBase
 {
-    public function indexAction()
+    public function loginAction()
     {
         $this->view->pick('login/login');
 
-        $session = $this->getDI()->getShared("session");
-
         // Redirect to homepage if already logged in
-        if ($session->has("user_id")) {
+        if ($this->session->has("user_id")) {
             return $this->response->redirect("/");
         }
 
@@ -47,7 +45,9 @@ class LoginController extends ControllerBase
                     // Clear password from memory securely
                     $this->security->memZeroPassword($password);
 
-                    $session->set("user_id", $user->id);
+                    $this->session->regenerateId(true);
+                    $this->session->set("user_id", $user->id);
+
                     return $this->response->redirect("/");
                 }
             } else {
@@ -59,7 +59,19 @@ class LoginController extends ControllerBase
                 return $this->view->pick("login");
             }
         }
+    }
 
+    public function logoutAction()
+    {
+        $this->view->disable();
+
+        // Redirect to homepage if already logged in
+        if ($this->session->has("user_id")) {
+            $this->session->regenerateId(true);
+            $this->session->destroy(true);
+        }
+
+        return $this->response->redirect("/");
     }
 }
 
