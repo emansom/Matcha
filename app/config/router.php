@@ -65,6 +65,14 @@ $router->add(
     ]
 )->setName('register');
 
+$router->add(
+    '/client[/]{0,1}(\/?\?{0}|\/?\?{1}.*)',
+    [
+        'controller' => 'index',
+        'action'     => 'client'
+    ]
+)->setName('client');
+
 $router->notFound(array(
     "controller" => "index",
     "action" => "notFound"

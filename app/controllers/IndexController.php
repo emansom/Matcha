@@ -23,8 +23,14 @@ class IndexController extends ControllerBase
         $this->view->pick('index/terms_and_conditions');
     }
 
-    public function atlasController()
+    public function clientAction()
     {
-        $this->view->pick('index/atlas');
+        // Regenerate SSO if logged in
+        if ($this->session->has('user_id')) {
+            $this->view->user->sso_ticket = $this->security->getToken();
+            $this->view->user->save();
+        }
+
+        $this->view->pick('client');
     }
 }
