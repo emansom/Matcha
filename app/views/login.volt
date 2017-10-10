@@ -44,7 +44,7 @@ Habbo is an online community that lets you create your own virtual space for you
 
 <div class="content-white-content">
     <img vspace="10" hspace="10" border="0" align="right" src="/c_images/album209/frank_with_key.gif" alt="">
-    <form method="post" action="/register/start" id="registration-form">
+    <form method="post" action="/register" id="registration-form">
 <input type="hidden" name="from" value="login">
 <input type="hidden" name="referer" value="https://www.habbo.co.uk/login">
 
@@ -103,27 +103,25 @@ If you already have an account then log in here using your username and your pas
 
 </div>
 
-<div id="login-errors">
-    {% if login_errors %}
-        {% for error in login_errors %}
-            <div class="content-red">
-                <div class="content-red-body" id="login-errors-content">
-                    {{ error }}
-                    <br>
-                </div>
-            </div>
-            <div class="content-red-bottom"><div class="content-red-bottom-body"></div></div>
-        {% endfor %}
-    {% else %}
-        <div class="content-red">
-        	<div class="content-red-body" id="login-errors-content">
-        	<div class="clear"></div>
-        	</div>
-        </div>
-        <div class="content-red-bottom"><div class="content-red-bottom-body"></div></div>
-    {% endif %}
-
-    {{ this.flashSession.output() }}
+<div id="login-errors" {% if login_errors %}style="display: block;"{% endif %}>
+	{% if login_errors %}
+		{% for id, error in login_errors %}
+	        <div class="content-red">
+	            <div class="content-red-body">
+	                {{ error }}
+	                <br>
+	            </div>
+	        </div>
+	        <div class="content-red-bottom"><div class="content-red-bottom-body"></div></div>
+	    {% endfor %}
+	{% else %}
+	    <div class="content-red">
+	    	<div class="content-red-body" id="login-errors-content">
+	    	<div class="clear"></div>
+	    	</div>
+	    </div>
+	    <div class="content-red-bottom"><div class="content-red-bottom-body"></div></div>
+	{% endif %}
 </div>
 
 <div class="content-white-outer" id="login">

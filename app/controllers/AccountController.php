@@ -4,8 +4,6 @@ class AccountController extends ControllerBase
 {
     public function loginAction()
     {
-        $this->view->pick('login/login');
-
         // Redirect to homepage if already logged in
         if ($this->session->has("user_id")) {
             return $this->response->redirect("/");
@@ -16,14 +14,12 @@ class AccountController extends ControllerBase
             $password = $this->request->getPost("password");
 
             if ($username === "") {
-                $this->flash->error('Please enter your username');
-                //pick up the same view to display the flash session errors
+                $this->view->login_errors = ['Please enter your username'];
                 return $this->view->pick("login");
             }
 
             if ($password === "") {
-                $this->flash->error('Please enter your password');
-                //pick up the same view to display the flash session errors
+                $this->view->login_errors = ['Please enter your password'];
                 return $this->view->pick("login");
             }
 
@@ -35,31 +31,31 @@ class AccountController extends ControllerBase
                 'limit' => 1
             ]);
 
-            if ($user) {
-                if ($this->security->checkHash($password, $user->password)) {
-                    // Check if we need a rehash
-                    if ($this->security->needsRehash($user->password)) {
-                        $user->password = $this->security->hash($password);
-                        $user->save();
-                    }
-
-                    // Clear password from memory securely
-                    $this->security->memZeroPassword($password);
-
-                    $this->session->regenerateId(true);
-                    $this->session->set("user_id", $user->id);
-
-                    return $this->response->redirect("/");
+            // If a user is found, check if password matches
+            if ($user !== null && $this->security->checkHash($password, $user->password)) {
+                // Check if we need a rehash
+                if ($this->security->needsRehash($user->password)) {
+                    $user->password = $this->security->hash($password);
+                    $user->save();
                 }
-            } else {
-                // To protect against timing attacks. Regardless of whether a user exists or not, the script will take roughly the same amount as it will always be computing a hash.
-                $this->security->hash(rand());
 
-                $this->flash->error("Wrong username or password");
-                //pick up the same view to display the flash session errors
-                return $this->view->pick("login");
+                // Clear password from memory securely
+                $this->security->memZeroPassword($password);
+
+                // Regenerate session id to protect from session hijacking
+                $this->session->regenerateId(true);
+                $this->session->set("user_id", $user->id);
+
+                return $this->response->redirect("/");
             }
+
+            // Protect from timing attacks
+            $this->security->hash(rand());
+
+            $this->view->login_errors = ['Wrong username or password'];
         }
+
+        return $this->view->pick("login");
     }
 
     public function logoutAction()
