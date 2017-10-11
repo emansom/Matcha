@@ -82,6 +82,7 @@ class RegisterController extends ControllerBase
             $user->rank = $this->config->newUser->defaultRank;
             $user->console_motto = $this->config->newUser->defaultConsoleMotto;
             $user->last_online = 0;
+            $user->pool_figure = '';
 
             if ($this->session->has('register-gender')) {
                 $user->sex = $this->session->get('register-gender');
