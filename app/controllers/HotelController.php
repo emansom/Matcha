@@ -4,17 +4,17 @@ class HotelController extends ControllerBase
 {
     public function indexAction()
     {
-        $this->view->pick('hotel/index');
+        $this->view->setMainView('hotel/index');
     }
 
     public function welcomeAction()
     {
-        $this->view->pick('hotel/welcome');
+        $this->view->setMainView('hotel/welcome');
     }
 
     public function tourAction()
     {
-        $this->view->pick('hotel/tour');
+        $this->view->setMainView('hotel/tour');
     }
 
     public function furnitureAction()

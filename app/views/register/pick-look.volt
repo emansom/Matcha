@@ -10,6 +10,9 @@
     <script src="/web-gallery/static/js/libs.js" type="text/javascript"></script>
     <script language="JavaScript" type="text/javascript" src="/web-gallery/js/common.js"></script>
     <script language="JavaScript" type="text/javascript" src="/web-gallery/js/settings.js"></script> #}
+
+    {# TODO: do fetch POST request to save-register-look
+    also save to localStorage? #}
     <script>
     var HabboEditor = {};
     HabboEditor.setGenderAndFigure = function(gender, figure) {

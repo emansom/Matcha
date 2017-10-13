@@ -150,7 +150,7 @@ class PageElements extends Component
         } else {
             // TODO: if SSO is enabled, change link to /login
             return '<div id="enter-hotel">
-                ' . Tag::linkTo(['/client', '', 'target' => 'client', 'id' => 'enter-hotel-link']) . '
+                ' . Tag::linkTo(['/client', '', 'target' => 'client', 'id' => 'enter-hotel-link', 'onclick' => 'openOrFocusHabbo(this); return false;']) . '
             </div>';
         }
     }

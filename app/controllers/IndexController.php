@@ -4,27 +4,29 @@ class IndexController extends ControllerBase
 {
     public function indexAction()
     {
-        $this->view->pick('home');
+        $this->view->setMainView('home');
     }
 
     public function notFoundAction()
     {
         $this->response->setStatusCode(404, 'Not Found');
-        $this->view->pick('404');
+        $this->view->setMainView('404');
     }
 
     public function privacyPolicyAction()
     {
-        $this->view->pick('privacy_policy');
+        $this->view->setMainView('privacy_policy');
     }
 
     public function termsAndConditionsAction()
     {
-        $this->view->pick('terms_and_conditions');
+        $this->view->setMainView('terms_and_conditions');
     }
 
     public function clientAction()
     {
+        // TODO: show hotel closed page if RCON ping doesn't return true
+        
         // Regenerate SSO if logged in
         if ($this->session->has('user_id')) {
             // Generate new SSO
@@ -44,6 +46,6 @@ class IndexController extends ControllerBase
         $this->view->external_variables = $this->config->client->external_variables;
         $this->view->external_texts = $this->config->client->external_texts;
 
-        $this->view->pick('client');
+        $this->view->setMainView('client');
     }
 }

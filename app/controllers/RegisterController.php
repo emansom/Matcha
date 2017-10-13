@@ -1,6 +1,16 @@
 <?php
 class RegisterController extends ControllerBase
 {
+    public function initialize()
+    {
+        parent::initialize();
+
+        // Redirect to homepage if already logged in
+        if ($this->session->has("user_id")) {
+            return $this->response->redirect("/");
+        }
+    }
+
     public function pickLookAction()
     {
         if ($this->session->has('register-gender')) {
@@ -15,7 +25,7 @@ class RegisterController extends ControllerBase
             $this->view->figure = $this->config->newUser->defaultFigure;
         }
 
-        $this->view->pick('register/pick-look');
+        $this->view->setMainView('register/pick-look');
     }
 
     public function saveLookAction()
@@ -38,7 +48,7 @@ class RegisterController extends ControllerBase
 
     public function detailsAction()
     {
-        $this->view->pick('register/details');
+        $this->view->setMainView('register/details');
     }
 
     public function registerAction()
@@ -53,12 +63,12 @@ class RegisterController extends ControllerBase
         // TODO: view errors
         // if ($username === "") {
         //     $this->view->login_errors = ['Please enter your username'];
-        //     return $this->view->pick("login");
+        //     return $this->view->setMainView("login");
         // }
         //
         // if ($password === "") {
         //     $this->view->login_errors = ['Please enter your password'];
-        //     return $this->view->pick("login");
+        //     return $this->view->setMainView("login");
         // }
 
         // Check if username already exists (match case-insensitive)
@@ -102,6 +112,8 @@ class RegisterController extends ControllerBase
 
                 echo json_encode($user->getMessages());
             } else {
+                // Regenerate session id to protect from session hijacking
+                $this->session->regenerateId(true);
                 $this->session->set("user_id", $user->id);
 
                 return $this->response->redirect('/');

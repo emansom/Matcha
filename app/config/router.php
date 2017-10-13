@@ -97,6 +97,30 @@ $router->add(
     ]
 )->setName('client');
 
+$router->add(
+    '/topbar/credits[/]{0,1}(\/?\?{0}|\/?\?{1}.*)',
+    [
+        'controller' => 'topbar',
+        'action'     => 'get-balance'
+    ]
+)->setName('topbar-credits');
+
+$router->add(
+    '/topbar/habboclub[/]{0,1}(\/?\?{0}|\/?\?{1}.*)',
+    [
+        'controller' => 'topbar',
+        'action'     => 'get-club-days'
+    ]
+)->setName('topbar-club');
+
+$router->add(
+    '/profile[/]{0,1}(\/?\?{0}|\/?\?{1}.*)',
+    [
+        'controller' => 'user-settings',
+        'action'     => 'update-look'
+    ]
+)->setName('update-look');
+
 $router->notFound(array(
     "controller" => "index",
     "action" => "notFound"
