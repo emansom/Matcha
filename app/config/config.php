@@ -38,13 +38,14 @@ return new \Phalcon\Config([
         'defaultTickets'      => 0,
         'defaultFilm'         => 0,
         'defaultRank'         => 1,
-        'defaultConsoleMotto' => "I'm a new user!"
+        'defaultConsoleMotto' => "I'm a new user!",
+        'defaultBadges'       => ['RTR', 'EAR']
     ],
     'emulator' => [
         // TODO: use unix sockets
         'host' => '127.0.0.1',
         'port' => '12309',
-        'rconTTL' => 30 // TTL of RCON cache
+        'rconTTL' => 30 // 30 seconds TTL of RCON cache
     ],
     'client' => [
         'dcr' => 'https://images.oldhabbo.com/dcr/v21/habbo.dcr',
