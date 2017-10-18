@@ -25,8 +25,11 @@ class IndexController extends ControllerBase
 
     public function clientAction()
     {
-        // TODO: show hotel closed page if RCON ping doesn't return true
-        
+        // TODO: show hotel closed page
+        if (!$this->rcon->ping()) {
+            return $this->response->redirect('/');
+        }
+
         // Regenerate SSO if logged in
         if ($this->session->has('user_id')) {
             // Generate new SSO
