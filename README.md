@@ -200,6 +200,7 @@ group =  <b>your-linux-username</b>
 listen = /run/php-fpm/<b>your-domain-here-without-tld</b>.sock
 process.priority = 20
 pm.max_children = <b>number-of-cpu-cores</b>
+security.limit_extensions = .php
 </pre>
 
 Replace **your-domain-here-without-tld** with your domain name without the last `.com/.es/.de/.nl/..` part
