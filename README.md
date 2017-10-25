@@ -68,7 +68,7 @@ $ sudo apt install nano
 Redis will be used for session storage and caching of various components
 
 ```
-$ sudo apt install redis
+$ sudo apt install redis-server
 ```
 
 #### Configure Redis
