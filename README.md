@@ -109,9 +109,9 @@ Now find `session.save_handler`, uncomment (remove the first `;` character on th
 session.save_handler = redis
 ```
 
-Then find `session.save_path`, uncomment (remove the first `;` character on the same line, if it's there) and set it to `"unix:///run/redis/redis.sock?persistent=1&weight=1&database=0"`
+Then find `session.save_path`, uncomment (remove the first `;` character on the same line, if it's there) and set it to `"tcp://127.0.0.1:6379?weight=1&database=0"`
 ```
-session.save_path = "unix:///run/redis/redis.sock?persistent=1&weight=1&database=0"
+session.save_path = "tcp://127.0.0.1:6379?weight=1&database=0"
 ```
 
 Now save the file (Ctrl + X, hit y, then Enter)
@@ -174,7 +174,8 @@ Then put these contents in that file
 [<b>your-domain-here-without-tld</b>]
 user =  <b>your-linux-username</b>
 group =  <b>your-linux-username</b>
-listen = /run/php-fpm/<b>your-domain-here-without-tld</b>.sock
+listen = 127.0.0.1:9000
+listen.allowed_clients = 127.0.0.1
 process.priority = 20
 pm.max_children = <b>number-of-cpu-cores</b>
 security.limit_extensions = .php
@@ -253,7 +254,7 @@ server {
     location ~ [^/]\.php(/|$) {
         # try_files $uri =404;
 
-        fastcgi_pass  unix:/run/php-fpm/<b>your-domain-here-without-tld</b>.sock;
+        fastcgi_pass 127.0.0.1:9000;
 
         fastcgi_index /index.php;
 
