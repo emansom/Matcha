@@ -88,6 +88,16 @@ $ sudo apt update
 $ sudo apt install nginx-mainline
 ```
 
+If a `W: GPG error: http://nginx.org/packages/ubuntu xenial Release: The following signatures couldn't be verified because the public key is not available: NO_PUBKEY $key` is encountered during the NGINX repository update, execute the following:
+
+Replace **$key** with the key from the error
+<pre>
+## Replace $key with the corresponding $key from your GPG error.
+$ sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys <b>$key</b>
+$ sudo apt-get update
+$ sudo apt-get install nginx
+</pre>
+
 #### Configure nginx
 Put the contents below in `/etc/nginx/sites-available/`**your-domain-here**
 
