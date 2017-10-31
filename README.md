@@ -95,7 +95,6 @@ Replace **$key** with the key from the error
 ## Replace $key with the corresponding $key from your GPG error.
 $ sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys <b>$key</b>
 $ sudo apt-get update
-$ sudo apt-get install nginx
 </pre>
 
 #### Configure nginx
