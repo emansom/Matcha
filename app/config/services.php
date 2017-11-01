@@ -12,9 +12,11 @@ use Phalcon\Mvc\Dispatcher as MvcDispatcher;
 use Phalcon\Events\Event;
 use Phalcon\Events\Manager as EventsManager;
 use Phalcon\Text;
-use Phalcon\Cache\Frontend\Igbinary as FrontendData;
+use Phalcon\Cache\Frontend\Igbinary as DataFrontend;
 use Phalcon\Cache\Frontend\Output as OutputFrontend;
-use Phalcon\Cache\Backend\Redis as BackendCache;
+use Phalcon\Cache\Multiple as MultiLevelCache;
+use Phalcon\Cache\Backend\Apcu as SharedMemoryCache;
+use Phalcon\Cache\Backend\Redis as RedisCache;
 
 use Kepler\Security as Security;
 use Kepler\ExternalTextsTranslateAdapter as ExternalTextsTranslateAdapter;
@@ -176,21 +178,35 @@ $di->setShared('db', function () {
 $di->set('cache', function() {
     $config = $this->getConfig();
 
-    // Cache data for one day (default setting)
-    $frontCache = new FrontendData(
+    // Cache data for one hour in shared memory
+    $ultraFastFrontend = new DataFrontend(
+        [
+            'lifetime' => 3600,
+        ]
+    );
+
+    // Cache data for one day in Redis
+    $fastFrontend = new DataFrontend(
         [
             'lifetime' => 86400,
         ]
     );
 
     // Memcached connection settings
-    $cache = new BackendCache(
-        $frontCache,
+    $cache = new MultiLevelCache(
         [
-            'host'       => $config->redis->socket,
-            'port'       => 0,
-            'persistent' => true,
-            'index'      => 1
+            new SharedMemoryCache(
+                $ultraFastFrontend
+            ),
+            new RedisCache(
+                $fastFrontend,
+                [
+                    'host'       => $config->redis->socket,
+                    'port'       => 0,
+                    'persistent' => true,
+                    'index'      => 1
+                ]
+            )
         ]
     );
 
@@ -208,19 +224,35 @@ $di->set('modelsCache', function () {
  * Set the views cache service
  */
 $di->set('viewCache', function() {
-    // Cache data for one day by default
-    $frontCache = new OutputFrontend(
+    // Cache data for one hour in shared memory
+    $ultraFastFrontend = new DataFrontend(
         [
-            "lifetime" => 86400,
+            'lifetime' => 3600,
+        ]
+    );
+
+    // Cache data for one day in Redis
+    $fastFrontend = new DataFrontend(
+        [
+            'lifetime' => 86400,
         ]
     );
 
     // Memcached connection settings
-    $cache = new BackendCache(
-        $frontCache,
+    $cache = new MultiLevelCache(
         [
-            "host" => "localhost",
-            "port" => "11211",
+            new SharedMemoryCache(
+                $ultraFastFrontend
+            ),
+            new RedisCache(
+                $fastFrontend,
+                [
+                    'host'       => $config->redis->socket,
+                    'port'       => 0,
+                    'persistent' => true,
+                    'index'      => 2
+                ]
+            )
         ]
     );
 
