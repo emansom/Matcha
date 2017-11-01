@@ -78,14 +78,14 @@ $ sudoedit /etc/apt/sources.list.d/nginx.list
 Run `lsb_release --codename --short` to see what `$release` needs to be replaced with
 ```
 ## Replace $release with your corresponding Ubuntu release.
-deb http://nginx.org/packages/ubuntu/ $release nginx
-deb-src http://nginx.org/packages/ubuntu/ $release nginx
+deb http://nginx.org/packages/mainline/ubuntu/ $release nginx
+deb-src http://nginx.org/packages/mainline/ubuntu/ $release nginx
 ```
 
 Then install nginx by running these commands
 ```
 $ sudo apt update
-$ sudo apt install nginx-mainline
+$ sudo apt install nginx
 ```
 
 If a `W: GPG error: http://nginx.org/packages/ubuntu xenial Release: The following signatures couldn't be verified because the public key is not available: NO_PUBKEY $key` is encountered during the NGINX repository update, execute the following:
