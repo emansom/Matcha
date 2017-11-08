@@ -195,7 +195,10 @@ $di->set('cache', function() {
     $cache = new MultiLevelCache(
         [
             new SharedMemoryCache(
-                $ultraFastFrontend
+                $ultraFastFrontend,
+                [
+                    'prefix' => 'matcha-cache'
+                ]
             ),
             new RedisCache(
                 $fastFrontend,
@@ -216,13 +219,8 @@ $di->set('cache', function() {
  * Set the models cache service
  */
 $di->set('modelsCache', function () {
-    return $this->getCache();
-});
+    $config = $this->getConfig();
 
-/*
- * Set the views cache service
- */
-$di->set('viewCache', function() {
     // Cache data for one hour in shared memory
     $ultraFastFrontend = new DataFrontend(
         [
@@ -241,7 +239,10 @@ $di->set('viewCache', function() {
     $cache = new MultiLevelCache(
         [
             new SharedMemoryCache(
-                $ultraFastFrontend
+                $ultraFastFrontend,
+                [
+                    'prefix' => 'matcha-models-cache'
+                ]
             ),
             new RedisCache(
                 $fastFrontend,
@@ -249,11 +250,72 @@ $di->set('viewCache', function() {
                     'host'       => $config->redis->socket,
                     'port'       => 0,
                     'persistent' => true,
-                    'index'      => 2
+                    'index'      => 3
                 ]
             )
         ]
     );
+
+    return $cache;
+});
+
+/*
+ * Set the views cache service
+ */
+$di->set('viewCache', function() {
+    $config = $this->getConfig();
+
+    // Cache data for one hour in shared memory
+    $ultraFastFrontend = new OutputFrontend(
+        [
+            'lifetime' => 3600,
+        ]
+    );
+
+    // Cache data for one day in Redis
+    /*$fastFrontend = new OutputFrontend(
+        [
+            'lifetime' => 86400,
+        ]
+    );*/
+    //
+    // // Memcached connection settings
+    // $cache = new MultiLevelCache(
+    //     [
+    //         new SharedMemoryCache(
+    //             $ultraFastFrontend,
+    //             [
+    //                 'prefix' => 'matcha-view-cache'
+    //             ]
+    //         ),
+    //         new RedisCache(
+    //             $fastFrontend,
+    //             [
+    //                 'host'       => $config->redis->socket,
+    //                 'port'       => 0,
+    //                 'persistent' => true,
+    //                 'index'      => 2
+    //             ]
+    //         )
+    //     ]
+    // );
+
+    $cache = new SharedMemoryCache(
+        $ultraFastFrontend,
+        [
+            'prefix' => 'matcha-view-cache'
+        ]
+    );
+
+    //$cache = new RedisCache(
+    //    $fastFrontend,
+    //    [
+    //        'host'       => $config->redis->socket,
+    //        'port'       => 0,
+    //        'persistent' => true,
+    //        'index'      => 2
+    //    ]
+    //);
 
     return $cache;
 });
@@ -282,6 +344,7 @@ $di->set('flash', function () {
  */
 $di->setShared('session', function () {
     $session = new SessionAdapter();
+    $session->setName('matcha_session');
     $session->start();
     return $session;
 });
