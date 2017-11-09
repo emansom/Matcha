@@ -4,27 +4,49 @@ class IndexController extends ControllerBase
 {
     public function indexAction()
     {
-        $this->view->setMainView('home');
+        // Cache index page for 30 seconds, with a 1 hour grace period
+        $this->response->setHeader("Cache-Control", "max-age=30, stale-while-revalidate=3600");
+
+        $cacheKey = 'index';
+
+        if ($this->session->has('user_id')) {
+            $cacheKey .= $this->session->getId();
+        }
+
+        // Enable the cache with the same key 'downloads'
+        $this->view->cache(
+            [
+                'key' => $cacheKey,
+                'lifetime' => 3600
+            ]
+        );
+
+	$this->view->setMainView('home');
     }
 
     public function notFoundAction()
     {
+        $this->response->setHeader("Cache-Control", "private, no-cache, no-store, max-age=0, must-revalidate");
         $this->response->setStatusCode(404, 'Not Found');
         $this->view->setMainView('404');
     }
 
     public function privacyPolicyAction()
     {
+        $this->response->setHeader("Cache-Control", "max-age=30, stale-while-revalidate=3600");
         $this->view->setMainView('privacy_policy');
     }
 
     public function termsAndConditionsAction()
     {
+        $this->response->setHeader("Cache-Control", "max-age=30, stale-while-revalidate=3600");
         $this->view->setMainView('terms_and_conditions');
     }
 
     public function clientAction()
     {
+        $this->response->setHeader("Cache-Control", "private, no-cache, no-store, max-age=0, must-revalidate");
+
         // TODO: show hotel closed page
         if (!$this->rcon->ping()) {
             return $this->response->redirect('/');

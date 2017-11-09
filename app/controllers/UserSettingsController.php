@@ -5,6 +5,9 @@ class UserSettingsController extends ControllerBase
     public function initialize()
     {
         parent::initialize();
+	
+        // Never cache the served page
+        $this->response->setHeader("Cache-Control", "private, no-cache, no-store, max-age=0, must-revalidate");
 
         // Redirect to homepage if not logged in
         if (!$this->session->has("user_id")) {

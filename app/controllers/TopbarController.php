@@ -2,8 +2,16 @@
 
 class TopbarController extends ControllerBase
 {
+    public function initialize()
+    {
+        parent::initialize();
+        // Never cache the served page
+        $this->response->setHeader("Cache-Control", "private, no-cache, no-store, max-age=0, must-revalidate");
+    }
+
     public function getBalanceAction()
     {
+        // TODO: Redirect to / if not logged in
         $this->view->disable();
         $credits = $this->view->user->credits;
 
