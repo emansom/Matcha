@@ -9,8 +9,7 @@ class ControllerBase extends Controller
         $this->view->t = $this->translation;
         $this->view->logged_in = $this->session->has('user_id');
 
-        if ($this->session->has('user_id')) {
-            // TODO: use ORM cache
+        if ($this->view->logged_in) {
             $this->view->user = \Users::findFirst(
                 [
                     'conditions' => 'id = ?1',
