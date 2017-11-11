@@ -25,7 +25,7 @@ Habbo Games
 	<div class="v3box-content">
 		<div class="v3box-body">
 
-<img align="right" src="https://web.archive.org/web/20071017112643im_/http://community.habbohotel.jp/content/images/mgm_icon.gif" alt="">Habbo Credits allow you to decorate your room with Habbo <a href="/web/20071017112643/http://habbo.co.uk:80/hotel/furniture/index.html" target="_self">Furni</a>, buy gifts for your friends, join <a href="/web/20071017112643/http://habbo.co.uk:80/club/index.html" target="_self">Habbo Club</a> play <a href="https://web.archive.org/web/20071017112643/http://www.habbo.co.uk/games/battleball" target="_self">Battle Ball</a> and more! <p>
+<img align="right" src="/c_images/content/mgm_icon.gif" alt="">Habbo Credits allow you to decorate your room with Habbo <a href="/web/20071017112643/http://habbo.co.uk:80/hotel/furniture/index.html" target="_self">Furni</a>, buy gifts for your friends, join <a href="/web/20071017112643/http://habbo.co.uk:80/club/index.html" target="_self">Habbo Club</a> play <a href="https://web.archive.org/web/20071017112643/http://www.habbo.co.uk/games/battleball" target="_self">Battle Ball</a> and more! <p>
 			</p><div class="clear"></div>
 		</div>
 	</div>
@@ -46,7 +46,7 @@ Habbo Games
 		<td><br> </td><td valign="top"><br></td>
 	</tr>
 <tr>
-		<td><img vspace="0" hspace="0" border="0" align="bottom" src="https://web.archive.org/web/20071017112643im_/http://images.habbohotel.co.uk/c_images/album1307/game_ticket_battle.gif" alt=""> </td>
+		<td><img vspace="0" hspace="0" border="0" align="bottom" src="/c_images/album1307/game_ticket_battle.gif" alt=""> </td>
 		<td valign="top"><span style="font-weight: bold;">Battle Ball</span><p>
 		Team up with your fellow Habbos and bounce around the arena cololuring
 		in squares to gain points. Create huge shapes for mega points, or steal
@@ -54,11 +54,11 @@ Habbo Games
 		<p> Price: 2 Game Tickets</p><p><a target="_self" href="https://web.archive.org/web/20071017112643/http://www.habbo.co.uk/games/battleball/">Battle Ball</a><br></p></td>
 	</tr>
 	<tr>
-		<td> <img src="https://web.archive.org/web/20071017112643im_/http://images.habbohotel.co.uk/c_images/album1307/game_ticket_wobble.gif" alt=""></td>
+		<td> <img src="/c_images/album1307/game_ticket_wobble.gif" alt=""></td>
 		<td valign="top"><b>Wobble Squabble</b><p>Yeah baby! Keep your balance and keep dry! The aim of this game is as much trying to get your opponent off the inflatables than for you to stay on it!<br><br>Price: 1 Game Ticket<br><br><a target="_self" href="/web/20071017112643/http://habbo.co.uk:80/games/wobblesquabble/">Wobble Squabble</a><br></p></td>
 	</tr>
 	<tr>
-		<td> <img src="https://web.archive.org/web/20071017112643im_/http://images.habbohotel.co.uk/c_images/album1307/game_ticket_jump.gif" alt=""></td>
+		<td> <img src="/c_images/album1307/game_ticket_jump.gif" alt=""></td>
 		<td valign="top"><b>Lido Diving</b><p> Take the high dive if you dare, perform a few moves and splash down to the applause or boos of the crowd!</p>
 		<p> Price: 1 Game Ticket<br></p>
 		<p> <a target="_self" href="/web/20071017112643/http://habbo.co.uk:80/games/lido/">Lido Diving</a><br></p></td>
@@ -73,7 +73,7 @@ Habbo Games
 		<td style="width: 4px;"></td>
 		<td valign="top" style="width: 176px;">
 <div id="ad_sidebar" style="display: none !important;">
-<div class="cooperation"><table height="120" width="168" valign="middle" align="center" border="0" cellpadding="0" cellspacing="0" background="https://web.archive.org/web/20071017112643im_/http://images.habbohotel.ch/c_images/themes/partner_box.gif">
+<div class="cooperation"><table height="120" width="168" valign="middle" align="center" border="0" cellpadding="0" cellspacing="0" background="/c_images/themes/partner_box.gif">
 <tbody><tr><td>
 
 
