@@ -21,3 +21,12 @@ RUN pacman --noconfirm --noprogressbar -Scc
 
 # Optimize pacman database
 RUN pacman-optimize
+
+# Remove all other pool configurations
+RUN rm /etc/php/php-fpm.d/*.conf
+
+# Add PHP-FPM pool configuration
+COPY php-fpm.conf /etc/php/php-fpm.d/matcha.conf
+
+EXPOSE 9000
+CMD ["php-fpm"]
