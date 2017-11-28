@@ -6,7 +6,7 @@ RUN pacman --noprogressbar --noconfirm -Suyy \
   && pacman-db-upgrade
 
 # Install packages for PHP and compiling extensions, also other dependencies
-RUN pacman --needed --noconfirm --noprogressbar -S python2 wget curl base-devel git php php-apcu php-fpm php-gd php-intl php-sodium php-sqlite
+RUN pacman --needed --noconfirm --noprogressbar -S python2 wget curl base-devel git php php-apcu php-fpm php-gd php-intl php-sodium php-sqlite sqlite sqlite-analyzer sqlite-doc
 
 # Install php-igbinary extension (for faster session serialization)
 RUN git clone https://aur.archlinux.org/php-igbinary.git /usr/src/php-igbinary \
@@ -87,7 +87,12 @@ RUN crudini --set /etc/php/php.ini opcache opcache.enable 1 && \
     crudini --set /etc/php/php.ini Session session.cookie_httponly 1 && \
     crudini --set /etc/php/php.ini Session session.serialize_handler igbinary && \
     crudini --set /etc/php/php.ini Session session.gc_maxlifetime 86400 && \
-    crudini --set /etc/php/php.ini Session session.sid_length 52
+    crudini --set /etc/php/php.ini Session session.sid_length 52 && \
+    rm /etc/php/conf.d/* && \
+    echo 'extension=apcu.so' > /etc/php/conf.d/apcu.ini && \
+    crudini --set /etc/php/conf.d/apcu.ini '' apc.enabled 1 && \
+    crudini --set /etc/php/conf.d/apcu.ini '' apc.shm_size 32M && \
+    crudini --set /etc/php/conf.d/apcu.ini '' apc.ttl 7200
 
 # Remove all other pool configurations
 RUN rm /etc/php/php-fpm.d/*.conf
