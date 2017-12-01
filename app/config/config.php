@@ -9,7 +9,7 @@ defined('APP_PATH') || define('APP_PATH', BASE_PATH . '/app');
 return new \Phalcon\Config([
     'database' => [
         'adapter'     => 'Sqlite',
-        'dbname'      => BASE_PATH . '/../Kepler/Kepler.db'
+	'dbname'      => BASE_PATH . '/data/Kepler.db'
     ],
     'application' => [
         'appDir'           => APP_PATH . '/',
@@ -43,8 +43,8 @@ return new \Phalcon\Config([
     ],
     'emulator' => [
         // TODO: use unix sockets
-        'host' => '127.0.0.1',
-        'port' => '12309',
+        'host' => getenv('RCON_HOST') ?: 'kepler',
+        'port' => getenv('RCON_PORT') ?: 12309,
         'rconTTL' => 30 // 30 seconds TTL of RCON cache
     ],
     'client' => [
@@ -53,6 +53,8 @@ return new \Phalcon\Config([
         'external_texts' => 'https://images.oldhabbo.com/dcr/v21/external_texts.txt'
     ],
     'redis' => [
-        'socket' => '/run/redis/redis.sock'
+	'host' => getenv('REDIS_HOST') ?: '127.0.0.1',
+	'port' => getenv('REDIS_PORT') ?: 6379
+        //'socket' => '/run/redis/redis.sock'
     ]
 ]);
