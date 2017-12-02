@@ -59,6 +59,12 @@ RUN git clone https://aur.archlinux.org/crudini.git /usr/src/crudini \
   && cd \
   && rm -rf /usr/src/crudini
 
+# Remove all other pool configurations
+RUN rm /etc/php/php-fpm.d/*.conf
+
+# Add PHP-FPM pool configuration
+COPY docker/php-fpm.conf /etc/php/php-fpm.conf
+
 # Configure PHP
 RUN crudini --set /etc/php/php.ini opcache opcache.enable 1 && \
     crudini --set /etc/php/php.ini opcache opcache.save_comments 0 && \
@@ -92,20 +98,23 @@ RUN crudini --set /etc/php/php.ini opcache opcache.enable 1 && \
     echo 'extension=apcu.so' > /etc/php/conf.d/apcu.ini && \
     crudini --set /etc/php/conf.d/apcu.ini '' apc.enabled 1 && \
     crudini --set /etc/php/conf.d/apcu.ini '' apc.shm_size 32M && \
-    crudini --set /etc/php/conf.d/apcu.ini '' apc.ttl 7200
-
-# Remove all other pool configurations
-RUN rm /etc/php/php-fpm.d/*.conf
-
-# Add PHP-FPM pool configuration
-COPY docker/php-fpm.conf /etc/php/php-fpm.conf
+    crudini --set /etc/php/conf.d/apcu.ini '' apc.ttl 7200 && \
+    touch /etc/php/conf.d/igbinary.ini && \
+    crudini --set /etc/php/conf.d/igbinary.ini igbinary extension igbinary.so && \
+    crudini --set /etc/php/conf.d/igbinary.ini igbinary compact_strings Off && \
+    echo 'extension=redis.so' > /etc/php/conf.d/redis.ini && \
+    echo 'extension=phalcon.so' > /etc/php/conf.d/phalcon.ini && \
+    echo 'extension=sodium.so' > /etc/php/conf.d/sodium.ini && \
+    echo 'extension=intl.so' > /etc/php/conf.d/intl.ini && \
+    echo 'extension=pdo_sqlite.so' > /etc/php/conf.d/pdo_sqlite.ini
 
 RUN mkdir -p /srv/http/matcha/{public,cache}
 
 COPY app /srv/http/matcha/app
 COPY public/index.php /srv/http/matcha/public/index.php
 
-RUN chown -R http:http /srv/http
+RUN useradd -r -u 1000 -U matcha
+RUN chown -R matcha:matcha /srv/http
 
 EXPOSE 9000
 CMD ["php-fpm"]
