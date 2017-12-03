@@ -121,6 +121,12 @@ $router->add(
     ]
 )->setName('update-look');
 
+$router->add(
+    '/myinfo',
+    [
+    ]
+)->setName('myinfo');
+
 $router->notFound(array(
     "controller" => "index",
     "action" => "notFound"

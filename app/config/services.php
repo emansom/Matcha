@@ -203,8 +203,8 @@ $di->set('cache', function() {
             new RedisCache(
                 $fastFrontend,
                 [
-                    'host'       => $config->redis->socket,
-                    'port'       => 0,
+                    'host'       => $config->redis->host,
+                    'port'       => $config->redis->port,
                     'persistent' => true,
                     'index'      => 1
                 ]
@@ -246,9 +246,9 @@ $di->set('modelsCache', function () {
             ),
             new RedisCache(
                 $fastFrontend,
-                [
-                    'host'       => $config->redis->socket,
-                    'port'       => 0,
+		[
+                    'host'       => $config->redis->host,
+                    'port'       => $config->redis->port,
                     'persistent' => true,
                     'index'      => 3
                 ]
@@ -291,8 +291,8 @@ $di->set('viewCache', function() {
     //         new RedisCache(
     //             $fastFrontend,
     //             [
-    //                 'host'       => $config->redis->socket,
-    //                 'port'       => 0,
+    //                 'host'       => $config->redis->host,
+    //                 'port'       => $config->redis->port,
     //                 'persistent' => true,
     //                 'index'      => 2
     //             ]
@@ -310,8 +310,8 @@ $di->set('viewCache', function() {
     //$cache = new RedisCache(
     //    $fastFrontend,
     //    [
-    //        'host'       => $config->redis->socket,
-    //        'port'       => 0,
+    //        'host'       => $config->redis->host,
+    //        'port'       => $config->redis->port,
     //        'persistent' => true,
     //        'index'      => 2
     //    ]
