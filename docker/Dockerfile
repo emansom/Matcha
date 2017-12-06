@@ -113,8 +113,14 @@ RUN mkdir -p /srv/http/matcha/{public,cache}
 COPY app /srv/http/matcha/app
 COPY public/index.php /srv/http/matcha/public/index.php
 
-RUN useradd -r -u 1000 -U matcha
-RUN chown -R matcha:matcha /srv/http
+RUN groupadd -g 1000 matcha && \
+    useradd -r -u 1000 -g matcha matcha && \
+    chown -R matcha:matcha /srv/http
+
+VOLUME /srv/http/matcha/data
+
+COPY docker/docker-entrypoint.sh /usr/local/bin/
+ENTRYPOINT ["docker-entrypoint.sh"]
 
 EXPOSE 9000
 CMD ["php-fpm"]
