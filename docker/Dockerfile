@@ -6,7 +6,7 @@ RUN pacman --noprogressbar --noconfirm -Suyy \
   && pacman-db-upgrade
 
 # Install packages for PHP and compiling extensions, also other dependencies
-RUN pacman --needed --noconfirm --noprogressbar -S python2 wget curl base-devel git php php-apcu php-fpm php-gd php-intl php-sodium php-sqlite sqlite sqlite-analyzer sqlite-doc
+RUN pacman --needed --noconfirm --noprogressbar -S bash python2 wget curl base-devel git php php-apcu php-fpm php-gd php-intl php-sodium php-sqlite sqlite sqlite-analyzer sqlite-doc
 
 # Install php-igbinary extension (for faster session serialization)
 RUN git clone https://aur.archlinux.org/php-igbinary.git /usr/src/php-igbinary \
