@@ -4,24 +4,8 @@ class IndexController extends ControllerBase
 {
     public function indexAction()
     {
-        // Cache index page for 30 seconds, with a 1 hour grace period
         $this->response->setHeader("Cache-Control", "max-age=30, stale-while-revalidate=3600");
-
-        $cacheKey = 'index';
-
-        if ($this->session->has('user_id')) {
-            $cacheKey .= $this->session->getId();
-        }
-
-        // Enable the cache with the same key 'downloads'
-        $this->view->cache(
-            [
-                'key' => $cacheKey,
-                'lifetime' => 3600
-            ]
-        );
-
-	$this->view->setMainView('home');
+        $this->view->setMainView('home');
     }
 
     public function notFoundAction()
