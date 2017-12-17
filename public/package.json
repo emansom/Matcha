@@ -1,0 +1,22 @@
+{
+  "name": "matcha-theme-gold",
+  "version": "0.0.1",
+  "description": "A theme for Matcha resembling the '07 era of Habbo",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/emansom/Matcha.git"
+  },
+  "author": "Ewout van Mansom",
+  "license": "AGPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/emansom/Matcha/issues"
+  },
+  "homepage": "https://github.com/emansom/Matcha#readme",
+  "dependencies": {
+    "@polymer/lit-element": "^0.5.1"
+  }
+}

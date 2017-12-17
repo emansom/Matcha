@@ -46,7 +46,7 @@ class RemoteConnection extends Injectable
 
     public function getOnlineCount(): int
     {
-        $cachedCount = $this->cache->get('online-count');
+        /*$cachedCount = $this->cache->get('online-count');
 
         if ($cachedCount !== NULL) {
             return $cachedCount;
@@ -61,12 +61,13 @@ class RemoteConnection extends Injectable
 
         $this->cache->save('online-count', $onlineCount, $this->_ttl);
 
-        return $onlineCount;
+        return $onlineCount;*/
+        return 0;
     }
 
     public function ping(): bool
     {
-        $cachedPing = $this->cache->get('emulator-ping');
+        /*$cachedPing = $this->cache->get('emulator-ping');
 
         if ($cachedPing !== NULL) {
             return $cachedPing;
@@ -75,7 +76,8 @@ class RemoteConnection extends Injectable
         $online = $this->_connect() !== false;
         $this->cache->save('emulator-ping', $online, $this->_ttl);
 
-        return $online;
+        return $online;*/
+        return true;
     }
 
     public function refreshLook(int $user_id)

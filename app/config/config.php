@@ -8,8 +8,13 @@ defined('APP_PATH') || define('APP_PATH', BASE_PATH . '/app');
 
 return new \Phalcon\Config([
     'database' => [
-        'adapter'     => 'Sqlite',
-	'dbname'      => getenv('KEPLER_DB') ?: BASE_PATH . '/../Kepler/Kepler.db'
+        'adapter'  => 'Mysql',
+        'host'     => 'localhost',
+        'dbname'   => 'kepler',
+        'port'     => 3306,
+        'username' => 'kepler',
+        'password' => 'verysecret',
+        'charset'  => 'utf8mb4'
     ],
     'application' => [
         'appDir'           => APP_PATH . '/',
@@ -25,10 +30,11 @@ return new \Phalcon\Config([
         // This allows the baseUri to be understand project paths that are not in the root directory
         // of the webpspace.  This will break if the public/index.php entry point is moved or
         // possibly if the web server rewrite rules are changed. This can also be set to a static path.
-        //'baseUri'          => preg_replace('/public([\/\\\\])index.php$/', '', $_SERVER["PHP_SELF"]),
-	'baseUri'          => '/',
+        //'baseUri'          => preg_replace('/public([\/\\\\])index.php$/', '', $_SERVER['PHP_SELF']),
+        'baseUri'          => '/',
         'defaultLanguage'  => 'en',
         'footerText'       => 'oldHabbo is not affiliated with, endorsed, sponsored, or specifically approved by Sulake Corporation Oy or its Affiliates.\nSulake is not responsible for any content on oldHabbo and the views and opinions expressed herein are not necessarily the views and opinions of Sulake.',
+        'debug'            => false
     ],
     'newUser' => [
         'defaultFigure'       => 'hr-145-42.hd-209-1.ch-220-87.lg-270-76.sh-305-89.ha-1018-.ea-1401-62.wa-2007-',
@@ -42,9 +48,13 @@ return new \Phalcon\Config([
         'defaultBadges'       => ['RTR', 'EAR']
     ],
     'emulator' => [
-        // TODO: use unix sockets
-        'host' => getenv('RCON_HOST') ?: '127.0.0.1',
-        'port' => getenv('RCON_PORT') ?: 12309,
+        // TODO: use unix sockets for Kepler and RCON
+        'serverHost' => getenv('KEPLER_HOST') ?: '192.168.122.1',
+        'serverPort' => getenv('KEPLER_PORT') ?: 12321,
+        'musHost' => getenv('MUS_HOST') ?: '192.168.122.1',
+        'musPort' => getenv('MUS_PORT') ?: 12322,
+        'rconHost' => getenv('RCON_HOST') ?: '127.0.0.1',
+        'rconPort' => getenv('RCON_PORT') ?: 12309,
         'rconTTL' => 30 // 30 seconds TTL of RCON cache
     ],
     'client' => [
@@ -53,8 +63,8 @@ return new \Phalcon\Config([
         'external_texts' => 'https://images.oldhabbo.com/dcr/v21/external_texts.txt'
     ],
     'redis' => [
-	'host' => getenv('REDIS_HOST') ?: '127.0.0.1',
-	'port' => getenv('REDIS_PORT') ?: 6379
+        'host' => getenv('REDIS_HOST') ?: '127.0.0.1',
+        'port' => getenv('REDIS_PORT') ?: 6379
         //'socket' => '/run/redis/redis.sock'
     ]
 ]);

@@ -5,3 +5,8 @@ web-gallery/
 *.log
 /public/static
 /kepler/data/Kepler.db
+
+/vendor/
+/app/vendor/
+/node_modules/
+/public/node_modules/

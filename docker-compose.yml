@@ -50,7 +50,7 @@ services:
         image: nginx:mainline
         restart: always
         ports:
-            - "1337:80"
+            - "12316:80"
         volumes:
             - ./public:/srv/http/matcha/public:ro
             - ./app:/srv/http/matcha/app:ro

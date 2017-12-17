@@ -8,18 +8,18 @@
 
 
 <div id="process-wrapper">
-	<div id="process-header"><div id="process-header-body"><div id="process-header-content">
-		<div id="habbologo">{{ link_to('/') }}</div>
+    <div id="process-header"><div id="process-header-body"><div id="process-header-content">
+        <div id="habbologo">{{ link_to('/') }}</div>
 
-	</div></div></div>
-	<div id="outer"><div id="outer-content">
+    </div></div></div>
+    <div id="outer"><div id="outer-content">
 
 <div class="processbox left">
-	<div class="headline"><div class="headline-content"><div class="headline-wrapper">
-		<h2>New here? Register!</h2>
-	</div></div></div>
-	<div class="content-top">
-		<div class="content">
+    <div class="headline"><div class="headline-content"><div class="headline-wrapper">
+        <h2>New here? Register!</h2>
+    </div></div></div>
+    <div class="content-top">
+        <div class="content">
 
 <div class="processbox-inner">
 
@@ -31,16 +31,16 @@ Habbo is an online community that lets you create your own virtual space for you
 
 <div id="registration-errors">
 <div class="content-red">
-	<div class="content-red-body" id="registration-errors-content">
-	<div class="clear"></div>
-	</div>
+    <div class="content-red-body" id="registration-errors-content">
+    <div class="clear"></div>
+    </div>
 </div>
 <div class="content-red-bottom"><div class="content-red-bottom-body"></div></div>
 </div>
 
 <div class="content-white-outer" id="registration-start">
-	<div class="content-white">
-		<div class="content-white-body">
+    <div class="content-white">
+        <div class="content-white-body">
 
 <div class="content-white-content">
     <img vspace="10" hspace="10" border="0" align="right" src="/c_images/album209/frank_with_key.gif" alt="">
@@ -61,12 +61,12 @@ Habbo is an online community that lets you create your own virtual space for you
 </p>
 </form>
 </div>
-		<div class="clear"></div>
-		</div>
-	</div>
-	<div class="content-white-bottom">
-		<div class="content-white-bottom-body"></div>
-	</div>
+        <div class="clear"></div>
+        </div>
+    </div>
+    <div class="content-white-bottom">
+        <div class="content-white-bottom-body"></div>
+    </div>
 </div>
 
 <div class="processbox-inner">
@@ -80,19 +80,19 @@ Habbo is an online community that lets you create your own virtual space for you
 
 </div>
 
-			<div class="clear"></div>
-		</div>
-	</div>
-	<div class="content-bottom"><div class="content-bottom-content"></div></div>
+            <div class="clear"></div>
+        </div>
+    </div>
+    <div class="content-bottom"><div class="content-bottom-content"></div></div>
 </div>
 
 
 <div class="processbox right blue">
-	<div class="headline"><div class="headline-content"><div class="headline-wrapper">
-		<h2>Already have an account? Please log in here!</h2>
-	</div></div></div>
-	<div class="content-top">
-		<div class="content">
+    <div class="headline"><div class="headline-content"><div class="headline-wrapper">
+        <h2>Already have an account? Please log in here!</h2>
+    </div></div></div>
+    <div class="content-top">
+        <div class="content">
 
 <div class="processbox-inner">
 
@@ -103,30 +103,30 @@ If you already have an account then log in here using your username and your pas
 
 </div>
 
-<div id="login-errors" {% if login_errors %}style="display: block;"{% endif %}>
-	{% if login_errors %}
-		{% for id, error in login_errors %}
-	        <div class="content-red">
-	            <div class="content-red-body">
-	                {{ error }}
-	                <br>
-	            </div>
-	        </div>
-	        <div class="content-red-bottom"><div class="content-red-bottom-body"></div></div>
-	    {% endfor %}
-	{% else %}
-	    <div class="content-red">
-	    	<div class="content-red-body" id="login-errors-content">
-	    	<div class="clear"></div>
-	    	</div>
-	    </div>
-	    <div class="content-red-bottom"><div class="content-red-bottom-body"></div></div>
-	{% endif %}
+<div id="login-errors" {% if login_errors is defined %}style="display: block;"{% endif %}>
+    {% if login_errors is defined %}
+        {% for id, error in login_errors %}
+            <div class="content-red">
+                <div class="content-red-body">
+                    {{ error }}
+                    <br>
+                </div>
+            </div>
+            <div class="content-red-bottom"><div class="content-red-bottom-body"></div></div>
+        {% endfor %}
+    {% else %}
+        <div class="content-red">
+            <div class="content-red-body" id="login-errors-content">
+            <div class="clear"></div>
+            </div>
+        </div>
+        <div class="content-red-bottom"><div class="content-red-bottom-body"></div></div>
+    {% endif %}
 </div>
 
 <div class="content-white-outer" id="login">
-	<div class="content-white">
-		<div class="content-white-body">
+    <div class="content-white">
+        <div class="content-white-body">
 
 <div class="content-white-content">
     {{ form("/login", "method": "post", "id": "login-form") }}
@@ -149,12 +149,12 @@ If you already have an account then log in here using your username and your pas
         </p>
     {{ endForm() }}
 </div>
-		<div class="clear"></div>
-		</div>
-	</div>
-	<div class="content-white-bottom">
-		<div class="content-white-bottom-body"></div>
-	</div>
+        <div class="clear"></div>
+        </div>
+    </div>
+    <div class="content-white-bottom">
+        <div class="content-white-bottom-body"></div>
+    </div>
 </div>
 
 <div class="processbox-inner">
@@ -170,46 +170,46 @@ If you already have an account then log in here using your username and your pas
 
 </div>
 
-			<div class="clear"></div>
-		</div>
-	</div>
-	<div class="content-bottom"><div class="content-bottom-content"></div></div>
+            <div class="clear"></div>
+        </div>
+    </div>
+    <div class="content-bottom"><div class="content-bottom-content"></div></div>
 </div>
 
 <script type="text/javascript" language="JavaScript">
 Event.observe($("registration-form"), "submit", function(e) {
-	if ($("day").selectedIndex == 0 || $("month").selectedIndex == 0 || $("year").selectedIndex == 0) {
-		validatorBeforeSubmit("registration-errors");
-		validatorAddError(false, false, "Please supply a valid date", "registration-errors");
-		$("required-birthday").className = "validation-failed";
-		Event.stop(e);
-	} else {
-		$("registration-submit").disabled = 'true';
-	}
+    if ($("day").selectedIndex == 0 || $("month").selectedIndex == 0 || $("year").selectedIndex == 0) {
+        validatorBeforeSubmit("registration-errors");
+        validatorAddError(false, false, "Please supply a valid date", "registration-errors");
+        $("required-birthday").className = "validation-failed";
+        Event.stop(e);
+    } else {
+        $("registration-submit").disabled = 'true';
+    }
 }, false);
 Event.observe($("login-form"), "submit", function(e) {
-	if ($F("login-username") == "" || $F("login-password") == "") {
-		validatorBeforeSubmit("login-errors");
-		validatorAddError(false, false, "Please enter your Habbo name and password", "login-errors");
-		if ($F("login-password") == "") { $("login-password").className = "validation-failed"; $("login-password").focus(); }
-		else { Element.removeClassName($("login-password"), "validation-failed"); }
-		if ($F("login-username") == "") { $("login-username").className = "validation-failed"; $("login-username").focus(); }
-		else { Element.removeClassName($("login-username"), "validation-failed"); }
-		Event.stop(e);
-	} else {
-		$("login-submit").disabled = 'true';
-	}
+    if ($F("login-username") == "" || $F("login-password") == "") {
+        validatorBeforeSubmit("login-errors");
+        validatorAddError(false, false, "Please enter your Habbo name and password", "login-errors");
+        if ($F("login-password") == "") { $("login-password").className = "validation-failed"; $("login-password").focus(); }
+        else { Element.removeClassName($("login-password"), "validation-failed"); }
+        if ($F("login-username") == "") { $("login-username").className = "validation-failed"; $("login-username").focus(); }
+        else { Element.removeClassName($("login-username"), "validation-failed"); }
+        Event.stop(e);
+    } else {
+        $("login-submit").disabled = 'true';
+    }
 }, false);
 </script>
 
 <div id="footer">
-	<div id="footer-top"><div id="footer-content">{{ elements.getFooterText()|nl2br }}</div></div>
-	<div id="footer-bottom"><div id="footer-bottom-content"></div></div>
+    <div id="footer-top"><div id="footer-content">{{ elements.getFooterText()|nl2br }}</div></div>
+    <div id="footer-bottom"><div id="footer-bottom-content"></div></div>
 </div>
 
 
-	</div></div>
-	<div id="outer-bottom"><div id="outer-bottom-content"></div></div>
+    </div></div>
+    <div id="outer-bottom"><div id="outer-bottom-content"></div></div>
 </div>
 </body>
 {% endblock %}

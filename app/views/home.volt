@@ -183,31 +183,9 @@ The <span style="font-weight: bold;">Sports </span>range is here - catch it whil
 		<td>We're taking sneaky photos of random members and making them famous by placing them right here on the homepage. <br></td>
 		<td>
 <script type="text/javascript">
-<!--
-	var images = new Array('/c_images/HabboSpotlight/BamMargera11.gif');
-
-	function rndValue(rndRange) {
-		if (Math.random) {
-			return Math.round(Math.random() * (rndRange-1));
-		} else {
-			var now = new Date();
-			return (now.getTime() / 1000) % rndRange;
-		}
-	}
-
-// -->
+	//var images = new Array('/c_images/HabboSpotlight/BamMargera11.gif');
 </script>
-
-<script type="text/javascript">
-	var rndElement = rndValue(images.length-1);
-
-	document.writeln('<img src="'+images[rndElement]+'" border="0" '+'/>'); </script><img src="/c_images/HabboSpotlight/Americ.gif" border="0">
-
-
-
-<noscript>
-	<img src="/c_images/HabboSpotlight/Americ.gif" border="0"/></a>
-</noscript>
+<img src="/c_images/HabboSpotlight/Americ.gif" border="0"/>
 		</td>
 	</tr>
 </tbody></table>

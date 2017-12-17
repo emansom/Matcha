@@ -7,26 +7,32 @@ use \SiteMenu as SiteMenu;
 
 class PageElements extends Component
 {
+    public function getMenu()
+    {
+        $cacheKey = 'menu-' . $this->view->getControllerName() . '-' .  $this->view->getActionName();
+
+        $cachedMenu = $this->cache->get($cacheKey);
+
+        if ($cachedMenu !== NULL) {
+            return $cachedMenu;
+        }
+
+        $menu = $this->getMainMenu() . $this->getSubMenu();
+
+        $this->cache->save($cacheKey, $menu, 86400); // cache for one day
+        return $menu;
+    }
+
     // TODO: refactor the shit out of this function
     public function getMainMenu()
     {
         // TODO: cache whole generated menu instead of the ORM object
         $controllerName = $this->view->getControllerName();
         $actionName = $this->view->getActionName();
-        $cacheKey = 'mainmenu-' . $controllerName;
 
-        // Differentiate cache if logged in
-        if ($this->session->has('user_id')) {
-            $cacheKey .= '-' . $this->session->get('user_id');
-        }
-
-        $menu = \SiteMenu::find([
+        $menu = SiteMenu::find([
             'parent_id = 0',
-            'order' => 'order_id ASC',
-            'cache' => [
-                'key' => $cacheKey,
-                'lifetime' => 300 // five minutes
-            ]
+            'order' => 'order_id ASC'
         ]);
 
         $menuItems = [];
@@ -81,14 +87,8 @@ class PageElements extends Component
         // TODO: cache whole generated menu instead of the ORM object
         $controllerName = $this->view->getControllerName();
         $actionName = $this->view->getActionName();
-        $cacheKey = 'submenu-' . $controllerName;
 
-        // Differentiate cache if logged in
-        if ($this->session->has('user_id')) {
-            $cacheKey .= '-' . $this->session->get('user_id');
-        }
-
-        $parent = \SiteMenu::findFirst([
+        $parent = SiteMenu::findFirst([
             'parent_id = 0 AND controller = ?0',
             'bind' => [
                 0 => $controllerName
@@ -98,13 +98,9 @@ class PageElements extends Component
         $menus = \SiteMenu::find([
             'conditions' => 'parent_id = ?1',
             'bind' => [
-                1 => $parent->id
+                1 => $parent ? $parent->id : -1
             ],
-            'order' => 'order_id ASC',
-            'cache' => [
-                'key' => $cacheKey,
-                'lifetime' => 300 // five minutes
-            ]
+            'order' => 'order_id ASC'
         ]);
 
         $subMenu = [];

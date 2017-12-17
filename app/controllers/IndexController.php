@@ -33,7 +33,7 @@ class IndexController extends ControllerBase
 
         // TODO: show hotel closed page
         if (!$this->rcon->ping()) {
-            return $this->response->redirect('/');
+            $this->view->hotel_closed = true;
         }
 
         // Regenerate SSO if logged in
@@ -54,6 +54,10 @@ class IndexController extends ControllerBase
         $this->view->dcr = $this->config->client->dcr;
         $this->view->external_variables = $this->config->client->external_variables;
         $this->view->external_texts = $this->config->client->external_texts;
+        $this->view->server_host = $this->config->emulator->serverHost;
+        $this->view->server_port = $this->config->emulator->serverPort;
+        $this->view->mus_host = $this->config->emulator->musHost;
+        $this->view->mus_port = $this->config->emulator->musPort;
 
         $this->view->setMainView('client');
     }

@@ -5,7 +5,8 @@ class TopbarController extends ControllerBase
     public function initialize()
     {
         parent::initialize();
-        // Never cache the served page
+
+        // Never cache the top bar pages, as they might contain user data
         $this->response->setHeader("Cache-Control", "private, no-cache, no-store, max-age=0, must-revalidate");
     }
 
@@ -37,6 +38,35 @@ class TopbarController extends ControllerBase
         // } else {
             $this->response->setContent('You are not subscribed to Club.');
         //}
+
+        $this->response->send();
+    }
+
+    public function onlineCountAction()
+    {
+        $this->view->disable();
+
+        $this->response->setContent($this->view->online_count . ' members online');
+        $this->response->send();
+    }
+
+    public function userDetailsAction()
+    {
+        $this->view->disable();
+
+        if (!$this->view->logged_in) {
+            $this->response->setJsonContent(new stdClass());
+            $this->response->send();
+            return;
+        }
+
+        $user = $this->view->user;
+
+        $this->response->setJsonContent([
+            'user' => [
+                "username" => $user->username
+            ]
+        ]);
 
         $this->response->send();
     }
