@@ -43,99 +43,106 @@ class Users extends \Phalcon\Mvc\Model
     /**
      *
      * @var string
-     * @Column(column="sex", type="string", length=1, nullable=true)
+     * @Column(column="sex", type="string", length=1, nullable=false)
      */
     public $sex;
 
     /**
      *
      * @var string
-     * @Column(column="motto", type="string", length=100, nullable=true)
+     * @Column(column="motto", type="string", length=100, nullable=false)
      */
     public $motto;
 
     /**
      *
      * @var integer
-     * @Column(column="credits", type="integer", length=11, nullable=true)
+     * @Column(column="credits", type="integer", length=11, nullable=false)
      */
     public $credits;
 
     /**
      *
      * @var integer
-     * @Column(column="tickets", type="integer", length=11, nullable=true)
+     * @Column(column="tickets", type="integer", length=11, nullable=false)
      */
     public $tickets;
 
     /**
      *
      * @var integer
-     * @Column(column="film", type="integer", length=11, nullable=true)
+     * @Column(column="film", type="integer", length=11, nullable=false)
      */
     public $film;
 
     /**
      *
      * @var integer
-     * @Column(column="rank", type="integer", length=11, nullable=true)
+     * @Column(column="rank", type="integer", length=1, nullable=false)
      */
     public $rank;
 
     /**
      *
      * @var string
-     * @Column(column="console_motto", type="string", length=100, nullable=true)
+     * @Column(column="console_motto", type="string", length=100, nullable=false)
      */
     public $console_motto;
 
     /**
      *
      * @var integer
-     * @Column(column="last_online", type="integer", length=11, nullable=true)
+     * @Column(column="last_online", type="integer", length=11, nullable=false)
      */
     public $last_online;
 
     /**
      *
      * @var string
-     * @Column(column="sso_ticket", type="string", length=255, nullable=true)
+     * @Column(column="sso_ticket", type="string", length=255, nullable=false)
      */
     public $sso_ticket;
 
     /**
      *
      * @var integer
-     * @Column(column="club_subscribed", type="integer", length=11, nullable=true)
+     * @Column(column="club_subscribed", type="integer", length=11, nullable=false)
      */
     public $club_subscribed;
 
     /**
      *
      * @var integer
-     * @Column(column="club_expiration", type="integer", length=11, nullable=true)
+     * @Column(column="club_expiration", type="integer", length=11, nullable=false)
      */
     public $club_expiration;
 
     /**
      *
      * @var string
-     * @Column(column="badge", type="string", length=255, nullable=false)
+     * @Column(column="badge", type="string", length=3, nullable=false)
      */
     public $badge;
 
     /**
      *
      * @var integer
-     * @Column(column="badge_active", type="integer", length=11, nullable=true)
+     * @Column(column="badge_active", type="integer", length=1, nullable=false)
      */
     public $badge_active;
+
+    /**
+     *
+     * @var integer
+     * @Column(column="allow_stalking", type="integer", length=1, nullable=false)
+     */
+    public $allow_stalking;
 
 
     public function initialize()
     {
         $this->setSource("users");
-        $this->allowEmptyStringValues(['pool_figure', 'motto', 'console_motto', 'badge']);
+        $this->allowEmptyStringValues(['pool_figure', 'motto', 'console_motto', 'badge', 'sso_ticket']);
     }
 
 

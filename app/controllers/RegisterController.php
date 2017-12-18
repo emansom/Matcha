@@ -95,11 +95,13 @@ class RegisterController extends ControllerBase
             $user->rank = $this->config->newUser->defaultRank;
             $user->console_motto = $this->config->newUser->defaultConsoleMotto;
             $user->last_online = 0;
+            $user->sso_ticket = '';
             $user->pool_figure = '';
             $user->club_subscribed = 0;
             $user->club_expiration = 0;
             $user->badge = '';
             $user->badge_active = 0;
+            $user->allow_stalking = 0;
 
             if ($this->session->has('register-gender')) {
                 $user->sex = $this->session->get('register-gender');
@@ -114,10 +116,11 @@ class RegisterController extends ControllerBase
             }
 
             // TODO: show error in view
-            if (!$user->create()) {
+            if (!$st00f = $user->create()) {
                 $this->view->disable();
 
-                echo json_encode($user->getMessages());
+                $this->response->setJsonContent($user->getMessages());
+                $this->response->send();
             } else {
                 // Regenerate session id to protect from session hijacking
                 $this->session->regenerateId(true);

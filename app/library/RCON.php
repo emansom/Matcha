@@ -62,7 +62,7 @@ class RemoteConnection extends Injectable
         $this->cache->save('online-count', $onlineCount, $this->_ttl);
 
         return $onlineCount;*/
-        return 0;
+        return 2;
     }
 
     public function ping(): bool

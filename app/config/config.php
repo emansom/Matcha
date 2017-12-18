@@ -9,11 +9,11 @@ defined('APP_PATH') || define('APP_PATH', BASE_PATH . '/app');
 return new \Phalcon\Config([
     'database' => [
         'adapter'  => 'Mysql',
-        'host'     => 'localhost',
-        'dbname'   => 'kepler',
+        'host'     => getenv('MYSQL_HOST') ?: 'localhost',
+        'dbname'   => getenv('MYSQL_DATABASE') ?: 'kepler',
         'port'     => 3306,
-        'username' => 'kepler',
-        'password' => 'verysecret',
+        'username' => getenv('MYSQL_USER') ?: 'kepler',
+        'password' => getenv('MYSQL_PASSWORD') ?: 'verysecret',
         'charset'  => 'utf8mb4'
     ],
     'application' => [
@@ -49,9 +49,9 @@ return new \Phalcon\Config([
     ],
     'emulator' => [
         // TODO: use unix sockets for Kepler and RCON
-        'serverHost' => getenv('KEPLER_HOST') ?: '192.168.122.1',
+        'serverHost' => getenv('KEPLER_HOST') ?: 'beta.oldhabbo.com',//'192.168.122.1',
         'serverPort' => getenv('KEPLER_PORT') ?: 12321,
-        'musHost' => getenv('MUS_HOST') ?: '192.168.122.1',
+        'musHost' => getenv('MUS_HOST') ?: 'beta.oldhabbo.com',//'192.168.122.1',
         'musPort' => getenv('MUS_PORT') ?: 12322,
         'rconHost' => getenv('RCON_HOST') ?: '127.0.0.1',
         'rconPort' => getenv('RCON_PORT') ?: 12309,

@@ -1,15 +1,16 @@
-BEGIN TRANSACTION;
 CREATE TABLE IF NOT EXISTS `site_menu` (
-  `id` INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
-  `parent_id` INTEGER NOT NULL DEFAULT 0,
-  `order_id` INTEGER NOT NULL,
-  `caption` TEXT NOT NULL,
-  `link` TEXT NOT NULL,
-  `controller` TEXT NOT NULL,
-  `action` TEXT NOT NULL,
-  `icon` TEXT NOT NULL,
-  `visibility` INTEGER NOT NULL DEFAULT 0 /* '0 = Never, 1 = Always, 2 = Logged in only, 3 = Guests only, 4 = Staff only' */
-);
+  `id` TINYINT AUTO_INCREMENT,
+  `parent_id` TINYINT UNSIGNED NOT NULL DEFAULT 0,
+  `order_id` TINYINT UNSIGNED NOT NULL,
+  `caption` VARCHAR(255) CHARACTER SET utf8mb4 NOT NULL,
+  `link` VARCHAR(255) CHARACTER SET utf8mb4 NOT NULL,
+  `controller` VARCHAR(70) CHARACTER SET utf8mb4 NOT NULL,
+  `action` VARCHAR(70) CHARACTER SET utf8mb4 NOT NULL,
+  `icon` VARCHAR(70) CHARACTER SET utf8mb4 NOT NULL,
+  `visibility` TINYINT(1) NOT NULL DEFAULT 0,
+  PRIMARY KEY (id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
 /* Home tab */
 INSERT INTO `site_menu` VALUES (1,0,1,'Home','/','index','index','tab_icon_01_home.gif',1);
 
@@ -31,4 +32,3 @@ INSERT INTO `site_menu` VALUES (14,0,1,'Club','/club','club','index','tab_icon_0
 INSERT INTO `site_menu` VALUES (15,14,1,'Benefits','/club','club','index','',1);
 INSERT INTO `site_menu` VALUES (16,14,1,'Join or Extend Membership','/club/join','club','join','',1);
 INSERT INTO `site_menu` VALUES (17,14,1,'Shop','/club/shop','club','shop','',1);
-END TRANSACTION;

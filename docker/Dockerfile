@@ -106,7 +106,8 @@ RUN crudini --set /etc/php/php.ini opcache opcache.enable 1 && \
     echo 'extension=phalcon.so' > /etc/php/conf.d/phalcon.ini && \
     echo 'extension=sodium.so' > /etc/php/conf.d/sodium.ini && \
     echo 'extension=intl.so' > /etc/php/conf.d/intl.ini && \
-    echo 'extension=pdo_sqlite.so' > /etc/php/conf.d/pdo_sqlite.ini
+    echo 'extension=pdo_mysql.so' > /etc/php/conf.d/pdo_mysql.ini && \
+    echo 'extension=mysqli.so' > /etc/php/conf.d/mysqli.ini
 
 RUN mkdir -p /srv/http/matcha/{public,cache}
 

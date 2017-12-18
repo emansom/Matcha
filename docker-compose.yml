@@ -11,13 +11,16 @@ services:
             dockerfile: Dockerfile
         image: quackster/kepler:latest
         restart: always
+        environment:
+            MYSQL_HOST: mariadb
+            MYSQL_USER: kepler
+            MYSQL_DATABASE: kepler
+            MYSQL_PASSWORD: verysecret
         ports:
             - "12321:12321"
         expose:
             - "12321"
             - "12309"
-        volumes:
-            - db:/usr/src/kepler/db
 
     matcha:
         build:
@@ -44,7 +47,6 @@ services:
         volumes:
             - ./public:/srv/http/matcha/public:ro
             - ./app:/srv/http/matcha/app:ro
-            - db:/srv/http/matcha/data
 
     nginx:
         image: nginx:mainline
@@ -68,5 +70,16 @@ services:
         #    - /redis/redis.conf:/etc/redis.conf
         #volumes_from:
         #    - tmp
-volumes:
-    db:
+    mariadb:
+        image: mariadb:10.2.15
+        restart: always
+        ports:
+           - "3307:3306"
+        environment:
+            MYSQL_ROOT_PASSWORD: superverysecret
+            MYSQL_DATABASE: kepler
+            MYSQL_USER: kepler
+            MYSQL_PASSWORD: verysecret
+        volumes:
+            - ./kepler/kepler.sql:/docker-entrypoint-initdb.d/kepler.sql
+            - ./site.sql:/docker-entrypoint-initdb.d/site.sql
