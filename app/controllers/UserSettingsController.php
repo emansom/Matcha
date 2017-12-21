@@ -5,7 +5,7 @@ class UserSettingsController extends ControllerBase
     public function initialize()
     {
         parent::initialize();
-	
+
         // Never cache the served page
         $this->response->setHeader("Cache-Control", "private, no-cache, no-store, max-age=0, must-revalidate");
 
@@ -22,9 +22,13 @@ class UserSettingsController extends ControllerBase
         if ($this->request->isPost()) {
             // Get submitted gender and figure, default to current user' figure and gender
             $figure = $this->request->getPost("figure", null, $this->view->user->figure);
-            $gender = $this->request->getPost("gender", null, $this->view->user->gender);
+            $gender = strtoupper($this->request->getPost("gender", null, $this->view->user->sex));
 
-            // TODO: validate gender and figure
+            // TODO: validate gender
+            // TODO: output error to view
+            if ($gender != 'M' && $gender != 'F') {
+                return;
+            }
 
             $user = Users::findFirst([
                 "id = :id:",
@@ -36,10 +40,11 @@ class UserSettingsController extends ControllerBase
 
             if ($user) {
                 $user->figure = $figure;
-                $user->gender = $gender;
+                $user->sex = $gender;
+                $user->pool_figure = '';
 
                 // Update in database
-                $user->update(); // TODO: check return value
+                $user->update(); // TODO: check return value and show error in view if false
 
                 // Remove cached user model from modelCache to force flush
                 // TODO: check if cache exists first
@@ -50,7 +55,7 @@ class UserSettingsController extends ControllerBase
 
                 // Update in view
                 $this->view->user->figure = $figure;
-                $this->view->user->gender = $gender;
+                $this->view->user->sex = $gender;
 
                 // TODO: update succesful message in view
             }
