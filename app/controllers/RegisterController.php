@@ -101,7 +101,7 @@ class RegisterController extends ControllerBase
             $user->club_expiration = 0;
             $user->badge = '';
             $user->badge_active = 0;
-            $user->allow_stalking = 0;
+            $user->allow_stalking = 1;
 
             if ($this->session->has('register-gender')) {
                 $user->sex = $this->session->get('register-gender');
