@@ -157,6 +157,16 @@ class Users extends \Phalcon\Mvc\Model
         return parent::findFirst($parameters);
     }
 
+    public function isClubMember() {
+        // TODO: decouple club from rank
+        return $this->rank >= 2;
+    }
+
+    public function firstLogin() {
+        // TODO: retrieve from users_logins
+        return $this->last_online == 0;
+    }
+
     /**
      * Returns table name mapped in the model.
      *
