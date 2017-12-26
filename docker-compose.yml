@@ -9,13 +9,19 @@ services:
         build:
             context: kepler
             dockerfile: Dockerfile
-        image: quackster/kepler:latest
+        image: ewout/kepler:latest
         restart: always
         environment:
             MYSQL_HOST: mariadb
             MYSQL_USER: kepler
             MYSQL_DATABASE: kepler
             MYSQL_PASSWORD: verysecret
+        depends_on:
+            - redis
+            - mariadb
+        links:
+            - mariadb
+            - redis
         ports:
             - "12321:12321"
         expose:
@@ -26,7 +32,7 @@ services:
         build:
             context: .
             dockerfile: docker/Dockerfile
-        image: emansom/matcha:latest
+        image: ewout/matcha:latest
         depends_on:
             - redis
         links:
