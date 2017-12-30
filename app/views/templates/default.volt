@@ -197,7 +197,7 @@
                                 <a href="{{ url('/home/') ~ user.username }}" class="arrow"><span>View your personal homepage</span></a>
                             </p>
                             <p>
-                                <a href="{{ url('/profile') }}" class="arrow"><span>Edit your settings</span></a>
+                                <a href="{{ url('/profile') }}" class="arrow"><span>Change avatar looks</span></a>
                             </p>
                             <p>
                                 <a href="{{ url('/account/logout') }}" class="colorlink orange last"><span>Sign Out</span></a>
@@ -286,7 +286,7 @@
     <!--<script type="text/javascript">
     $("ad-leader-container").appendChild($("ad-leader"));
   </script>-->
-  <script src="js/tabmenu.js"></script>
+  <script src="/js/tabmenu.js"></script>
 </div>
 
 </body>
