@@ -75,7 +75,7 @@
         </p>
         <p>
             <a href="/profile" class="arrow">
-                <span>Edit your settings</span>
+                <span>Change avatar looks</span>
             </a>
         </p>
         <p>
