@@ -37,15 +37,16 @@ return new \Phalcon\Config([
         'debug'            => false
     ],
     'newUser' => [
-        'defaultFigure'       => 'hr-145-42.hd-209-1.ch-220-87.lg-270-76.sh-305-89.ha-1018-.ea-1401-62.wa-2007-',
-        'defaultGender'       => 'M',
-        'defaultMotto'        => 'de kepler whey',
-        'defaultCredits'      => '200',
-        'defaultTickets'      => 0,
-        'defaultFilm'         => 0,
-        'defaultRank'         => 1,
-        'defaultConsoleMotto' => "I'm a new user!",
-        'defaultBadges'       => ['RTR', 'EAR']
+        'figure'        => 'hr-145-42.hd-209-1.ch-220-87.lg-270-76.sh-305-89.ha-1018-.ea-1401-62.wa-2007-',
+        'gender'        => 'M',
+        'motto'         => 'de kepler whey',
+        'credits'       => '200',
+        'tickets'       => 0,
+        'film'          => 0,
+        'rank'          => 1,
+        'consoleMotto'  => "I'm a new user!",
+        'badges'        => ['BE2', 'Z64', 'RTR', 'EAR'],
+        'allowStalking' => true
     ],
     'emulator' => [
         // TODO: use unix sockets for Kepler and RCON
