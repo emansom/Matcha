@@ -38,9 +38,9 @@
     <h1 id="main-header">Habbo</h1>
 
     <div id="process-wrapper">
-    	<div id="process-header"><div id="process-header-body"><div id="process-header-content">
-    		<div id="habbologo">{{ link_to('/') }}</div>
-    		<div id="steps">
+        <div id="process-header"><div id="process-header-body"><div id="process-header-content">
+            <div id="habbologo">{{ link_to('/') }}</div>
+            <div id="steps">
     <img src="/web-gallery/images/process/step1_on.gif" alt="1" width="30" height="26" />
     <img src="/web-gallery/images/process/step_right_on.gif" alt="" width="20" height="26" />
     <img src="/web-gallery/images/process/step2.gif" alt="2" width="30" height="26" />
@@ -51,57 +51,57 @@
     <img src="/web-gallery/images/process/step_right.gif" alt="" width="20" height="26" />
     <img src="/web-gallery/images/process/step5.gif" alt="5" width="30" height="26" /> #}
     </div>
-    	</div></div></div>
-    	<div id="outer"><div id="outer-content">
+        </div></div></div>
+        <div id="outer"><div id="outer-content">
     <div class="processbox">
-    	<div class="headline"><div class="headline-content"><div class="headline-wrapper">
+        <div class="headline"><div class="headline-content"><div class="headline-wrapper">
 
-    		<h2>Registration <a href="/" class="exit">Cancel</a></h2>
-    	</div></div></div>
-    	<div class="content-top">
-    		<div class="content">
+            <h2>Registration <a href="/" class="exit">Cancel</a></h2>
+        </div></div></div>
+        <div class="content-top">
+            <div class="content">
 
-    	<div class="content-column1">
+        <div class="content-column1">
 
-    		<div class="bubble">
-    			<div class="bubble-body">
+            <div class="bubble">
+                <div class="bubble-body">
     Now the fun begins! Choose what you want to look like!
-    			<div class="clear"></div>
+                <div class="clear"></div>
 
-    			</div>
-    		</div>
-    		<div class="bubble-bottom">
-    			<div class="bubble-bottom-body">
-    				<img src="/web-gallery/images/register/bubble_tail_left.gif" alt="" width="22" height="31" />
-    			</div>
-    		</div>
-    		<div class="frank"><img src="/web-gallery/images/register/register7.gif" alt="" width="245" height="181" /></div>
+                </div>
+            </div>
+            <div class="bubble-bottom">
+                <div class="bubble-bottom-body">
+                    <img src="/web-gallery/images/register/bubble_tail_left.gif" alt="" width="22" height="31" />
+                </div>
+            </div>
+            <div class="frank"><img src="/web-gallery/images/register/register7.gif" alt="" width="245" height="181" /></div>
 
-    	</div>
+        </div>
 
 
-    	<div class="content-column2">
+        <div class="content-column2">
 
     <div id="process-errors">
     <div class="content-red">
-    	<div class="content-red-body" id="process-errors-content">
-    	<div class="clear"></div>
-    	</div>
+        <div class="content-red-body" id="process-errors-content">
+        <div class="clear"></div>
+        </div>
     </div>
     <div class="content-red-bottom"><div class="content-red-bottom-body"></div></div>
     </div>
 
     <div class="content-white-outer">
-    	<div class="content-white">
+        <div class="content-white">
 
-    		<div class="content-white-body">
+            <div class="content-white-body">
 
     <div class="content-white-content">
         <div id="flashcontent">
         You don't have Flash 7 or newer installed or you have JavaScript disabled.
         </div>
 
-        <form method="post" action="/register/step2" id="register-form">
+        <form method="post" action="/register" id="register-form">
             <input type="hidden" name="figure" id="figure-hidden-input" value="{{ figure }}" />
             <input type="hidden" name="gender" id="gender-hidden-input" value="{{ gender }}" />
 
@@ -115,21 +115,21 @@
             </div>
         </form>
     </div>
-    		<div class="clear"></div>
-    		</div>
-    	</div>
-    	<div class="content-white-bottom">
-    		<div class="content-white-bottom-body"></div>
-    	</div>
+            <div class="clear"></div>
+            </div>
+        </div>
+        <div class="content-white-bottom">
+            <div class="content-white-bottom-body"></div>
+        </div>
     </div>
 
-    	</div>
+        </div>
 
 
-    			<div class="clear"></div>
-    		</div>
-    	</div>
-    	<div class="content-bottom"><div class="content-bottom-content"></div></div>
+                <div class="clear"></div>
+            </div>
+        </div>
+        <div class="content-bottom"><div class="content-bottom-content"></div></div>
     </div>
 
     <script type="text/javascript" language="JavaScript">
@@ -149,14 +149,14 @@
     </script>
 
     <div id="footer">
-    	<div id="footer-top"><div id="footer-content">{{ elements.getFooterText()|nl2br }}</div></div>
+        <div id="footer-top"><div id="footer-content">{{ elements.getFooterText()|nl2br }}</div></div>
 
-    	<div id="footer-bottom"><div id="footer-bottom-content"></div></div>
+        <div id="footer-bottom"><div id="footer-bottom-content"></div></div>
     </div>
 
 
-    	</div></div>
-    	<div id="outer-bottom"><div id="outer-bottom-content"></div></div>
+        </div></div>
+        <div id="outer-bottom"><div id="outer-bottom-content"></div></div>
     </div>
 </body>
 {% endblock %}

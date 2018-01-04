@@ -118,7 +118,5 @@ RUN groupadd -g 1000 matcha && \
     useradd -r -u 1000 -g matcha matcha && \
     chown -R matcha:matcha /srv/http
 
-VOLUME /srv/http/matcha/data
-
 EXPOSE 9000
 CMD ["php-fpm"]

@@ -2,6 +2,8 @@
 use Phalcon\Di\FactoryDefault;
 
 error_reporting(E_ALL);
+mb_internal_encoding("UTF-8");
+mb_http_output("UTF-8");
 
 define('BASE_PATH', dirname(__DIR__));
 define('APP_PATH', BASE_PATH . '/app');

@@ -44,7 +44,7 @@ $router->add(
 $router->add(
     '/login[/]{0,1}(\/?\?{0}|\/?\?{1}.*)',
     [
-        'controller' => 'account',
+        'controller' => 'authentication',
         'action'     => 'login'
     ]
 )->setName('login');
@@ -52,7 +52,7 @@ $router->add(
 $router->add(
     '/account/logout[/]{0,1}(\/?\?{0}|\/?\?{1}.*)',
     [
-        'controller' => 'account',
+        'controller' => 'authentication',
         'action'     => 'logout'
     ]
 )->setName('logout');
@@ -66,28 +66,12 @@ $router->add(
 )->setName('register-pick-look');
 
 $router->add(
-    '/register/step2[/]{0,1}(\/?\?{0}|\/?\?{1}.*)',
-    [
-        'controller' => 'register',
-        'action'     => 'save-look'
-    ]
-)->setName('register-save-look');
-
-$router->add(
     '/register/enter-details[/]{0,1}(\/?\?{0}|\/?\?{1}.*)',
     [
         'controller' => 'register',
         'action'     => 'details'
     ]
 )->setName('register-details');
-
-$router->add(
-    '/register/register',
-    [
-        'controller' => 'register',
-        'action'     => 'register'
-    ]
-)->setName('register-register');
 
 $router->add(
     '/client[/]{0,1}(\/?\?{0}|\/?\?{1}.*)',
