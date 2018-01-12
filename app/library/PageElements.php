@@ -151,9 +151,9 @@ class PageElements extends Component
     private function _getEnterHotelButton()
     {
         // Only show when user is logged in
-        if (!$this->view->logged_in) {
-            return '';
-        }
+        // if (!$this->view->logged_in) {
+        //     return '';
+        // }
 
         // If emulator is offline, respond with hotel closed
         if (!$this->rcon->ping()) {

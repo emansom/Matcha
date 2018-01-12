@@ -6,17 +6,18 @@
 
     <title>Habbo ~ {% block title %}{% endblock %}</title>
 
+    <link rel="icon" href="/favicon.png" sizes="16x16">
     <link href="/web-gallery/styles/style.css" type="text/css" rel="stylesheet">
     <link href="/web-gallery/styles/boxes.css" type="text/css" rel="stylesheet">
     <link href="/web-gallery/styles/process.css" type="text/css" rel="stylesheet">
 
-	<script language="JavaScript" type="text/javascript">
-	var habboClient = true;
-	var habboReqPath = "";
-	var habboStaticFilePath = "/web-gallery";
-	document.habboLoggedIn = {{ logged_in|json_encode }};
-	window.name = "habboMain";
-	</script><style>.ad-leader,
+    <script language="JavaScript" type="text/javascript">
+    var habboClient = true;
+    var habboReqPath = "";
+    var habboStaticFilePath = "/web-gallery";
+    document.habboLoggedIn = {{ logged_in|json_encode }};
+    window.name = "habboMain";
+    </script><style>.ad-leader,
 .ad160,
 #main-content > [style="padding:10px 0 0 0 !important;"],
 #ad_sidebar

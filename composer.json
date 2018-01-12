@@ -1,0 +1,8 @@
+{
+    "require-dev": {
+        "psy/psysh": "@stable"
+    },
+    "require": {
+        "antalaron/mb-similar-text": "^1.0"
+    }
+}

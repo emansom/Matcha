@@ -49,19 +49,17 @@ return new \Phalcon\Config([
         'allowStalking' => true
     ],
     'emulator' => [
-        // TODO: use unix sockets for Kepler and RCON
-        'serverHost' => getenv('KEPLER_HOST') ?: 'beta.oldhabbo.com',//'192.168.122.1',
+        'serverExternalHost' => getenv('KEPLER_EXTERNAL_HOST') ?: '127.0.0.1',
+        'serverInternalHost' => getenv('KEPLER_INTERNAL_HOST') ?: '127.0.0.1',
         'serverPort' => getenv('KEPLER_PORT') ?: 12321,
-        'musHost' => getenv('MUS_HOST') ?: 'beta.oldhabbo.com',//'192.168.122.1',
-        'musPort' => getenv('MUS_PORT') ?: 12322,
-        'rconHost' => getenv('RCON_HOST') ?: '127.0.0.1',
-        'rconPort' => getenv('RCON_PORT') ?: 12309,
+        'musPort' => getenv('KEPLER_MUS_PORT') ?: 12322,
+        'rconPort' => getenv('KEPLER_RCON_PORT') ?: 12309,
         'rconTTL' => 30 // 30 seconds TTL of RCON cache
     ],
     'client' => [
         'dcr' => 'https://images.oldhabbo.com/dcr/v21/habbo.dcr',
-        'external_variables' => 'https://images.oldhabbo.com/dcr/v21/external_variables.txt',
-        'external_texts' => 'https://images.oldhabbo.com/dcr/v21/external_texts.txt'
+        'externalVariables' => 'https://images.oldhabbo.com/dcr/v21/external_variables.txt',
+        'externalTexts' => 'https://images.oldhabbo.com/dcr/v21/external_texts.txt'
     ],
     'redis' => [
         'host' => getenv('REDIS_HOST') ?: '127.0.0.1',

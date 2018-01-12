@@ -48,6 +48,7 @@ class RegisterController extends ControllerBase
     {
         if ($this->request->isPost()) {
             // Sanitize input
+            // TODO: handle -=?!@:. in username
             $username = $this->filter->sanitize($this->request->getPost('username', 'string'), 'alphanum');
             $password = $this->request->getPost('password', 'striptags');
             $retypedPassword = $this->request->getPost('retypedPassword', 'striptags');
@@ -62,24 +63,34 @@ class RegisterController extends ControllerBase
             // Validate if username is provided
             // Uses multibyte (UTF-8) string length check
             if (mb_strlen($username) == 0) {
-                $registrationErrors[] = 'Please enter your username';
+                $registrationErrors[] = 'Please choose your name';
             }
 
             // Validate if password is provided
             // Uses multibyte (UTF-8) string length check
             if (mb_strlen($password) == 0) {
-                $registrationErrors[] = 'Please enter your password';
+                $registrationErrors[] = 'Please enter a password';
+            }
+
+            // Password should be longer than six characters
+            if (mb_strlen($password) < 6) {
+                $registrationErrors[] = 'Password is too short';
+            }
+
+            // TODO: better similarity algorithm that also handles @, ! etc
+            if (similar_text(strtolower('MOD'), mb_substr(strtolower($username), 0, 3)) == 3) {
+                $registrationErrors[] = 'The MOD prefix is reserved for staff';
             }
 
             // Validate if retypedPassword is provided
             // Uses multibyte (UTF-8) string length check
             if (mb_strlen($retypedPassword) == 0) {
-                $registrationErrors[] = 'Please retype your password';
+                $registrationErrors[] = 'Please type your password again';
             }
 
             // Check if password and retypedPassword equal
             if ($password != $retypedPassword) {
-                $registrationErrors[] = 'Passwords don\'t match';
+                $registrationErrors[] = 'The passwords you typed are not identical';
             }
 
             // Do not continue if there are validation errors
