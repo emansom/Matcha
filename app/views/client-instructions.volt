@@ -57,13 +57,11 @@
             <img src="/web-gallery/images/client/no_opera.png">
             <img src="/web-gallery/images/client/yes_pale.png"><br><br>
             Current browsers no longer support Shockwave Player.<br><br>
+            To enter the client you need to install Shockwave and use an web browser capable of showing Shockwave content.<br><br>
             You can use Pale Moon in its 32-bit version, both the <a href="https://www.palemoon.org/palemoon-win32.shtml" target="_blank">normal</a> and <a href="https://www.palemoon.org/palemoon-portable.shtml" target="_blank">portable</a> version. <br><br>
-            You can also use Internet Explorer, but it is not recommended for its instability and continuous crashes.<br>
-            If you still want to use it, you will need to use a version of Shockwave Player prior to 11.5.<br>
-            You can download the 10.1.3 <a href="https://www.adobe.com/go/sw_full_exe_installer" target="_blank">here</a>.<br><br>
             <a href="https://www.adobe.com/go/sw_full_exe_installer" target="_blank"><img src="/web-gallery/images/client/getshockwavenew.gif" border="0" style="border: 0"></a><br>
             <a href="https://www.adobe.com/go/sw_full_exe_installer" target="_blank">Download Shockwave Player</a>.<br><br>
-            If you followed the steps you can visit this page again in Pale Moon 32-bit and all should be well.
+            If you followed the steps you can visit this page again in Pale Moon 32-bit and the client will appear.
 
 
     </div>

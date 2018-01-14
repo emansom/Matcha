@@ -5,9 +5,15 @@ LABEL maintainer="ewout@freedom.nl"
 RUN pacman --noprogressbar --noconfirm -Suyy \
   && pacman-db-upgrade
 
+# Install reflector
+RUN pacman --needed --noconfirm --noprogressbar -S reflector
+
+# Download latest mirrorlist sorted by latest synchronization
+RUN reflector --verbose -p http -p https --age 1 --fastest 50 --sort age --save /etc/pacman.d/mirrorlist
+
 # Install packages for NGINX and PHP and some utilities
 RUN pacman --needed --noconfirm --noprogressbar -S bash go python2 wget curl base-devel git \
-    supervisor nginx-mainline mariadb-clients php php-apcu php-fpm php-gd php-intl php-sodium
+    supervisor nginx-mainline mariadb-clients composer php php-apcu php-fpm php-gd php-intl php-sodium
 
 # Install php-igbinary extension (php-redis dependency)
 RUN git clone https://aur.archlinux.org/php-igbinary.git /usr/src/php-igbinary \
@@ -28,8 +34,13 @@ RUN git clone https://aur.archlinux.org/php-redis.git /usr/src/php-redis \
   && rm -rf /usr/src/php-redis
 
 # Install the Phalcon PHP framework
-RUN git clone https://aur.archlinux.org/php-phalcon.git /usr/src/php-phalcon \
-  && chown nobody -R /usr/src/php-phalcon \
+RUN git clone https://aur.archlinux.org/php-phalcon.git /usr/src/php-phalcon
+
+# Inject our modified PKGBUILD
+COPY docker/PKGBUILD-phalcon /usr/src/php-phalcon/PKGBUILD
+
+# Build Phalcon
+RUN chown nobody -R /usr/src/php-phalcon \
   && cd /usr/src/php-phalcon \
   && su -c "makepkg -m" -s /bin/bash nobody \
   && pacman --noconfirm --noprogressbar -U php-phalcon-*.pkg.tar.xz \
@@ -91,7 +102,6 @@ COPY docker/supervisord.conf /etc/supervisor/supervisord.conf
 # Configure PHP
 RUN crudini --set /etc/php/php.ini opcache opcache.enable 1 \
     && crudini --set /etc/php/php.ini opcache opcache.save_comments 0 \
-    && crudini --set /etc/php/php.ini PHP open_basedir /srv/http \
     && crudini --set /etc/php/php.ini PHP log_errors On \
     && crudini --set /etc/php/php.ini PHP ignore_repeated_errors Off \
     && crudini --set /etc/php/php.ini PHP file_uploads Off \
@@ -99,7 +109,7 @@ RUN crudini --set /etc/php/php.ini opcache opcache.enable 1 \
     && crudini --set /etc/php/php.ini PHP error_reporting E_ALL \
     && crudini --set /etc/php/php.ini PHP html_errors Off \
     && crudini --set /etc/php/php.ini PHP cgi.fix_pathinfo 1 \
-    && crudini --set /etc/php/php.ini PHP allow_url_fopen Off \
+    && crudini --set /etc/php/php.ini PHP allow_url_fopen On \
     && crudini --set /etc/php/php.ini PHP allow_url_include Off \
     && crudini --set /etc/php/php.ini PHP short_open_tag Off \
     && crudini --set /etc/php/php.ini PHP expose_php Off \
@@ -130,6 +140,11 @@ RUN mkdir -p /srv/http/matcha/{public,cache}
 
 # Copy matcha application to docker container
 COPY app /srv/http/matcha/app
+
+RUN cd /srv/http/matcha/app \
+    && composer install \
+    && cd
+
 COPY public /srv/http/matcha/public
 
 # Copy migrations to docker container
