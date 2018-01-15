@@ -4,8 +4,90 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "349ebd1a9fe91f9f9eedfd39cc8a6516",
+    "content-hash": "c1dd274a4234333069fea1889e31895e",
     "packages": [
+        {
+            "name": "ewout/retrorcon",
+            "version": "v1.5.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/emansom/retrorcon-php.git",
+                "reference": "306241bfdd8bba8e35ae68dfd6f76acd2973e99b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/emansom/retrorcon-php/zipball/306241bfdd8bba8e35ae68dfd6f76acd2973e99b",
+                "reference": "306241bfdd8bba8e35ae68dfd6f76acd2973e99b",
+                "shasum": ""
+            },
+            "require": {
+                "google/protobuf": "^3.6.0.1",
+                "grpc/grpc": "^v1.12.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Kepler\\Rcon\\": [
+                        "dist/",
+                        "src/"
+                    ],
+                    "GPBMetadata\\": "metadata/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "AGPL-3.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Ewout van Mansom",
+                    "email": "ewout@freedom.nl"
+                }
+            ],
+            "description": "A PHP library to communicate with emulators adhering to the RetroRCON standard",
+            "time": "2018-06-15T21:12:54+00:00"
+        },
+        {
+            "name": "google/protobuf",
+            "version": "v3.6.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/google/protobuf.git",
+                "reference": "ce044817c7ba0aea27c3fd8e496635d94d20a755"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/google/protobuf/zipball/ce044817c7ba0aea27c3fd8e496635d94d20a755",
+                "reference": "ce044817c7ba0aea27c3fd8e496635d94d20a755",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.5.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": ">=4.8.0"
+            },
+            "suggest": {
+                "ext-bcmath": "Need to support JSON deserialization"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Google\\Protobuf\\": "php/src/Google/Protobuf",
+                    "GPBMetadata\\Google\\Protobuf\\": "php/src/GPBMetadata/Google/Protobuf"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "description": "proto library for PHP",
+            "homepage": "https://developers.google.com/protocol-buffers/",
+            "keywords": [
+                "proto"
+            ],
+            "time": "2018-06-08T01:16:44+00:00"
+        },
         {
             "name": "grpc/grpc",
             "version": "1.12.0",
@@ -381,23 +463,23 @@
         },
         {
             "name": "phalcon/devtools",
-            "version": "v3.2.13",
+            "version": "v3.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phalcon/phalcon-devtools.git",
-                "reference": "40134b0350643e5d90b3bd3801a7070df18997b2"
+                "reference": "54a77f25a48c10e927728078e6fa6442cdccf481"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phalcon/phalcon-devtools/zipball/40134b0350643e5d90b3bd3801a7070df18997b2",
-                "reference": "40134b0350643e5d90b3bd3801a7070df18997b2",
+                "url": "https://api.github.com/repos/phalcon/phalcon-devtools/zipball/54a77f25a48c10e927728078e6fa6442cdccf481",
+                "reference": "54a77f25a48c10e927728078e6fa6442cdccf481",
                 "shasum": ""
             },
             "require": {
-                "ext-phalcon": "~3.1",
+                "ext-phalcon": "~3.3",
                 "nikic/php-parser": "^3.1",
                 "php": ">=5.5",
-                "psy/psysh": "^0.9"
+                "psy/psysh": "~0.9"
             },
             "require-dev": {
                 "codeception/codeception": "^2.3",
@@ -405,7 +487,8 @@
                 "codeception/verify": "^0.3",
                 "kherge/box": "^2.7",
                 "phpdocumentor/reflection-docblock": "^2.0",
-                "phpunit/phpunit": "^4.8"
+                "phpunit/phpunit": "^4.8",
+                "squizlabs/php_codesniffer": "^3.2"
             },
             "bin": [
                 "phalcon.php"
@@ -440,20 +523,20 @@
                 "phar",
                 "webtools"
             ],
-            "time": "2018-05-07T08:50:21+00:00"
+            "time": "2018-06-05T22:16:04+00:00"
         },
         {
             "name": "phalcon/ide-stubs",
-            "version": "v3.3.2",
+            "version": "v3.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phalcon/ide-stubs.git",
-                "reference": "fed301b552dd12d9428d0cc9dbae45d58ce42e56"
+                "reference": "af75e05f8cdcda31ee45145dbd918b8a75ffcce4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phalcon/ide-stubs/zipball/fed301b552dd12d9428d0cc9dbae45d58ce42e56",
-                "reference": "fed301b552dd12d9428d0cc9dbae45d58ce42e56",
+                "url": "https://api.github.com/repos/phalcon/ide-stubs/zipball/af75e05f8cdcda31ee45145dbd918b8a75ffcce4",
+                "reference": "af75e05f8cdcda31ee45145dbd918b8a75ffcce4",
                 "shasum": ""
             },
             "require": {
@@ -488,7 +571,7 @@
                 "stub",
                 "stubs"
             ],
-            "time": "2018-02-26T23:55:17+00:00"
+            "time": "2018-05-28T06:20:06+00:00"
         },
         {
             "name": "psr/log",
@@ -539,16 +622,16 @@
         },
         {
             "name": "psy/psysh",
-            "version": "v0.9.4",
+            "version": "v0.9.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bobthecow/psysh.git",
-                "reference": "4d969a0e08e1e05e7207c07cb4207017ecc9a331"
+                "reference": "4a2ce86f199d51b6e2524214dc06835e872f4fce"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bobthecow/psysh/zipball/4d969a0e08e1e05e7207c07cb4207017ecc9a331",
-                "reference": "4d969a0e08e1e05e7207c07cb4207017ecc9a331",
+                "url": "https://api.github.com/repos/bobthecow/psysh/zipball/4a2ce86f199d51b6e2524214dc06835e872f4fce",
+                "reference": "4a2ce86f199d51b6e2524214dc06835e872f4fce",
                 "shasum": ""
             },
             "require": {
@@ -607,20 +690,20 @@
                 "interactive",
                 "shell"
             ],
-            "time": "2018-05-22T06:48:07+00:00"
+            "time": "2018-06-10T17:57:20+00:00"
         },
         {
             "name": "symfony/console",
-            "version": "v4.1.0-BETA2",
+            "version": "v4.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/console.git",
-                "reference": "694be1112b8fc9d86020207add0d8af5ccc6127a"
+                "reference": "2d5d973bf9933d46802b01010bd25c800c87c242"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/console/zipball/694be1112b8fc9d86020207add0d8af5ccc6127a",
-                "reference": "694be1112b8fc9d86020207add0d8af5ccc6127a",
+                "url": "https://api.github.com/repos/symfony/console/zipball/2d5d973bf9933d46802b01010bd25c800c87c242",
+                "reference": "2d5d973bf9933d46802b01010bd25c800c87c242",
                 "shasum": ""
             },
             "require": {
@@ -675,7 +758,7 @@
             ],
             "description": "Symfony Console Component",
             "homepage": "https://symfony.com",
-            "time": "2018-05-16T14:33:22+00:00"
+            "time": "2018-05-30T07:26:09+00:00"
         },
         {
             "name": "symfony/polyfill-mbstring",
@@ -793,7 +876,7 @@
         },
         {
             "name": "symfony/var-dumper",
-            "version": "v4.1.0-BETA2",
+            "version": "v4.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/var-dumper.git",

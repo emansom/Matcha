@@ -138,6 +138,13 @@ class Users extends \Phalcon\Mvc\Model
      */
     public $allow_stalking;
 
+    /**
+     *
+     * @var integer
+     * @Column(column="sound_enabled", type="integer", length=1, nullable=false)
+     */
+    public $sound_enabled;
+
 
     public function initialize()
     {
@@ -163,10 +170,12 @@ class Users extends \Phalcon\Mvc\Model
         return parent::findFirst($parameters);
     }
 
+
     public function isClubMember() {
         // TODO: decouple club from rank
         return $this->rank >= 2;
     }
+
 
     public function firstLogin() {
         // TODO: retrieve from users_logins

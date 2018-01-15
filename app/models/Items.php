@@ -29,7 +29,7 @@ class Items extends \Phalcon\Mvc\Model
     /**
      *
      * @var integer
-     * @Column(column="definition_id", type="integer", length=11, nullable=true)
+     * @Column(column="definition_id", type="integer", length=11, nullable=false)
      */
     public $definition_id;
 

@@ -1,27 +1,21 @@
 <?php
 
-class RankBadges extends \Phalcon\Mvc\Model
+class SchemaMigrations extends \Phalcon\Mvc\Model
 {
 
     /**
      *
-     * @var integer
-     * @Column(column="rank", type="integer", length=1, nullable=false)
-     */
-    public $rank;
-
-    /**
-     *
      * @var string
-     * @Column(column="badge", type="string", length=3, nullable=false)
+     * @Primary
+     * @Column(column="version", type="string", length=255, nullable=false)
      */
-    public $badge;
+    public $version;
 
 
     public function initialize()
     {
         $this->setSchema("kepler");
-        $this->setSource("rank_badges");
+        $this->setSource("schema_migrations");
     }
 
 
@@ -43,7 +37,7 @@ class RankBadges extends \Phalcon\Mvc\Model
      */
     public function getSource()
     {
-        return 'rank_badges';
+        return 'schema_migrations';
     }
 
 }

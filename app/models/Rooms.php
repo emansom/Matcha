@@ -63,8 +63,8 @@ class Rooms extends \Phalcon\Mvc\Model
 
     /**
      *
-     * @var string
-     * @Column(column="floor", type="string", length=4, nullable=true)
+     * @var integer
+     * @Column(column="floor", type="integer", length=4, nullable=true)
      */
     public $floor;
 

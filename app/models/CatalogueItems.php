@@ -5,6 +5,15 @@ class CatalogueItems extends \Phalcon\Mvc\Model
 
     /**
      *
+     * @var integer
+     * @Primary
+     * @Identity
+     * @Column(column="id", type="integer", length=11, nullable=false)
+     */
+    public $id;
+
+    /**
+     *
      * @var string
      * @Column(column="sale_code", type="string", length=255, nullable=true)
      */
@@ -20,14 +29,14 @@ class CatalogueItems extends \Phalcon\Mvc\Model
     /**
      *
      * @var integer
-     * @Column(column="order_id", type="integer", length=11, nullable=true)
+     * @Column(column="order_id", type="integer", length=11, nullable=false)
      */
     public $order_id;
 
     /**
      *
      * @var integer
-     * @Column(column="price", type="integer", length=11, nullable=true)
+     * @Column(column="price", type="integer", length=11, nullable=false)
      */
     public $price;
 
@@ -41,7 +50,7 @@ class CatalogueItems extends \Phalcon\Mvc\Model
     /**
      *
      * @var integer
-     * @Column(column="item_specialspriteid", type="integer", length=11, nullable=true)
+     * @Column(column="item_specialspriteid", type="integer", length=11, nullable=false)
      */
     public $item_specialspriteid;
 
@@ -62,7 +71,7 @@ class CatalogueItems extends \Phalcon\Mvc\Model
     /**
      *
      * @var integer
-     * @Column(column="is_package", type="integer", length=11, nullable=true)
+     * @Column(column="is_package", type="integer", length=1, nullable=false)
      */
     public $is_package;
 

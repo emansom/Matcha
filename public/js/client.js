@@ -1,8 +1,8 @@
 (function(d) {
-    var $ = d.querySelector.bind(d);
+    "use strict";
 
     function fetchOnlineCount() {
-        fetch('/topbar/online-count')
+        unfetch('/topbar/online-count')
         .then(function(res) {
             return res.text();
         })
@@ -13,8 +13,27 @@
     }
 
     function updateOnlineCount(text) {
-        // TODO: the old update count animation (I think it was easing out bold text)
-        $('#habboCountUpdateTarget').innerText = text;
+        var current = d.querySelector('#habboCountUpdateTarget').innerText;
+        var onlineCount = current.replace(',', '').replace('.', '').match(/\d+/g)[0];
+        var newCount = text.replace(',', '').replace('.', '').match(/\d+/g)[0];
+
+        // Don't update if the count didn't change
+        if (onlineCount == newCount) {
+            return;
+        }
+
+        // Init keyframe animation
+        d.querySelector('#habboCountUpdateTarget').classList.add('updated');
+
+        // Swap in new count when animation is at 50%
+        setTimeout(function() {
+            d.querySelector('#habboCountUpdateTarget').innerText = text;
+        }, 500);
+
+        // Deinit the animation after two seconds
+        setTimeout(function() {
+            d.querySelector('#habboCountUpdateTarget').classList.remove('updated');
+        }, 2000);
     }
 
     // Update online count every 30 seconds

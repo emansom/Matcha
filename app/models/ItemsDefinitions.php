@@ -15,13 +15,6 @@ class ItemsDefinitions extends \Phalcon\Mvc\Model
     /**
      *
      * @var string
-     * @Column(column="cast_directory", type="string", length=255, nullable=true)
-     */
-    public $cast_directory;
-
-    /**
-     *
-     * @var string
      * @Column(column="sprite", type="string", length=255, nullable=true)
      */
     public $sprite;
@@ -49,8 +42,8 @@ class ItemsDefinitions extends \Phalcon\Mvc\Model
 
     /**
      *
-     * @var double
-     * @Column(column="top_height", type="double", length=10, nullable=true)
+     * @var string
+     * @Column(column="top_height", type="string", nullable=true)
      */
     public $top_height;
 

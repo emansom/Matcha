@@ -21,8 +21,6 @@ use Phalcon\Cache\Backend\Redis as RedisCache;
 use Kepler\Security as Security;
 use Kepler\ExternalTextsTranslateAdapter as ExternalTextsTranslateAdapter;
 use Kepler\PageElements as PageElements;
-use Kepler\RemoteConnection as RemoteConnection;
-
 
 use Phalcon\Flash\Direct as FlashDirect;
 use Phalcon\Flash\Session as FlashSession;
@@ -393,11 +391,10 @@ $di->setShared('security', function() {
 $di->setShared('rcon', function() {
     $config = $this->getConfig();
 
-    return new RemoteConnection(
+    return new \Kepler\Rcon\RemoteConnection(
         [
             'host' => $config->emulator->serverInternalHost,
-            'port' => $config->emulator->serverPort,
-            'ttl' => $config->emulator->rconTTL
+            'port' => $config->emulator->rconPort
         ]
     );
 });

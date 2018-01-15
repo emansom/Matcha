@@ -9,9 +9,9 @@ defined('APP_PATH') || define('APP_PATH', BASE_PATH . '/app');
 return new \Phalcon\Config([
     'database' => [
         'adapter'  => 'Mysql',
-        'host'     => getenv('MYSQL_HOST') ?: 'localhost',
-        'dbname'   => getenv('MYSQL_DATABASE') ?: 'kepler',
-        'port'     => 3306,
+        'host'     => getenv('MYSQL_HOST') ?: '127.0.0.1',
+        'dbname'   => getenv('MYSQL_DATABASE') ?: 'kepler_test',
+        'port'     => 3307,
         'username' => getenv('MYSQL_USER') ?: 'kepler',
         'password' => getenv('MYSQL_PASSWORD') ?: 'verysecret',
         'charset'  => 'utf8mb4'
@@ -46,15 +46,15 @@ return new \Phalcon\Config([
         'rank'          => 1,
         'consoleMotto'  => "I'm a new user!",
         'badges'        => ['BE2', 'Z64', 'RTR', 'EAR'],
-        'allowStalking' => true
+        'allowStalking' => true,
+        'soundEnabled'  => true
     ],
     'emulator' => [
         'serverExternalHost' => getenv('KEPLER_EXTERNAL_HOST') ?: '127.0.0.1',
         'serverInternalHost' => getenv('KEPLER_INTERNAL_HOST') ?: '127.0.0.1',
         'serverPort' => getenv('KEPLER_PORT') ?: 12321,
         'musPort' => getenv('KEPLER_MUS_PORT') ?: 12322,
-        'rconPort' => getenv('KEPLER_RCON_PORT') ?: 12309,
-        'rconTTL' => 30 // 30 seconds TTL of RCON cache
+        'rconPort' => getenv('KEPLER_RCON_PORT') ?: 12309
     ],
     'client' => [
         'dcr' => 'https://images.oldhabbo.com/dcr/v21/habbo.dcr',

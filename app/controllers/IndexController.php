@@ -48,10 +48,14 @@ class IndexController extends ControllerBase
             // Generate new SSO
             $token = $this->security->getToken();
 
-            // Update in database
+            // Find user in database
             $user = \Users::findFirst($this->session->get('user_id'));
             $user->sso_ticket = $token;
-            $user->update(); // TODO: disable SSO in view if update() doesn't return true
+
+            // Update user in database and throw exception if it fails
+            if ($user->update() !== true) {
+                throw new \Phalcon\Exception('Could\'nt update SSO of user ' . $this->view->user->username);
+            }
 
             // Update in view
             $this->view->user->sso_ticket = $token;

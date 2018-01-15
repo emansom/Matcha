@@ -1,27 +1,28 @@
 <?php
 
-class RankBadges extends \Phalcon\Mvc\Model
+class ItemsTeleporterLinks extends \Phalcon\Mvc\Model
 {
 
     /**
      *
      * @var integer
-     * @Column(column="rank", type="integer", length=1, nullable=false)
+     * @Primary
+     * @Column(column="item_id", type="integer", length=11, nullable=false)
      */
-    public $rank;
+    public $item_id;
 
     /**
      *
-     * @var string
-     * @Column(column="badge", type="string", length=3, nullable=false)
+     * @var integer
+     * @Column(column="linked_id", type="integer", length=11, nullable=false)
      */
-    public $badge;
+    public $linked_id;
 
 
     public function initialize()
     {
         $this->setSchema("kepler");
-        $this->setSource("rank_badges");
+        $this->setSource("items_teleporter_links");
     }
 
 
@@ -43,7 +44,7 @@ class RankBadges extends \Phalcon\Mvc\Model
      */
     public function getSource()
     {
-        return 'rank_badges';
+        return 'items_teleporter_links';
     }
 
 }
