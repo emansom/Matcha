@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c1dd274a4234333069fea1889e31895e",
+    "content-hash": "d01ae524e3b8f282e7fdad59ffb1e2e9",
     "packages": [
         {
             "name": "ewout/retrorcon",
-            "version": "v1.5.0",
+            "version": "1.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/emansom/retrorcon-php.git",
-                "reference": "306241bfdd8bba8e35ae68dfd6f76acd2973e99b"
+                "reference": "8a1553476d702ea940412b5bfc453a00ba849bc2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/emansom/retrorcon-php/zipball/306241bfdd8bba8e35ae68dfd6f76acd2973e99b",
-                "reference": "306241bfdd8bba8e35ae68dfd6f76acd2973e99b",
+                "url": "https://api.github.com/repos/emansom/retrorcon-php/zipball/8a1553476d702ea940412b5bfc453a00ba849bc2",
+                "reference": "8a1553476d702ea940412b5bfc453a00ba849bc2",
                 "shasum": ""
             },
             "require": {
@@ -27,11 +27,12 @@
             "type": "library",
             "autoload": {
                 "psr-4": {
-                    "Kepler\\Rcon\\": [
-                        "dist/",
+                    "RetroRCON\\": [
+                        "dist/php/RetroRCON/",
+                        "dist/grpc/RetroRCON/",
                         "src/"
                     ],
-                    "GPBMetadata\\": "metadata/"
+                    "GPBMetadata\\Protos\\": "dist/php/GPBMetadata/Protos/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -45,7 +46,7 @@
                 }
             ],
             "description": "A PHP library to communicate with emulators adhering to the RetroRCON standard",
-            "time": "2018-06-15T21:12:54+00:00"
+            "time": "2018-06-16T10:47:29+00:00"
         },
         {
             "name": "google/protobuf",

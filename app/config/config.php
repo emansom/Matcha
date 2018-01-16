@@ -10,7 +10,7 @@ return new \Phalcon\Config([
     'database' => [
         'adapter'  => 'Mysql',
         'host'     => getenv('MYSQL_HOST') ?: '127.0.0.1',
-        'dbname'   => getenv('MYSQL_DATABASE') ?: 'kepler_test',
+        'dbname'   => getenv('MYSQL_DATABASE') ?: 'kepler',
         'port'     => 3307,
         'username' => getenv('MYSQL_USER') ?: 'kepler',
         'password' => getenv('MYSQL_PASSWORD') ?: 'verysecret',

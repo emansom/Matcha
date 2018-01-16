@@ -12,29 +12,53 @@ RUN pacman --needed --noconfirm --noprogressbar -S reflector
 RUN reflector --verbose -p http -p https --age 1 --fastest 50 --sort age --save /etc/pacman.d/mirrorlist
 
 # Install packages for NGINX and PHP and some utilities
-RUN pacman --needed --noconfirm --noprogressbar -S bash go python2 wget curl base-devel git \
+RUN pacman --needed --noconfirm --noprogressbar -S bash c-ares openssl-1.0 chrpath gflags protobuf re2c go python2 wget curl base-devel git \
     supervisor nginx-mainline mariadb-clients composer php php-apcu php-fpm php-gd php-intl php-sodium
 
 # Install php-igbinary extension (php-redis dependency)
 RUN git clone https://aur.archlinux.org/php-igbinary.git /usr/src/php-igbinary \
   && chown nobody -R /usr/src/php-igbinary \
   && cd /usr/src/php-igbinary \
+  && su -c "git submodule update --init --recursive" -s /bin/bash nobody \
   && su -c "makepkg -m" -s /bin/bash nobody \
   && pacman --noconfirm --noprogressbar -U php-igbinary-*.pkg.tar.xz \
   && cd \
   && rm -rf /usr/src/php-igbinary
 
+# Install gRPC (this also installs PHP module)
+RUN git clone https://aur.archlinux.org/grpc.git /usr/src/grpc \
+  && chown nobody -R /usr/src/grpc \
+  && cd /usr/src/grpc \
+  && su -c "git submodule update --init --recursive" -s /bin/bash nobody \
+  && su -c "makepkg -m" -s /bin/bash nobody \
+  && pacman --noconfirm --noprogressbar -U grpc-*.pkg.tar.xz \
+  && pacman --noconfirm --noprogressbar -U grpc-cli-*.pkg.tar.xz \
+  && pacman --noconfirm --noprogressbar -U php-grpc-*.pkg.tar.xz \
+  && cd \
+  && rm -rf /usr/src/grpc
+
+# Install protobuf extension (php-grpc dependency)
+RUN git clone https://aur.archlinux.org/php-protobuf.git /usr/src/php-protobuf \
+  && chown nobody -R /usr/src/php-protobuf \
+  && cd /usr/src/php-protobuf \
+  && su -c "git submodule update --init --recursive" -s /bin/bash nobody \
+  && su -c "makepkg -m" -s /bin/bash nobody \
+  && pacman --noconfirm --noprogressbar -U php-protobuf-*.pkg.tar.xz \
+  && cd \
+  && rm -rf /usr/src/php-protobuf
+
 # Install php-redis extension
 RUN git clone https://aur.archlinux.org/php-redis.git /usr/src/php-redis \
   && chown nobody -R /usr/src/php-redis \
   && cd /usr/src/php-redis \
+  && su -c "git submodule update --init --recursive" -s /bin/bash nobody \
   && su -c "makepkg -m" -s /bin/bash nobody \
   && pacman --noconfirm --noprogressbar -U php-redis-*.pkg.tar.xz \
   && cd \
   && rm -rf /usr/src/php-redis
 
 # Install the Phalcon PHP framework
-RUN git clone https://aur.archlinux.org/php-phalcon.git /usr/src/php-phalcon
+RUN git clone https://aur.archlinux.org/php-phialcon.git /usr/src/php-phalcon
 
 # Inject our modified PKGBUILD
 COPY docker/PKGBUILD-phalcon /usr/src/php-phalcon/PKGBUILD
@@ -42,6 +66,7 @@ COPY docker/PKGBUILD-phalcon /usr/src/php-phalcon/PKGBUILD
 # Build Phalcon
 RUN chown nobody -R /usr/src/php-phalcon \
   && cd /usr/src/php-phalcon \
+  && su -c "git submodule update --init --recursive" -s /bin/bash nobody \
   && su -c "makepkg -m" -s /bin/bash nobody \
   && pacman --noconfirm --noprogressbar -U php-phalcon-*.pkg.tar.xz \
   && cd \
@@ -51,6 +76,7 @@ RUN chown nobody -R /usr/src/php-phalcon \
 RUN git clone https://aur.archlinux.org/python2-iniparse.git /usr/src/python2-iniparse \
   && chown nobody -R /usr/src/python2-iniparse \
   && cd /usr/src/python2-iniparse \
+  && su -c "git submodule update --init --recursive" -s /bin/bash nobody \
   && su -c "makepkg -m" -s /bin/bash nobody \
   && pacman --noconfirm --noprogressbar -U python2-iniparse-*.pkg.tar.xz \
   && cd \
@@ -60,6 +86,7 @@ RUN git clone https://aur.archlinux.org/python2-iniparse.git /usr/src/python2-in
 RUN git clone https://aur.archlinux.org/crudini.git /usr/src/crudini \
   && chown nobody -R /usr/src/crudini \
   && cd /usr/src/crudini \
+  && su -c "git submodule update --init --recursive" -s /bin/bash nobody \
   && su -c "makepkg -m" -s /bin/bash nobody \
   && pacman --noconfirm --noprogressbar -U crudini-*.pkg.tar.xz \
   && cd \
@@ -69,6 +96,7 @@ RUN git clone https://aur.archlinux.org/crudini.git /usr/src/crudini \
 RUN git clone https://aur.archlinux.org/nginx-h5bp-server-configs.git /usr/src/nginx-h5bp-server-configs \
   && chown nobody -R /usr/src/nginx-h5bp-server-configs \
   && cd /usr/src/nginx-h5bp-server-configs \
+  && su -c "git submodule update --init --recursive" -s /bin/bash nobody \
   && su -c "makepkg -m" -s /bin/bash nobody \
   && pacman --noconfirm --noprogressbar -U nginx-h5bp-server-configs-*.pkg.tar.xz \
   && cd \
@@ -135,7 +163,9 @@ RUN crudini --set /etc/php/php.ini opcache opcache.enable 1 \
     && echo 'extension=phalcon.so' > /etc/php/conf.d/40-phalcon.ini \
     && echo 'extension=sodium.so' > /etc/php/conf.d/20-sodium.ini \
     && echo 'extension=intl.so' > /etc/php/conf.d/20-intl.ini \
-    && echo 'extension=pdo_mysql.so' > /etc/php/conf.d/20-pdo_mysql.ini
+    && echo 'extension=pdo_mysql.so' > /etc/php/conf.d/20-pdo_mysql.ini \
+    && echo 'extension=protobuf.so' > /etc/php/conf.d/30-protobuf.ini \
+    && echo 'extension=grpc.so' > /etc/php/conf.d/40-grpc.ini
 
 RUN mkdir -p /srv/http/matcha/{public,cache}
 
