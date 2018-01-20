@@ -172,8 +172,7 @@ class Users extends \Phalcon\Mvc\Model
 
 
     public function isClubMember() {
-        // TODO: decouple club from rank
-        return $this->rank >= 2;
+        return time() > $this->club_expiration;
     }
 
 
