@@ -1,58 +1,51 @@
 <?php
 
-class MessengerMessages extends \Phalcon\Mvc\Model
+class ItemsMoodlightPresets extends \Phalcon\Mvc\Model
 {
 
     /**
      *
      * @var integer
      * @Primary
-     * @Identity
-     * @Column(column="id", type="integer", length=11, nullable=false)
+     * @Column(column="item_id", type="integer", length=11, nullable=false)
      */
-    public $id;
+    public $item_id;
 
     /**
      *
      * @var integer
-     * @Column(column="receiver_id", type="integer", length=11, nullable=true)
+     * @Column(column="current_preset", type="integer", length=11, nullable=false)
      */
-    public $receiver_id;
-
-    /**
-     *
-     * @var integer
-     * @Column(column="sender_id", type="integer", length=11, nullable=true)
-     */
-    public $sender_id;
+    public $current_preset;
 
     /**
      *
      * @var string
-     * @Column(column="unread", type="string", length=255, nullable=true)
+     * @Column(column="preset_1", type="string", length=50, nullable=false)
      */
-    public $unread;
+    public $preset_1;
 
     /**
      *
      * @var string
-     * @Column(column="body", type="string", length=255, nullable=true)
+     * @Column(column="preset_2", type="string", length=50, nullable=false)
      */
-    public $body;
+    public $preset_2;
 
     /**
      *
-     * @var integer
-     * @Column(column="date", type="integer", length=20, nullable=true)
+     * @var string
+     * @Column(column="preset_3", type="string", length=50, nullable=false)
      */
-    public $date;
+    public $preset_3;
 
     /**
      * Initialize method for model.
      */
     public function initialize()
     {
-        $this->setSource("messenger_messages");
+
+        $this->setSource("items_moodlight_presets");
     }
 
     /**
@@ -62,14 +55,14 @@ class MessengerMessages extends \Phalcon\Mvc\Model
      */
     public function getSource()
     {
-        return 'messenger_messages';
+        return 'items_moodlight_presets';
     }
 
     /**
      * Allows to query a set of records that match the specified conditions
      *
      * @param mixed $parameters
-     * @return MessengerMessages[]|MessengerMessages|\Phalcon\Mvc\Model\ResultSetInterface
+     * @return ItemsMoodlightPresets[]|ItemsMoodlightPresets|\Phalcon\Mvc\Model\ResultSetInterface
      */
     public static function find($parameters = null)
     {
@@ -80,7 +73,7 @@ class MessengerMessages extends \Phalcon\Mvc\Model
      * Allows to query the first record that match the specified conditions
      *
      * @param mixed $parameters
-     * @return MessengerMessages|\Phalcon\Mvc\Model\ResultInterface
+     * @return ItemsMoodlightPresets|\Phalcon\Mvc\Model\ResultInterface
      */
     public static function findFirst($parameters = null)
     {

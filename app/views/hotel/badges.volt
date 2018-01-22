@@ -5,42 +5,42 @@
 {% block body_attributes %}id="twocols"{% endblock %}
 
 {% block content %}
-		<div id="page-headline">
-	<div id="page-headline-breadcrums">
-	<a href="/web/20071017035750/http://www.habbo.co.uk:80/">Home</a>
-		»
-	<a href="/web/20071017035750/http://www.habbo.co.uk:80/hotel">New?</a>
-		»
-Habbo Badges
-	</div>
-	<div id="page-headline-text">Habbo Badges</div>
+        <div id="page-headline">
+    <div id="page-headline-breadcrums">
+    <a href="/web/20071017035750/http://www.habbo.co.uk:80/">Home</a>
+        »
+    <a href="/web/20071017035750/http://www.habbo.co.uk:80/hotel">New?</a>
+        »
+{{ shortname }} Badges
+    </div>
+    <div id="page-headline-text">{{ shortname }} Badges</div>
 </div>
 
 <table border="0" cellpadding="0" cellspacing="0" width="100%" class="content-2col">
-	<tbody><tr>
-		<td style="width: 8px;"></td>
-		<td valign="top" style="width: 202px;" class="habboPage-col">
+    <tbody><tr>
+        <td style="width: 8px;"></td>
+        <td valign="top" style="width: 202px;" class="habboPage-col">
 <div class="content-white-outer">
-	<div class="content-white">
-		<div class="content-white-body">
+    <div class="content-white">
+        <div class="content-white-body">
 
 <div class="content-white-content">
 <center><img src="https://web.archive.org/web/20071017035750im_/http://images.habbohotel.co.uk/c_images/album1358/frank_guide1.gif" alt=""></center>Seen a badge next to a Habbo and wondered what it meant?<br><br>Look no further, for we hold the answers on these pages.<br><br>Have you managed to see them all yet?<br>
 </div>
-		<div class="clear"></div>
-		</div>
-	</div>
-	<div class="content-white-bottom">
-		<div class="content-white-bottom-body"></div>
-	</div>
+        <div class="clear"></div>
+        </div>
+    </div>
+    <div class="content-white-bottom">
+        <div class="content-white-bottom-body"></div>
+    </div>
 </div>
-		</td>
-		<td valign="top" style="width: 539px;" class="habboPage-col rightmost">
+        </td>
+        <td valign="top" style="width: 539px;" class="habboPage-col rightmost">
 
 <div class="v3box blue">
-	<div class="v3box-top"><h3>Badge Group 1</h3></div>
-	<div class="v3box-content">
-		<div class="v3box-body">
+    <div class="v3box-top"><h3>Badge Group 1</h3></div>
+    <div class="v3box-content">
+        <div class="v3box-body">
 
 <span style="font-weight: bold;"></span><br>The badges listed in this group cannot be won in any competition and are only given to Habbos with a responsibility.<br><br>
 
@@ -68,15 +68,15 @@ Members of Habbo Club who have subscribed to more than 13 months total.<br></td>
 <tr><td><img vspace="0" hspace="0" border="0" src="https://web.archive.org/web/20071017035750im_/http://images.habbohotel.co.uk/c_images/album1584/UK3.gif" alt=""><br></td><td><span style="font-weight: bold;">FRANK<br>Rep<br><br></span></td>
 <td>FRANK visit the Infobus inside Habbo Hotel during the week for drug related information.<br></td><td><a href="https://web.archive.org/web/20071017035750/http://www.habbo.co.uk/help/infobus">FRANK<br>in Habbo</a><br></td></tr>
 </tbody></table><br><br>Have you seen a badge on a Habbo in the UK that should be included in Badge Group 1? Send us the details to: <a href="https://web.archive.org/web/20071017035750/mailto:submission.uk@sulake.com" target="_self">submission.uk@sulake.com</a><br><br>
-			<div class="clear"></div>
-		</div>
-	</div>
-	<div class="v3box-bottom"><div></div></div>
+            <div class="clear"></div>
+        </div>
+    </div>
+    <div class="v3box-bottom"><div></div></div>
 </div>
 <div class="v3box blue">
-	<div class="v3box-top"><h3>Badge Group 2</h3></div>
-	<div class="v3box-content">
-		<div class="v3box-body">
+    <div class="v3box-top"><h3>Badge Group 2</h3></div>
+    <div class="v3box-content">
+        <div class="v3box-body">
 
 <span style="font-weight: bold;"></span><br>The badges listed in this group were won during specific competitions, quests and events. These badges may be awarded again in the future so keep your eyes on the Habbo homepage to avoid missing out!<br><br>
 
@@ -125,15 +125,15 @@ Members of Habbo Club who have subscribed to more than 13 months total.<br></td>
 
 
 </tbody></table><br><br>Have you seen a competition badge on a Habbo in the UK that should be included in Badge Group 2? Send us the details to: <a target="_self" href="https://web.archive.org/web/20071017035750/mailto:submission.uk@sulake.com">submission.uk@sulake.com</a><br><br>
-			<div class="clear"></div>
-		</div>
-	</div>
-	<div class="v3box-bottom"><div></div></div>
+            <div class="clear"></div>
+        </div>
+    </div>
+    <div class="v3box-bottom"><div></div></div>
 </div>
 <div class="v3box blue">
-	<div class="v3box-top"><h3>Badge Group 3</h3></div>
-	<div class="v3box-content">
-		<div class="v3box-body">
+    <div class="v3box-top"><h3>Badge Group 3</h3></div>
+    <div class="v3box-content">
+        <div class="v3box-body">
 
 <span style="font-weight: bold;"></span><br>The badges listed in this group are available to be won either every week or fortnight. Check back regularly for new badges!<br><br>
 
@@ -145,14 +145,14 @@ Members of Habbo Club who have subscribed to more than 13 months total.<br></td>
 <tr><td><img src="https://web.archive.org/web/20071017035750im_/http://images.habbohotel.co.uk/c_images/album1054/UK5.gif" alt=""><br></td><td><span style="font-weight: bold;">Art<br>Gallery<br></span><span style="font-weight: bold;"><br></span></td><td>Awarded to Bill's Board Gallery winner every 2 weeks.<br><br></td><td><a target="_self" href="https://web.archive.org/web/20071017035750/http://www.habbo.co.uk/community/gallery">Art Gallery</a><span style="font-weight: bold;"><br></span></td></tr>
 <tr><td><img src="https://web.archive.org/web/20071017035750im_/http://images.habbohotel.co.uk/c_images/album1054/publishers_scroll.gif" alt=""><br></td><td><span style="font-weight: bold;">Habbo<br>Comics<br></span><span style="font-weight: bold;"><br></span></td><td>Awarded to Community Comic winner every 2 weeks.<br><br></td><td><a target="_self" href="https://web.archive.org/web/20071017035750/http://www.habbo.co.uk/community/comics">Habbo Comics</a><span style="font-weight: bold;"><br></span></td></tr>
 </tbody></table><br><br>Have you seen a weekly badge on a Habbo in the UK that should be included in Badge Group 3? Send us the details to: <a href="https://web.archive.org/web/20071017035750/mailto:submission.uk@sulake.com" target="_self">submission.uk@sulake.com</a><br><br>
-			<div class="clear"></div>
-		</div>
-	</div>
-	<div class="v3box-bottom"><div></div></div>
+            <div class="clear"></div>
+        </div>
+    </div>
+    <div class="v3box-bottom"><div></div></div>
 </div>
-		</td>
-		<td style="width: 4px;"></td>
-		<td valign="top" style="width: 176px;">
+        </td>
+        <td style="width: 4px;"></td>
+        <td valign="top" style="width: 176px;">
 <div id="ad_sidebar" style="display: none !important;">
 <div class="cooperation"><table height="120" width="168" valign="middle" align="center" border="0" cellpadding="0" cellspacing="0" background="https://web.archive.org/web/20071017035750im_/http://images.habbohotel.ch/c_images/themes/partner_box.gif">
 <tbody><tr><td>
@@ -181,11 +181,11 @@ Members of Habbo Club who have subscribed to more than 13 months total.<br></td>
 
 </tbody></table></div>
 
-	<div class="ad-scale ad160" style="display: none !important;">
-	<table>
-		<tbody><tr><td class="ad-header-tl"></td><td class="ad-header-t"></td><td class="ad-header-tr"></td></tr>
-		<tr><td class="ad-header-ml"></td><td class="ad-header-m"><h5>Advertisement</h5></td><td class="ad-header-mr"></td></tr>
-		<tr><td class="ad-content-ml"></td><td class="ad-content-m" align="center" valign="top"><script language="JavaScript" type="text/javascript">
+    <div class="ad-scale ad160" style="display: none !important;">
+    <table>
+        <tbody><tr><td class="ad-header-tl"></td><td class="ad-header-t"></td><td class="ad-header-tr"></td></tr>
+        <tr><td class="ad-header-ml"></td><td class="ad-header-m"><h5>Advertisement</h5></td><td class="ad-header-mr"></td></tr>
+        <tr><td class="ad-content-ml"></td><td class="ad-content-m" align="center" valign="top"><script language="JavaScript" type="text/javascript">
 <!--
    var awrz_rnd = Math.floor(Math.random()*99999999999);
    var awrz_protocol = location.protocol.indexOf('https')>-1?'https:':'http:';
@@ -203,14 +203,14 @@ Members of Habbo Club who have subscribed to more than 13 months total.<br></td>
 //-->
 </script><script language="JavaScript" type="text/javascript" src="https://web.archive.org/web/20071017035750/http://ads.habbohotel.co.uk/max/adjs.php?n=a65b6b4d&amp;zoneid=114&amp;exclude=,&amp;loc=https%3A//web.archive.org/web/20071017035750/http%3A//www.habbo.co.uk%3A80/hotel/badges.html&amp;referer=https%3A//web.archive.org/web/20071017045724/http%3A//www.habbo.co.uk%3A80/hotel&amp;r=29390306718&amp;ct0=undefined"></script><noscript><a href="https://web.archive.org/web/20071017035750/http://ads.habbohotel.co.uk/max/adclick.php?n=a65b6b4d" target="_blank"><img src="https://web.archive.org/web/20071017035750im_/http://ads.habbohotel.co.uk/max/adview.php?zoneid=114&amp;n=a65b6b4d" border="0" alt=""></a></noscript>
 </td><td class="ad-content-mr"></td></tr>
-		<tr><td class="ad-content-bl"></td>	<td class="ad-content-b"></td><td class="ad-content-br"></td></tr>
-	</tbody></table>
+        <tr><td class="ad-content-bl"></td>	<td class="ad-content-b"></td><td class="ad-content-br"></td></tr>
+    </tbody></table>
 </div>
 
 
 
 </div>		</td>
-	</tr>
+    </tr>
 </tbody></table>
 
 <br style="clear: both;"/>

@@ -4,7 +4,7 @@
 <head>
     <meta http-equiv="content-type" content="text/html;charset=utf-8">
 
-    <title>Habbo ~ {% block title %}{% endblock %}</title>
+    <title>{{ shortname }} ~ {% block title %}{% endblock %}</title>
 
     <link rel="icon" href="/favicon.png" sizes="16x16">
     <link href="/web-gallery/styles/style.css" type="text/css" rel="stylesheet">

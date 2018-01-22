@@ -47,8 +47,38 @@ class IndexController extends ControllerBase
             return;
         }
 
+        // Does the user want to go to a specific room?
+        //$forwardType = $this->request->getQuery("forwardType", "int");
+        //$forwardType = $this->request->getQuery("forwardId", "int");
+
         // Regenerate SSO if logged in
         if ($this->session->has('user_id')) {
+            $userId = $this->view->user->id;
+
+            // TODO: cast createRoom integer to enum value of RCON
+            // TODO: create starter room if not existing
+            // if (!$this->rcon->hasStarterRoom($userId)) {
+            //     // Returns value from $_GET["createRoom"] with sanitizing
+            //     $chosenTheme = $this->request->getQuery("createRoom", "int");
+            //
+            //     if ($chosenTheme == 0) {
+            //         $this->view->setMainView('client/starter-room-picker');
+            //         return;
+            //     }
+            //
+            //
+            //     list($createdRoomId, $error) = $this->rcon->createStarterRoom($userId, $theme);
+            //
+            //     if ($error !== null) {
+            //         // log error
+            //
+            //         // Inform user we couldn't create starter room
+            //     }
+            //
+            //     $forwardType = 2;
+            //     $forwardId = $createdRoomId;
+            // }
+
             // Generate new SSO
             $token = $this->security->getToken();
 
@@ -66,13 +96,15 @@ class IndexController extends ControllerBase
         }
 
         // Assign gamedata
-        $this->view->dcr = $this->config->client->dcr;
-        $this->view->external_variables = $this->config->client->externalVariables;
-        $this->view->external_texts = $this->config->client->externalTexts;
-        $this->view->server_host = $this->config->emulator->serverExternalHost;
-        $this->view->server_port = $this->config->emulator->serverPort;
-        $this->view->mus_host = $this->config->emulator->serverExternalHost;
-        $this->view->mus_port = $this->config->emulator->musPort;
+        $this->view->dcr = GameConfiguration::getString('loader.dcr');
+        $this->view->external_variables = GameConfiguration::getString('loader.external_variables');
+        $this->view->external_texts = GameConfiguration::getString('loader.external_texts');
+        $this->view->server_host = GameConfiguration::getString('loader.server_host');
+        $this->view->server_port = GameConfiguration::getInteger('loader.server_port');
+        $this->view->mus_host = GameConfiguration::getString('loader.mus_host');
+        $this->view->mus_port = GameConfiguration::getInteger('loader.mus_port');
+        //$this->view->forward_id = $forwardId;
+        //$this->view->forward_type = $forwardType;
 
         $this->view->setMainView('client');
     }

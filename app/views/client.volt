@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="content-type" content="text/html;charset=utf-8" />
-    <title>oldHabbo ~ Client</title>
+    <title>{{ shortname }} ~ Client</title>
 
     <link rel="icon" href="/favicon.png" sizes="16x16">
     <link href="/web-gallery/styles/style.css" type="text/css" rel="stylesheet"/>
@@ -53,7 +53,7 @@
     <div>
         <object classid='clsid:166B1BCA-3F9C-11CF-8075-444553540000' codebase='http://download.macromedia.com/pub/shockwave/cabs/director/sw.cab#version=10,8,5,1,0' id='habbo' width='720' height='540'>
                 <param name='src' value='{{ dcr }}'>
-                <param name='swRemote' value='swSaveEnabled='true' swVolume='true' swRestart='false' swPausePlay='false' swFastForward='false' swTitle='Habbo Hotel' swContextMenu='true' '>
+                <param name='swRemote' value='swSaveEnabled='true' swVolume='true' swRestart='false' swPausePlay='false' swFastForward='false' swTitle='{{ shortname }} Hotel' swContextMenu='true' '>
                 <param name='swStretchStyle' value='none'>
                 <param name='swText' value=''>
 
@@ -73,9 +73,9 @@
                 <param name='sw8' value='client.allow.cross.domain=1;client.notify.cross.domain=0'>
                 {# <param name='sw7' value='forward.type=2;forward.id=1049'> #}
 
-                {# You need Shockwave plugin (free and safe to download) in order to enter Habbo Hotel. <a href="/hotel/tour" target="habboMain">Read more >></a> #}
+                {# You need Shockwave plugin (free and safe to download) in order to enter {{ shortname }} Hotel. <a href="/hotel/tour" target="habboMain">Read more >></a> #}
 
-                <embed src='{{ dcr }}' bgColor='#000000' width='720' height='540' swRemote='swSaveEnabled='true' swVolume='true' swRestart='false' swPausePlay='false' swFastForward='false' swTitle='Habbo Hotel' swContextMenu='true'' swStretchStyle='none' swText='' type='application/x-director' pluginspage='http://www.macromedia.com/shockwave/download/'
+                <embed src='{{ dcr }}' bgColor='#000000' width='720' height='540' swRemote='swSaveEnabled='true' swVolume='true' swRestart='false' swPausePlay='false' swFastForward='false' swTitle='{{ shortname }} Hotel' swContextMenu='true'' swStretchStyle='none' swText='' type='application/x-director' pluginspage='http://www.macromedia.com/shockwave/download/'
                 {% if logged_in %}sw6='use.sso.ticket=1;sso.ticket={{ user.sso_ticket }}'{% endif %}
                 sw2='connection.info.host={{ server_host }};connection.info.port={{ server_port }}'
                 sw4='connection.mus.host={{ mus_host }};connection.mus.port={{ mus_port }}'
@@ -84,7 +84,7 @@
                 {# sw7='forward.type=2;forward.id=1049' #}
                 sw8='client.allow.cross.domain=1;client.notify.cross.domain=0'
                 sw5='external.variables.txt={{ external_variables }};external.texts.txt={{ external_texts }}'></embed>
-                <noembed>You need Shockwave plugin (free and safe to download) in order to enter Habbo Hotel. <a href="/hotel/tour" target="habboMain">Read more >></a></noembed>
+                <noembed>You need Shockwave plugin (free and safe to download) in order to enter {{ fullname }}. <a href="/hotel/tour" target="habboMain">Read more >></a></noembed>
         </object>
     </div>
 

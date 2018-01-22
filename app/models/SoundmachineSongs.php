@@ -59,7 +59,6 @@ class SoundmachineSongs extends \Phalcon\Mvc\Model
      */
     public function initialize()
     {
-        $this->setSchema("kepler_test");
         $this->setSource("soundmachine_songs");
     }
 

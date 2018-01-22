@@ -145,31 +145,37 @@ class Users extends \Phalcon\Mvc\Model
      */
     public $sound_enabled;
 
-
+    /**
+     * Initialize method for model.
+     */
     public function initialize()
     {
-        $this->setSource("users");
-        $this->allowEmptyStringValues(['pool_figure', 'motto', 'console_motto', 'badge', 'sso_ticket']);
 
-        $this->hasMany(
-            'id',
-            'UsersBadges',
-            'user_id'
-        );
+        $this->setSource("users");
+        $this->hasMany('id', 'UsersBadges', 'user_id', ['alias' => 'UsersBadges']);
+        $this->allowEmptyStringValues(['pool_figure', 'motto', 'console_motto', 'badge', 'sso_ticket']);
     }
 
+    /**
+     * Returns table name mapped in the model.
+     *
+     * @return string
+     */
+    public function getSource()
+    {
+        return 'users';
+    }
 
+    /**
+     * Allows to query a set of records that match the specified conditions
+     *
+     * @param mixed $parameters
+     * @return Users[]|Users|\Phalcon\Mvc\Model\ResultSetInterface
+     */
     public static function find($parameters = null)
     {
         return parent::find($parameters);
     }
-
-
-    public static function findFirst($parameters = null)
-    {
-        return parent::findFirst($parameters);
-    }
-
 
     public function isClubMember() {
         // TODO: decouple club from rank
@@ -182,14 +188,16 @@ class Users extends \Phalcon\Mvc\Model
         return $this->last_online == 0;
     }
 
+
     /**
-     * Returns table name mapped in the model.
+     * Allows to query the first record that match the specified conditions
      *
-     * @return string
+     * @param mixed $parameters
+     * @return Users|\Phalcon\Mvc\Model\ResultInterface
      */
-    public function getSource()
+    public static function findFirst($parameters = null)
     {
-        return 'users';
+        return parent::findFirst($parameters);
     }
 
 }

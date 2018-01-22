@@ -17,22 +17,13 @@ class RoomsRights extends \Phalcon\Mvc\Model
      */
     public $room_id;
 
-
+    /**
+     * Initialize method for model.
+     */
     public function initialize()
     {
+
         $this->setSource("rooms_rights");
-    }
-
-
-    public static function find($parameters = null)
-    {
-        return parent::find($parameters);
-    }
-
-
-    public static function findFirst($parameters = null)
-    {
-        return parent::findFirst($parameters);
     }
 
     /**
@@ -43,6 +34,28 @@ class RoomsRights extends \Phalcon\Mvc\Model
     public function getSource()
     {
         return 'rooms_rights';
+    }
+
+    /**
+     * Allows to query a set of records that match the specified conditions
+     *
+     * @param mixed $parameters
+     * @return RoomsRights[]|RoomsRights|\Phalcon\Mvc\Model\ResultSetInterface
+     */
+    public static function find($parameters = null)
+    {
+        return parent::find($parameters);
+    }
+
+    /**
+     * Allows to query the first record that match the specified conditions
+     *
+     * @param mixed $parameters
+     * @return RoomsRights|\Phalcon\Mvc\Model\ResultInterface
+     */
+    public static function findFirst($parameters = null)
+    {
+        return parent::findFirst($parameters);
     }
 
 }

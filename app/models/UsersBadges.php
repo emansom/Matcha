@@ -17,32 +17,14 @@ class UsersBadges extends \Phalcon\Mvc\Model
      */
     public $badge;
 
-
+    /**
+     * Initialize method for model.
+     */
     public function initialize()
     {
-        $this->setSchema("kepler");
+
         $this->setSource("users_badges");
-
-        $this->belongsTo(
-            'user_id',
-            'Users',
-            'id',
-            [
-                'foreignKey' => true
-            ]
-        );
-    }
-
-
-    public static function find($parameters = null)
-    {
-        return parent::find($parameters);
-    }
-
-
-    public static function findFirst($parameters = null)
-    {
-        return parent::findFirst($parameters);
+        $this->belongsTo('user_id', '\Users', 'id', ['alias' => 'Users']);
     }
 
     /**
@@ -53,6 +35,28 @@ class UsersBadges extends \Phalcon\Mvc\Model
     public function getSource()
     {
         return 'users_badges';
+    }
+
+    /**
+     * Allows to query a set of records that match the specified conditions
+     *
+     * @param mixed $parameters
+     * @return UsersBadges[]|UsersBadges|\Phalcon\Mvc\Model\ResultSetInterface
+     */
+    public static function find($parameters = null)
+    {
+        return parent::find($parameters);
+    }
+
+    /**
+     * Allows to query the first record that match the specified conditions
+     *
+     * @param mixed $parameters
+     * @return UsersBadges|\Phalcon\Mvc\Model\ResultInterface
+     */
+    public static function findFirst($parameters = null)
+    {
+        return parent::findFirst($parameters);
     }
 
 }

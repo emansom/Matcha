@@ -27,7 +27,7 @@ CREATE TABLE `catalogue_items` (
   `package_description` varchar(255) DEFAULT NULL,
   `is_package` tinyint(1) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=513 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=514 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -103,7 +103,23 @@ CREATE TABLE `items_definitions` (
   `top_height` double DEFAULT NULL,
   `behaviour` varchar(255) DEFAULT NULL,
   UNIQUE KEY `id` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=415 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=416 DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `items_moodlight_presets`
+--
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `items_moodlight_presets` (
+  `item_id` int(11) NOT NULL,
+  `current_preset` int(11) NOT NULL DEFAULT 1,
+  `preset_1` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '1,#000000,255',
+  `preset_2` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '1,#000000,255',
+  `preset_3` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '1,#000000,255',
+  PRIMARY KEY (`item_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -209,7 +225,7 @@ CREATE TABLE `rooms` (
   `visitors_max` int(11) DEFAULT 25,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=1056 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=1057 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -286,7 +302,7 @@ CREATE TABLE `schema_migrations` (
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `settings` (
   `setting` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `value` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT ''
+  `value` text COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT ''
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -385,7 +401,7 @@ CREATE TABLE `users` (
   `sound_enabled` tinyint(1) NOT NULL DEFAULT 1,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -480,5 +496,11 @@ INSERT INTO `schema_migrations` (version) VALUES
   ('20180610071051'),
   ('20180610084935'),
   ('20180610105026'),
-  ('20180616170631');
+  ('20180616170631'),
+  ('20180622105649'),
+  ('20180711162341'),
+  ('20180712082530'),
+  ('20180713174348'),
+  ('20180714163106'),
+  ('20180714164734');
 UNLOCK TABLES;

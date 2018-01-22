@@ -393,8 +393,8 @@ $di->setShared('rcon', function() {
 
     return new \RetroRCON\RemoteConnection(
         [
-            'host' => $config->emulator->serverInternalHost,
-            'port' => $config->emulator->rconPort
+            'host' => GameConfiguration::getString('loader.rcon_host'),
+            'port' => GameConfiguration::getInteger('loader.rcon_port')
         ]
     );
 });

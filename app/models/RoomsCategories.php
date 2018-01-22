@@ -68,22 +68,13 @@ class RoomsCategories extends \Phalcon\Mvc\Model
      */
     public $minrole_setflatcat;
 
-
+    /**
+     * Initialize method for model.
+     */
     public function initialize()
     {
+
         $this->setSource("rooms_categories");
-    }
-
-
-    public static function find($parameters = null)
-    {
-        return parent::find($parameters);
-    }
-
-
-    public static function findFirst($parameters = null)
-    {
-        return parent::findFirst($parameters);
     }
 
     /**
@@ -94,6 +85,28 @@ class RoomsCategories extends \Phalcon\Mvc\Model
     public function getSource()
     {
         return 'rooms_categories';
+    }
+
+    /**
+     * Allows to query a set of records that match the specified conditions
+     *
+     * @param mixed $parameters
+     * @return RoomsCategories[]|RoomsCategories|\Phalcon\Mvc\Model\ResultSetInterface
+     */
+    public static function find($parameters = null)
+    {
+        return parent::find($parameters);
+    }
+
+    /**
+     * Allows to query the first record that match the specified conditions
+     *
+     * @param mixed $parameters
+     * @return RoomsCategories|\Phalcon\Mvc\Model\ResultInterface
+     */
+    public static function findFirst($parameters = null)
+    {
+        return parent::findFirst($parameters);
     }
 
 }

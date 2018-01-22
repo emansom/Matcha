@@ -6,8 +6,14 @@ class ControllerBase extends Controller
 {
     public function initialize()
     {
+        $this->view->shortname = GameConfiguration::getString('site.shortname');
+        $this->view->fullname = GameConfiguration::getString('site.fullname');
         $this->view->t = $this->translation;
         $this->view->logged_in = $this->session->has('user_id');
+        $this->view->footer_text = strtr(GameConfiguration::getString('site.footer'), [
+            '%shortname%' => $this->view->shortname,
+            '%fullname%'  => $this->view->fullname
+        ]);
 
         if ($this->view->logged_in) {
             $this->view->user = \Users::findFirst(

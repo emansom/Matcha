@@ -68,22 +68,13 @@ class SiteMenu extends \Phalcon\Mvc\Model
      */
     public $visibility;
 
-
+    /**
+     * Initialize method for model.
+     */
     public function initialize()
     {
+
         $this->setSource("site_menu");
-    }
-
-
-    public static function find($parameters = null)
-    {
-        return parent::find($parameters);
-    }
-
-
-    public static function findFirst($parameters = null)
-    {
-        return parent::findFirst($parameters);
     }
 
     /**
@@ -94,6 +85,28 @@ class SiteMenu extends \Phalcon\Mvc\Model
     public function getSource()
     {
         return 'site_menu';
+    }
+
+    /**
+     * Allows to query a set of records that match the specified conditions
+     *
+     * @param mixed $parameters
+     * @return SiteMenu[]|SiteMenu|\Phalcon\Mvc\Model\ResultSetInterface
+     */
+    public static function find($parameters = null)
+    {
+        return parent::find($parameters);
+    }
+
+    /**
+     * Allows to query the first record that match the specified conditions
+     *
+     * @param mixed $parameters
+     * @return SiteMenu|\Phalcon\Mvc\Model\ResultInterface
+     */
+    public static function findFirst($parameters = null)
+    {
+        return parent::findFirst($parameters);
     }
 
 }

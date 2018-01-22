@@ -17,7 +17,7 @@
     }
     </style>
 
-    <title>oldHabbo ~ {% block title %}{% endblock %}</title>
+    <title>{{ shortname }} ~ {% block title %}{% endblock %}</title>
 
     <!-- TODO: favicon x2 (xBR or HQx scaled) -->
     <!--<link rel="icon" sizes="64x64" href="/favicon-x2.png">-->
@@ -49,7 +49,7 @@
     {% endblock %}
 
     <!--<link href="/web-gallery/styles/style_custom_nl.css" rel="stylesheet" type="text/css">-->
-    <link href="/news/rss.xml" rel="alternate" title="Habbo Vandaag" type="application/rss+xml">
+    <link href="/news/rss.xml" rel="alternate" title="{{ shortname }} News" type="application/rss+xml">
 
     <meta content="6.0.7 - 20070914090134 - nl" name="build">
     <meta name="vindretros" content="rolp2f9qm8ewb7c564ygjnhkt3xa10is" />
@@ -59,7 +59,7 @@
 
   <div id="overlay"></div>
 
-  <h1 id="main-header">Habbo</h1>
+  <h1 id="main-header">{{ shortname }}</h1>
 
   <div id="wrapper">
     <!--<div id="ad-leader-container" style="text-align: center"></div>-->
@@ -174,13 +174,13 @@
 
                       <div class="tabmenu-inner-content">
                         <p>
-                          Habbo Club gives you the best benefits as a Habbo.
+                          {{ shortname }} Club gives you the best benefits as a {{ shortname }}.
                         </p>
 
                         <p>
                           <a class="arrow" href="/club">
                             <span>
-                                More on Habbo Club
+                                More on {{ shortname }} Club
                             </span>
                           </a>
                         </p>
@@ -246,7 +246,12 @@
     <div id="outer">
       <div id="outer-content">
           <div id="footer">
-              <div id="footer-top"><div id="footer-content">				<p>
+              <div id="footer-top"><div id="footer-content">
+                  <p>
+                      Powered by <a href="https://github.com/emansom/Matcha">Matcha</a>zz
+                  </p>
+                  <br />
+                                  <p>
                                 {{ link_to("/", "Home") }}
                                   |
                                 {{ link_to("/hotel", "New?") }}
@@ -272,7 +277,7 @@
                             {{ link_to("/help/parents_guide", "Parents' Guide") }} |
                             {{ link_to("/footer_pages/terms_and_conditions", "Terms &amp; Conditions") }}
                         </p>
-                          <p class="footer-legal">{{ elements.getFooterText() }}</p>
+                          <p class="footer-legal">{{ footer_text }}</p>
           </div></div>
               <div id="footer-bottom"><div id="footer-bottom-content"></div></div>
           </div>

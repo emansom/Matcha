@@ -110,22 +110,13 @@ class Rooms extends \Phalcon\Mvc\Model
      */
     public $visitors_max;
 
-
+    /**
+     * Initialize method for model.
+     */
     public function initialize()
     {
+
         $this->setSource("rooms");
-    }
-
-
-    public static function find($parameters = null)
-    {
-        return parent::find($parameters);
-    }
-
-
-    public static function findFirst($parameters = null)
-    {
-        return parent::findFirst($parameters);
     }
 
     /**
@@ -136,6 +127,28 @@ class Rooms extends \Phalcon\Mvc\Model
     public function getSource()
     {
         return 'rooms';
+    }
+
+    /**
+     * Allows to query a set of records that match the specified conditions
+     *
+     * @param mixed $parameters
+     * @return Rooms[]|Rooms|\Phalcon\Mvc\Model\ResultSetInterface
+     */
+    public static function find($parameters = null)
+    {
+        return parent::find($parameters);
+    }
+
+    /**
+     * Allows to query the first record that match the specified conditions
+     *
+     * @param mixed $parameters
+     * @return Rooms|\Phalcon\Mvc\Model\ResultInterface
+     */
+    public static function findFirst($parameters = null)
+    {
+        return parent::findFirst($parameters);
     }
 
 }

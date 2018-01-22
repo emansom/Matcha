@@ -203,7 +203,7 @@ Event.observe($("login-form"), "submit", function(e) {
 </script>
 
 <div id="footer">
-    <div id="footer-top"><div id="footer-content">{{ elements.getFooterText()|nl2br }}</div></div>
+    <div id="footer-top"><div id="footer-content">{{ footer_text }}</div></div>
     <div id="footer-bottom"><div id="footer-bottom-content"></div></div>
 </div>
 

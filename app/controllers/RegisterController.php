@@ -20,10 +20,10 @@ class RegisterController extends ControllerBase
             // TODO: validate figure
             // TODO: use proper Phalcon validators
 
-            $figure = $this->request->getPost('figure', 'string', $this->config->newUser->figure); // TODO: preg_replace to only allow numeric and '-', '.' characters
+            $figure = $this->request->getPost('figure', 'string', GameConfiguration::getString('new_user.figure')); // TODO: preg_replace to only allow numeric and '-', '.' characters
             $this->session->set("register-figure", $figure);
 
-            $gender = $this->request->getPost("gender", 'string', $this->config->newUser->gender);
+            $gender = $this->request->getPost("gender", 'string', GameConfiguration::getString('new_user.gender'));
             $this->session->set("register-gender", $gender);
 
             return $this->response->redirect('/register/enter-details');
@@ -32,13 +32,13 @@ class RegisterController extends ControllerBase
         if ($this->session->has('register-gender')) {
             $this->view->gender = $this->session->get('register-gender');
         } else {
-            $this->view->gender = $this->config->newUser->gender;
+            $this->view->gender = GameConfiguration::getString('new_user.gender');
         }
 
         if ($this->session->has('register-figure')) {
             $this->view->figure = $this->session->get('register-figure');
         } else {
-            $this->view->figure = $this->config->newUser->figure;
+            $this->view->figure = GameConfiguration::getString('new_user.figure');
         }
 
         $this->view->setMainView('register/pick-look');
@@ -118,49 +118,52 @@ class RegisterController extends ControllerBase
                 $user = new \Users();
                 $user->username = $username;
                 $user->password = $this->security->hash($password);
-                $user->motto = $this->config->newUser->motto;
-                $user->credits = $this->config->newUser->credits;
-                $user->tickets = $this->config->newUser->tickets;
-                $user->film = $this->config->newUser->film;
-                $user->rank = $this->config->newUser->rank;
-                $user->console_motto = $this->config->newUser->consoleMotto;
+                $user->motto = GameConfiguration::getString('new_user.motto');
+                $user->credits = GameConfiguration::getInteger('new_user.credits');
+                $user->tickets = 0;
+                $user->film = 0;
+                $user->rank = 1;
+                $user->console_motto = GameConfiguration::getString('new_user.console_motto');
                 $user->last_online = 0;
                 $user->sso_ticket = '';
                 $user->pool_figure = '';
                 $user->club_subscribed = 0;
                 $user->club_expiration = 0;
-                $user->badge = $this->config->newUser->badges[0];
-                $user->badge_active = sizeof($this->config->newUser->badges) > 0;
-                $user->allow_stalking = $this->config->newUser->allowStalking;
-                $user->sound_enabled = $this->config->newUser->soundEnabled;
+                $user->allow_stalking = true;
+                $user->sound_enabled = true;
+                $user->badge = '';
+                $user->badge_active = false;
 
                 // If user chose an gender in the previous page, use that, else use default
                 if ($this->session->has('register-gender')) {
                     $user->sex = $this->session->get('register-gender');
                 } else {
-                    $user->sex = $this->config->newUser->gender;
+                    $user->sex = GameConfiguration::getString('new_user.gender');
                 }
 
                 // If user chose an figure in the previous page, use that, else use default
                 if ($this->session->has('register-figure')) {
                     $user->figure = $this->session->get('register-figure');
                 } else {
-                    $user->figure = $this->config->newUser->figure;
+                    $user->figure = GameConfiguration::getString('new_user.figure');
                 }
 
                 // Try to create user, if this fails; show error in view
                 // TODO: log create error
-                if ($user->create() === false) {
+                if (!$user->create()) {
                     $this->view->register_errors = ['Unable to create user, contact administrator'];
+                    // TODO: log $user->getMessages();
                     $this->db->rollback();
                 } else {
                     // User has been created!
 
-                    // Add badges for new user
+                    // Now we will give the user badges!
                     $badges = [];
+                    $defaultBadges = explode(',', GameConfiguration::getString('new_user.badges'));
                     $i = 0;
 
-                    foreach ($this->config->newUser->badges as $badge) {
+                    // Add badges for new user
+                    foreach ($defaultBadges as $badge) {
                         $badges[$i] = new UsersBadges();
                         $badges[$i]->user_id = $user->id;
                         $badges[$i]->badge = $badge;
@@ -168,9 +171,14 @@ class RegisterController extends ControllerBase
                         $i++;
                     }
 
-                    // Let ORM know about badges
-                    $user->badges = $badges;
-                    $user->update();
+                    // Set active badge
+                    $user = Users::findFirstById($user->id);
+                    $user->badge = $i > 0 ? $defaultBadges[0] : '';
+                    $user->badge_active = intval($i > 0);
+
+                    if (!$user->update()) {
+                        // TODO: log error
+                    }
 
                     // Commit the transaction
                     $this->db->commit();
