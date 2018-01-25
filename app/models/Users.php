@@ -178,7 +178,11 @@ class Users extends \Phalcon\Mvc\Model
     }
 
     public function isClubMember() {
-        return time() > $this->club_expiration;
+		if ($this->club_expiration > 0) {
+			return time() > $this->club_expiration;
+		}
+		
+		return false;
     }
 
 
