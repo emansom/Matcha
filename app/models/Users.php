@@ -99,6 +99,20 @@ class Users extends \Phalcon\Mvc\Model
     /**
      *
      * @var string
+     * @Column(column="created_at", type="string", nullable=false)
+     */
+    public $created_at;
+
+    /**
+     *
+     * @var string
+     * @Column(column="updated_at", type="string", nullable=false)
+     */
+    public $updated_at;
+
+    /**
+     *
+     * @var string
      * @Column(column="sso_ticket", type="string", length=255, nullable=false)
      */
     public $sso_ticket;
@@ -146,8 +160,13 @@ class Users extends \Phalcon\Mvc\Model
     public $sound_enabled;
 
     /**
-     * Initialize method for model.
+     *
+     * @var integer
+     * @Column(column="tutorial_finished", type="integer", length=1, nullable=false)
      */
+    public $tutorial_finished;
+
+
     public function initialize()
     {
 
@@ -156,26 +175,12 @@ class Users extends \Phalcon\Mvc\Model
         $this->allowEmptyStringValues(['pool_figure', 'motto', 'console_motto', 'badge', 'sso_ticket']);
     }
 
-    /**
-     * Returns table name mapped in the model.
-     *
-     * @return string
-     */
-    public function getSource()
-    {
-        return 'users';
-    }
 
-    /**
-     * Allows to query a set of records that match the specified conditions
-     *
-     * @param mixed $parameters
-     * @return Users[]|Users|\Phalcon\Mvc\Model\ResultSetInterface
-     */
     public static function find($parameters = null)
     {
         return parent::find($parameters);
     }
+
 
     public function isClubMember() {
         if ($this->club_expiration > 0) {
@@ -192,15 +197,19 @@ class Users extends \Phalcon\Mvc\Model
     }
 
 
-    /**
-     * Allows to query the first record that match the specified conditions
-     *
-     * @param mixed $parameters
-     * @return Users|\Phalcon\Mvc\Model\ResultInterface
-     */
     public static function findFirst($parameters = null)
     {
         return parent::findFirst($parameters);
+    }
+
+    /**
+     * Returns table name mapped in the model.
+     *
+     * @return string
+     */
+    public function getSource()
+    {
+        return 'users';
     }
 
 }

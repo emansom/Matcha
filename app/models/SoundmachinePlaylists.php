@@ -24,12 +24,22 @@ class SoundmachinePlaylists extends \Phalcon\Mvc\Model
      */
     public $slot_id;
 
-    /**
-     * Initialize method for model.
-     */
+
     public function initialize()
     {
         $this->setSource("soundmachine_playlists");
+    }
+
+
+    public static function find($parameters = null)
+    {
+        return parent::find($parameters);
+    }
+
+
+    public static function findFirst($parameters = null)
+    {
+        return parent::findFirst($parameters);
     }
 
     /**
@@ -40,28 +50,6 @@ class SoundmachinePlaylists extends \Phalcon\Mvc\Model
     public function getSource()
     {
         return 'soundmachine_playlists';
-    }
-
-    /**
-     * Allows to query a set of records that match the specified conditions
-     *
-     * @param mixed $parameters
-     * @return SoundmachinePlaylists[]|SoundmachinePlaylists|\Phalcon\Mvc\Model\ResultSetInterface
-     */
-    public static function find($parameters = null)
-    {
-        return parent::find($parameters);
-    }
-
-    /**
-     * Allows to query the first record that match the specified conditions
-     *
-     * @param mixed $parameters
-     * @return SoundmachinePlaylists|\Phalcon\Mvc\Model\ResultInterface
-     */
-    public static function findFirst($parameters = null)
-    {
-        return parent::findFirst($parameters);
     }
 
 }

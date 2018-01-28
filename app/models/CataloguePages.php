@@ -26,10 +26,24 @@ class CataloguePages extends \Phalcon\Mvc\Model
 
     /**
      *
+     * @var integer
+     * @Column(column="index_visible", type="integer", length=1, nullable=false)
+     */
+    public $index_visible;
+
+    /**
+     *
      * @var string
      * @Column(column="name_index", type="string", length=255, nullable=true)
      */
     public $name_index;
+
+    /**
+     *
+     * @var string
+     * @Column(column="link_list", type="string", length=255, nullable=false)
+     */
+    public $link_list;
 
     /**
      *
@@ -62,7 +76,7 @@ class CataloguePages extends \Phalcon\Mvc\Model
     /**
      *
      * @var string
-     * @Column(column="body", type="string", length=255, nullable=true)
+     * @Column(column="body", type="string", nullable=true)
      */
     public $body;
 
@@ -87,12 +101,22 @@ class CataloguePages extends \Phalcon\Mvc\Model
      */
     public $label_extra_t;
 
-    /**
-     * Initialize method for model.
-     */
+
     public function initialize()
     {
         $this->setSource("catalogue_pages");
+    }
+
+
+    public static function find($parameters = null)
+    {
+        return parent::find($parameters);
+    }
+
+
+    public static function findFirst($parameters = null)
+    {
+        return parent::findFirst($parameters);
     }
 
     /**
@@ -103,28 +127,6 @@ class CataloguePages extends \Phalcon\Mvc\Model
     public function getSource()
     {
         return 'catalogue_pages';
-    }
-
-    /**
-     * Allows to query a set of records that match the specified conditions
-     *
-     * @param mixed $parameters
-     * @return CataloguePages[]|CataloguePages|\Phalcon\Mvc\Model\ResultSetInterface
-     */
-    public static function find($parameters = null)
-    {
-        return parent::find($parameters);
-    }
-
-    /**
-     * Allows to query the first record that match the specified conditions
-     *
-     * @param mixed $parameters
-     * @return CataloguePages|\Phalcon\Mvc\Model\ResultInterface
-     */
-    public static function findFirst($parameters = null)
-    {
-        return parent::findFirst($parameters);
     }
 
 }

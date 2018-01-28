@@ -63,18 +63,28 @@ class RoomsModels extends \Phalcon\Mvc\Model
 
     /**
      *
-     * @var integer
-     * @Column(column="usertype", type="integer", length=11, nullable=false)
+     * @var string
+     * @Column(column="trigger_class", type="string", nullable=false)
      */
-    public $usertype;
+    public $trigger_class;
 
-    /**
-     * Initialize method for model.
-     */
+
     public function initialize()
     {
 
         $this->setSource("rooms_models");
+    }
+
+
+    public static function find($parameters = null)
+    {
+        return parent::find($parameters);
+    }
+
+
+    public static function findFirst($parameters = null)
+    {
+        return parent::findFirst($parameters);
     }
 
     /**
@@ -85,28 +95,6 @@ class RoomsModels extends \Phalcon\Mvc\Model
     public function getSource()
     {
         return 'rooms_models';
-    }
-
-    /**
-     * Allows to query a set of records that match the specified conditions
-     *
-     * @param mixed $parameters
-     * @return RoomsModels[]|RoomsModels|\Phalcon\Mvc\Model\ResultSetInterface
-     */
-    public static function find($parameters = null)
-    {
-        return parent::find($parameters);
-    }
-
-    /**
-     * Allows to query the first record that match the specified conditions
-     *
-     * @param mixed $parameters
-     * @return RoomsModels|\Phalcon\Mvc\Model\ResultInterface
-     */
-    public static function findFirst($parameters = null)
-    {
-        return parent::findFirst($parameters);
     }
 
 }

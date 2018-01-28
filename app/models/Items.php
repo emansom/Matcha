@@ -76,11 +76,35 @@ class Items extends \Phalcon\Mvc\Model
     public $custom_data;
 
     /**
-     * Initialize method for model.
+     *
+     * @var string
+     * @Column(column="created_at", type="string", nullable=false)
      */
+    public $created_at;
+
+    /**
+     *
+     * @var string
+     * @Column(column="updated_at", type="string", nullable=false)
+     */
+    public $updated_at;
+
+
     public function initialize()
     {
         $this->setSource("items");
+    }
+
+
+    public static function find($parameters = null)
+    {
+        return parent::find($parameters);
+    }
+
+
+    public static function findFirst($parameters = null)
+    {
+        return parent::findFirst($parameters);
     }
 
     /**
@@ -91,28 +115,6 @@ class Items extends \Phalcon\Mvc\Model
     public function getSource()
     {
         return 'items';
-    }
-
-    /**
-     * Allows to query a set of records that match the specified conditions
-     *
-     * @param mixed $parameters
-     * @return Items[]|Items|\Phalcon\Mvc\Model\ResultSetInterface
-     */
-    public static function find($parameters = null)
-    {
-        return parent::find($parameters);
-    }
-
-    /**
-     * Allows to query the first record that match the specified conditions
-     *
-     * @param mixed $parameters
-     * @return Items|\Phalcon\Mvc\Model\ResultInterface
-     */
-    public static function findFirst($parameters = null)
-    {
-        return parent::findFirst($parameters);
     }
 
 }
