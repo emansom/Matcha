@@ -274,6 +274,19 @@ CREATE TABLE `rank_fuserights` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
+-- Table structure for table `rare_cycle`
+--
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `rare_cycle` (
+  `sale_code` varchar(255) NOT NULL,
+  `reuse_time` bigint(11) NOT NULL,
+  PRIMARY KEY (`sale_code`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
 -- Table structure for table `rooms`
 --
 
@@ -338,7 +351,7 @@ CREATE TABLE `rooms_models` (
   `door_z` double NOT NULL,
   `door_dir` int(11) DEFAULT 2,
   `heightmap` text NOT NULL,
-  `usertype` int(11) NOT NULL DEFAULT 1,
+  `trigger_class` enum('flat_trigger','battleball_lobby_trigger','snowstorm_lobby_trigger','space_cafe_trigger','habbo_lido_trigger','rooftop_rumble_trigger','diving_deck_trigger','none') CHARACTER SET utf8 NOT NULL,
   PRIMARY KEY (`id`),
   KEY `id` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=89 DEFAULT CHARSET=utf8mb4;
@@ -597,5 +610,10 @@ INSERT INTO `schema_migrations` (version) VALUES
   ('20180811003742'),
   ('20180811023946'),
   ('20180813211220'),
-  ('20180814105730');
+  ('20180814105730'),
+  ('20180815123433'),
+  ('20180815133155'),
+  ('20180816105820'),
+  ('20180817093645'),
+  ('20180818032804');
 UNLOCK TABLES;
