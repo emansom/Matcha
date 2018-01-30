@@ -22,10 +22,6 @@ class ControllerBase extends Controller
                     'bind' => [
                         1 => $this->session->get('user_id')
                     ],
-                    'cache' => [
-                        'key' => 'user-' . $this->session->getId(),
-                        'lifetime' => 3600
-                    ],
                     'limit' => 1
                 ]
             );
