@@ -1,0 +1,10 @@
+# Ignore everything
+**
+
+# Don't ignore app and public directory
+!/app
+!/public
+
+# Don't ignore composer files
+!/composer.json
+!/composer.lock

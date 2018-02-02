@@ -1,7 +1,7 @@
 version: '3.2'
 services:
     kepler:
-        image: ewout/kepler:1.0.78
+        image: ewout/kepler:1.1.4
         restart: always
         environment:
             KEPLER_BIND: 0.0.0.0
@@ -23,7 +23,7 @@ services:
             - "12321:12321"
 
     matcha:
-        image: ewout/matcha:0.1.5
+        image: ewout/matcha:0.1.6
         restart: always
         environment:
             MYSQL_HOST: mariadb
@@ -42,9 +42,9 @@ services:
             - redis
             - kepler
         expose:
-            - "12316"
+            - "9000"
         ports:
-            - "127.0.0.1:12316:12316"
+            - "127.0.0.1:12316:9000"
 
     redis:
         image: redis:4
