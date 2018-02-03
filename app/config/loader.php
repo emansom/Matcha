@@ -26,7 +26,7 @@ $loader->registerClasses(
  */
 $loader->registerFiles(
     [
-        APP_PATH . '/vendor/autoload.php'
+        BASE_PATH . '/vendor/autoload.php'
     ]
 );
 
