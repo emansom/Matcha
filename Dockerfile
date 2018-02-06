@@ -15,5 +15,3 @@ FROM ewout/phalconphp
 COPY --from=vendor /app/vendor /var/www/html/vendor
 COPY public /var/www/html/public
 COPY app /var/www/html/app
-
-RUN chown -hR www-data:www-data /var/www/html
