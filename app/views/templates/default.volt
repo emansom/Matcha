@@ -248,7 +248,7 @@
           <div id="footer">
               <div id="footer-top"><div id="footer-content">
                   <p>
-                      Powered by <a href="https://github.com/emansom/Matcha">Matcha</a>zz
+                      Powered by <a href="https://github.com/emansom/Matcha">Matcha</a>
                   </p>
                   <br />
                                   <p>

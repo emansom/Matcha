@@ -6,8 +6,8 @@
 
 {% block content %}
         <div id="page-headline">
-    <div id="page-headline-breadcrums"><a href="/web/20071021033819/http://www.habbo.co.uk:80/">Home</a> &raquo; {{ shortname }} Club</div>
-    <div id="page-headline-text">{{ shortname }} Club</div>
+    <div id="page-headline-breadcrums"><a href="/">Home</a> &raquo; <a href="/club">Club</a> &raquo; Benefits</div>
+    <div id="page-headline-text">Club Benefits</div>
 </div>
 
 <table border="0" cellpadding="0" cellspacing="0" width="100%" class="content-2col">
@@ -43,7 +43,7 @@
     <div class="v3box-bottom"><div></div></div>
 </div>
 <div class="v3box orange">
-    <div class="v3box-top"><h3>For your {{ shortname }} Home...</h3></div>
+    <div class="v3box-top"><h3>For your Personal Page...</h3></div>
     <div class="v3box-content">
         <div class="v3box-body">
 
@@ -96,11 +96,11 @@
     </div>
 </div>
 <div class="v3box orange">
-    <div class="v3box-top"><h3>JOIN {{ shortname|upper }} CLUB!</h3></div>
+    <div class="v3box-top"><h3>JOIN THE CLUB!</h3></div>
     <div class="v3box-content">
         <div class="v3box-body">
 
-<img vspace="10" hspace="10" border="0" align="left" src="https://web.archive.org/web/20071021033819im_/http://integration.jumbo.sulake.com/images/piccolo_happy.gif" alt=""><br><br><span style="font-weight: bold;">Join {{ shortname }} Club, the VIP members-only club, and enjoy exclusive room layouts, furni, priority access, cool clothes and commands for just 30 Credits a month! </span><br><br><a href="/web/20071021033819/http://www.habbo.co.uk:80/club/join" target="_self">Join now &gt;&gt;</a><br>
+<img vspace="10" hspace="10" border="0" align="left" src="/web-gallery/images/piccolo_happy.gif" alt=""><br><br><span style="font-weight: bold;">Buy a Club membership and enjoy exclusive room layouts, furni, priority access, cool clothes and commands for just 30 Credits a month! </span><br><br><a href="/web/20071021033819/http://www.habbo.co.uk:80/club/join" target="_self">Join now &gt;&gt;</a><br>
             <div class="clear"></div>
         </div>
     </div>

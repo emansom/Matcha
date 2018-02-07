@@ -6,7 +6,7 @@
 
 {% block content %}
 <div id="page-headline">
-    <div id="page-headline-breadcrums"><a href="/">Home</a> &raquo; Join or Extend Membership</div>
+    <div id="page-headline-breadcrums"><a href="/">Home</a> &raquo; <a href="/club">Club</a> &raquo; Join or Extend Membership</div>
     <div id="page-headline-text">Join or Extend Membership</div>
 </div>
 

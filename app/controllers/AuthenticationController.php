@@ -46,7 +46,7 @@ class AuthenticationController extends ControllerBase
             ]);
 
             // If a user is found, check if password matches
-            if ($user && $this->security->checkHash($password, $user->password)) {
+            if ($user != null && $this->security->checkHash($password, $user->password)) {
                 // Check if we need a rehash
                 if ($this->security->needsRehash($user->password)) {
                     $user->password = $this->security->hash($password);

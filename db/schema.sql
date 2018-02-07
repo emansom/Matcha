@@ -82,6 +82,52 @@ CREATE TABLE `external_texts` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
+-- Table structure for table `games_maps`
+--
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `games_maps` (
+  `type` enum('battleball','snowstorm') CHARACTER SET utf8mb4 NOT NULL DEFAULT 'battleball',
+  `id` enum('6','5','4','3','2','1') CHARACTER SET utf8mb4 NOT NULL DEFAULT '1',
+  `heightmap` mediumtext CHARACTER SET utf8mb4 NOT NULL,
+  `tile_map` mediumtext CHARACTER SET utf8mb4 NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `games_player_spawns`
+--
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `games_player_spawns` (
+  `type` enum('battleball','snowstorm') CHARACTER SET utf8mb4 NOT NULL DEFAULT 'battleball',
+  `map_id` enum('6','5','4','3','2','1') CHARACTER SET utf8mb4 NOT NULL,
+  `team_id` enum('3','2','1','0') CHARACTER SET utf8mb4 NOT NULL,
+  `x` int(11) NOT NULL,
+  `y` int(11) NOT NULL,
+  `z` enum('9','8','7','6','5','4','3','2','1','0') CHARACTER SET utf8mb4 NOT NULL DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `games_ranks`
+--
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `games_ranks` (
+  `id` int(5) NOT NULL AUTO_INCREMENT,
+  `type` enum('battleball','snowstorm') CHARACTER SET utf8mb4 NOT NULL DEFAULT 'battleball',
+  `title` varchar(50) CHARACTER SET utf8mb4 NOT NULL,
+  `min_points` int(10) NOT NULL,
+  `max_points` int(10) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
 -- Table structure for table `housekeeping_audit_log`
 --
 
@@ -118,7 +164,7 @@ CREATE TABLE `items` (
   `updated_at` datetime NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   PRIMARY KEY (`id`),
   UNIQUE KEY `id` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4010 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=7829 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -212,7 +258,7 @@ CREATE TABLE `messenger_messages` (
   `date` bigint(20) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=537 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=1571 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -312,7 +358,7 @@ CREATE TABLE `rooms` (
   `updated_at` datetime NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   PRIMARY KEY (`id`),
   UNIQUE KEY `id` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=1248 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=1393 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -443,7 +489,7 @@ CREATE TABLE `soundmachine_songs` (
   `data` text COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
   `burnt` tinyint(1) NOT NULL DEFAULT 0,
   UNIQUE KEY `id` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=52 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=92 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -487,11 +533,14 @@ CREATE TABLE `users` (
   `badge` char(3) NOT NULL DEFAULT '',
   `badge_active` tinyint(1) NOT NULL DEFAULT 1,
   `allow_stalking` tinyint(1) NOT NULL DEFAULT 1,
+  `allow_friend_requests` tinyint(1) NOT NULL DEFAULT 1,
   `sound_enabled` tinyint(1) NOT NULL DEFAULT 1,
   `tutorial_finished` tinyint(1) NOT NULL DEFAULT 0,
+  `battleball_points` int(11) NOT NULL DEFAULT 0,
+  `snowstorm_points` int(11) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=822 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=1141 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -615,5 +664,11 @@ INSERT INTO `schema_migrations` (version) VALUES
   ('20180815133155'),
   ('20180816105820'),
   ('20180817093645'),
-  ('20180818032804');
+  ('20180818032804'),
+  ('20180826011235'),
+  ('20180826152253'),
+  ('20180901071104'),
+  ('20180901230642'),
+  ('20180914213940'),
+  ('20180915051953');
 UNLOCK TABLES;

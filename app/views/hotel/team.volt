@@ -7,7 +7,9 @@
 {% block content %}
 <div id="main-content">
     <div id="page-headline">
-        <div id="page-headline-breadcrums"> <a href="/web/20071014031643/http://habbo.co.uk:80/">Home</a> » <a href="/web/20071014031643/http://habbo.co.uk:80/hotel">New?</a> » Staff - Managers and Moderators </div>
+        <div id="page-headline-breadcrums">
+            <a href="/">Home</a> &raquo; <a href="/hotel">New?</a> &raquo; Staff - Managers and Moderators
+        </div>
         <div id="page-headline-text">Staff - Managers and Moderators</div>
     </div>
     <table border="0" cellpadding="0" cellspacing="0" width="100%" class="content-2col">
@@ -55,10 +57,10 @@
                                         <tr>
                                             <td width="978">
                                                 <p align="left" style="margin-top: 0pt; margin-bottom: 0pt;"><b>Alex</b></p>
-                                                <p align="left" style="margin-top: 0pt; margin-bottom: 0pt;">Hello, my name is Alex and my online alias is Quackster. I'm 20 years old and have been in the Habbo development scene since 2009. I'm the founder and the main server developer of Kepler.<br></p>
+                                                <p align="left" style="margin-top: 0pt; margin-bottom: 0pt;">Alex is the main server developer behind Project Kepler, powering oldHabbo. If you find any bugs in the server, usually Alex is responsible for them, so report all issues to him, and don't be shy, he'll only bite a little bit!<br></p>
                                             </td>
                                             <td>
-                                                <p align="left" style="margin-top: 0pt; margin-bottom: 0pt;"> <img width="64" height="95" border="0" id="galleryImage" alt="Heidster" src="/c_images/album1337/Alex.png"></p>
+                                                <p align="left" style="margin-top: 0pt; margin-bottom: 0pt;"> <img width="69" height="102" border="0" id="galleryImage" alt="Heidster" src="/c_images/album1337/Alex.png"></p>
                                             </td>
                                         </tr>
                                     </tbody>
@@ -79,10 +81,11 @@
                                 <tbody>
                                     <tr>
                                         <td>
-                                            <script language="JavaScript" type="text/javascript">
+                                            {# <script language="JavaScript" type="text/javascript">
                                                 <!--   var awrz_rnd = Math.floor(Math.random()*99999999999);   var awrz_protocol = location.protocol.indexOf('https')>-1?'https:':'http:';   if (!document.phpAds_used) document.phpAds_used = ',';   document.write ("<" + "script language='JavaScript' type='text/javascript' src='");   document.write (awrz_protocol+"//web.archive.org/web/20071014031643/http://ads.habbogroup.com/max/adjs.php?n=a452162c");   document.write ("&zoneid=1094");   document.write ("&exclude=" + document.phpAds_used);   document.write ("&loc=" + escape(window.location));   if (document.referrer)      document.write ("&referer=" + escape(document.referrer));   document.write ('&r=' + awrz_rnd);   document.write ("&ct0=" + escape(document.phpAds_ct0));   document.write ("'><" + "/script>");//-->
                                             </script>
-                                            <script language="JavaScript" type="text/javascript" src="https://web.archive.org/web/20071014031643/http://ads.habbogroup.com/max/adjs.php?n=a452162c&amp;zoneid=1094&amp;exclude=,&amp;loc=https%3A//web.archive.org/web/20071014031643/http%3A//habbo.co.uk%3A80/hotel/uk_team.html&amp;referer=https%3A//web.archive.org/web/20070322212057/http%3A//www.habbo.co.uk%3A80/hotel/uk_team.html&amp;r=54205182824&amp;ct0=undefined"></script><noscript><a href="https://web.archive.org/web/20071014031643/http://ads.habbogroup.com/max/adclick.php?n=a452162c" target="_blank"><img src="https://web.archive.org/web/20071014031643im_/http://ads.habbogroup.com/max/adview.php?zoneid=1094&amp;n=a452162c" border="0" alt=""></a></noscript></td>
+                                            <script language="JavaScript" type="text/javascript" src="https://web.archive.org/web/20071014031643/http://ads.habbogroup.com/max/adjs.php?n=a452162c&amp;zoneid=1094&amp;exclude=,&amp;loc=https%3A//web.archive.org/web/20071014031643/http%3A//habbo.co.uk%3A80/hotel/uk_team.html&amp;referer=https%3A//web.archive.org/web/20070322212057/http%3A//www.habbo.co.uk%3A80/hotel/uk_team.html&amp;r=54205182824&amp;ct0=undefined"></script><noscript><a href="https://web.archive.org/web/20071014031643/http://ads.habbogroup.com/max/adclick.php?n=a452162c" target="_blank"><img src="https://web.archive.org/web/20071014031643im_/http://ads.habbogroup.com/max/adview.php?zoneid=1094&amp;n=a452162c" border="0" alt=""></a></noscript> #}
+                                        </td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -104,12 +107,12 @@
                                     <tr>
                                         <td class="ad-content-ml"></td>
                                         <td class="ad-content-m" align="center" valign="top">
-                                            <script language="JavaScript" type="text/javascript">
+                                            {# <script language="JavaScript" type="text/javascript">
                                                 <!--   var awrz_rnd = Math.floor(Math.random()*99999999999);   var awrz_protocol = location.protocol.indexOf('https')>-1?'https:':'http:';   if (!document.phpAds_used) document.phpAds_used = ',';   document.write ("<" + "script language='JavaScript' type='text/javascript' src='");   document.write (awrz_protocol+"//web.archive.org/web/20071014031643/http://ads.habbohotel.co.uk/max/adjs.php?n=a65b6b4d");   document.write ("&zoneid=114");   document.write ("&exclude=" + document.phpAds_used);   document.write ("&loc=" + escape(window.location));   if (document.referrer)      document.write ("&referer=" + escape(document.referrer));   document.write ('&r=' + awrz_rnd);   document.write ("&ct0=" + escape(document.phpAds_ct0));   document.write ("'><" + "/script>");//-->
                                             </script>
-                                            <script language="JavaScript" type="text/javascript" src="https://web.archive.org/web/20071014031643/http://ads.habbohotel.co.uk/max/adjs.php?n=a65b6b4d&amp;zoneid=114&amp;exclude=,&amp;loc=https%3A//web.archive.org/web/20071014031643/http%3A//habbo.co.uk%3A80/hotel/uk_team.html&amp;referer=https%3A//web.archive.org/web/20070322212057/http%3A//www.habbo.co.uk%3A80/hotel/uk_team.html&amp;r=58412909401&amp;ct0=undefined"></script><noscript><a href="https://web.archive.org/web/20071014031643/http://ads.habbohotel.co.uk/max/adclick.php?n=a65b6b4d" target="_blank"><img src="https://web.archive.org/web/20071014031643im_/http://ads.habbohotel.co.uk/max/adview.php?zoneid=114&amp;n=a65b6b4d" border="0" alt=""></a></noscript></td>
-                                        <td
-                                            class="ad-content-mr"></td>
+                                            <script language="JavaScript" type="text/javascript" src="https://web.archive.org/web/20071014031643/http://ads.habbohotel.co.uk/max/adjs.php?n=a65b6b4d&amp;zoneid=114&amp;exclude=,&amp;loc=https%3A//web.archive.org/web/20071014031643/http%3A//habbo.co.uk%3A80/hotel/uk_team.html&amp;referer=https%3A//web.archive.org/web/20070322212057/http%3A//www.habbo.co.uk%3A80/hotel/uk_team.html&amp;r=58412909401&amp;ct0=undefined"></script><noscript><a href="https://web.archive.org/web/20071014031643/http://ads.habbohotel.co.uk/max/adclick.php?n=a65b6b4d" target="_blank"><img src="https://web.archive.org/web/20071014031643im_/http://ads.habbohotel.co.uk/max/adview.php?zoneid=114&amp;n=a65b6b4d" border="0" alt=""></a></noscript> #}
+                                        </td>
+                                        <td class="ad-content-mr"></td>
                 </tr>
                 <tr>
                     <td class="ad-content-bl"></td>
