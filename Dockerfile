@@ -30,7 +30,7 @@ RUN set -xe; \
     \
     pecl install apcu; \
     \
-    docker-php-ext-enable protobuf grpc redis; \
+    docker-php-ext-enable protobuf grpc redis apcu; \
     \
     apk del .matcha-build-deps
 
