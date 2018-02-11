@@ -23,13 +23,13 @@ RUN set -xe; \
     \
     docker-php-ext-install pdo_mysql intl; \
     \
-    pecl install protobuf; \
+    pecl install protobuf-3.6.1; \
     \
-    pecl install grpc; \
+    pecl install grpc-1.15.0; \
     \
-    pecl install redis; \
+    pecl install redis-4.1.1; \
     \
-    pecl install apcu; \
+    pecl install apcu-5.1.12; \
     \
     docker-php-ext-enable protobuf grpc redis apcu; \
     \
