@@ -6,7 +6,7 @@ use Phalcon\Mvc\View\Engine\Php as PhpEngine;
 use Phalcon\Mvc\Url as UrlResolver;
 use Phalcon\Mvc\View\Engine\Volt as VoltEngine;
 use Phalcon\Mvc\Model\Metadata\Apcu as ApcMetaData;
-use Phalcon\Session\Adapter\Files as SessionAdapter;
+use Phalcon\Session\Adapter\Redis as SessionAdapter;
 use Phalcon\Flash\Direct as Flash;
 use Phalcon\Mvc\Dispatcher as MvcDispatcher;
 use Phalcon\Events\Event;
@@ -217,9 +217,7 @@ $di->set('cache', function() {
         $fastFrontend,
         [
             'host'       => $config->redis->host,
-            'port'       => $config->redis->port,
-            'persistent' => true,
-            'index'      => 1
+            'port'       => $config->redis->port
         ]
     );
 
@@ -373,7 +371,11 @@ $di->set('flash', function () {
  * Start the session the first time some component request the session service
  */
 $di->setShared('session', function () {
-    $session = new SessionAdapter();
+    $config = $this->getConfig();
+    $session = new SessionAdapter([
+        'host' => $config->redis->host,
+        'port' => $config->redis->port
+    ]);
     $session->setName('matcha_session');
     $session->start();
     return $session;

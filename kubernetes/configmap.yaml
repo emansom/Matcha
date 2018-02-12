@@ -1,0 +1,16 @@
+# Use config map for non-secret configuration data
+
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: matcha-config
+data:
+  MYSQL_HOST: mariadb
+  MYSQL_PORT: 3306
+  MYSQL_USER: kepler
+  MYSQL_DATABASE: kepler
+  REDIS_HOST: redis
+  REDIS_PORT: 6379
+  MATCHA_EXTERNAL_HOST: matcha.localhost
+  KEPLER_INTERNAL_HOST: kepler
+  KEPLER_RCON_PORT: 12309

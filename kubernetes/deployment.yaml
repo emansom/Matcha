@@ -1,0 +1,52 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: matcha
+  labels:
+    app: matcha
+spec:
+  type: NodePort
+  ports:
+    - port: 9000
+      targetPort: 9000
+      protocol: TCP
+      name: matcha
+  selector:
+    app: matcha
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: matcha
+  labels:
+    app: matcha
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: matcha
+  template:
+    metadata:
+      labels:
+        app: matcha
+    spec:
+      containers:
+      - name: matcha
+        image: ewout/matcha
+        envFrom:
+        - configMapRef:
+            name: matcha-config
+        - secretRef:
+            name: matcha-secrets
+        ports:
+        - containerPort: 9000
+      # Running migrations when MariaDB comes online
+      initContainers:
+      - name: init-matcha
+        image: ewout/matcha
+        envFrom:
+        - configMapRef:
+            name: matcha-config
+        - secretRef:
+            name: matcha-secrets
+        command: ['sh', '-c', 'set -xe; until nslookup mariadb; do echo waiting for MariaDB; sleep 1; done; vendor/bin/phalcon.php migration run --log-in-db']

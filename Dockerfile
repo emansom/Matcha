@@ -35,6 +35,16 @@ RUN set -xe; \
     \
     apk del .matcha-build-deps
 
+# Tune the PHP-FPM configuration for more security
+RUN set -xe; \
+    \
+    # Disable file uploads as Matcha doesn't use them (reducing attack surface is always a good idea)
+    { \
+        echo '[www]'; \
+        echo 'php_admin_flag[file_uploads] = off'; \
+        echo 'php_admin_value[post_max_size] = 1M'; \
+    } | tee /usr/local/etc/php-fpm.d/disable-uploads.conf
+
 # Copy dependencies from other container to ours
 COPY --from=vendor /app/vendor /var/www/html/vendor
 

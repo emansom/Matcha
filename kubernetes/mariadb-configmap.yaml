@@ -1,0 +1,11 @@
+# Use config map for non-secret configuration data
+
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: matcha-config
+data:
+    MYSQL_ROOT_PASSWORD: superverysecret
+    MYSQL_DATABASE: kepler
+    MYSQL_USER: kepler
+    MYSQL_PASSWORD: verysecret

@@ -17,6 +17,16 @@
     "minimum-stability": "alpha",
     "require": {
         "whichbrowser/parser": "^2.0",
-        "ewout/retrorcon": "^1.0"
+        "ewout/retrorcon": "^1.0",
+        "jeremykendall/php-domain-parser": "^5.3",
+        "php": "^7.2",
+        "ext-phalcon": "^3.4",
+        "ext-redis": "^4.1",
+        "ext-apcu": "^5.1",
+        "ext-pdo_mysql": "^7.2",
+        "ext-json": "^1.6",
+        "ext-PDO": "^7.2",
+        "ext-intl": "^1.1",
+        "ext-sodium": "^7.2"
     }
 }

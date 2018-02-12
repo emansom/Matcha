@@ -1,0 +1,35 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  labels:
+    service: mariadb
+  name: mariadb
+spec:
+  replicas: 1
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        service: mariadb
+    spec:
+      containers:
+      - name: mariadb
+        image: mariadb:10
+        envFrom:
+        - configMapRef:
+            name: mariadb-config
+        - secretRef:
+            name: mariadb-secrets
+        ports:
+        - containerPort: 3306
+        resources: {}
+        volumeMounts:
+        - mountPath: /var/lib/mysql
+          name: mariadb-data
+      restartPolicy: Always
+      volumes:
+      - name: mariadb-data
+        persistentVolumeClaim:
+          claimName: mariadb-data
+status: {}
