@@ -68,33 +68,33 @@
             <table id="topbar">
                 <tbody>
                     <tr>
-                      <td id="topbar-count">{{ onlineCount }} Habbos in het Hotel</td>
+                      <td id="topbar-count">{{ onlineCount }} members online</td>
 
                       <td align="center" id="topbar-menu">
                         <ul>
                           <li class="selected" id="myhabbo" onmouseover="switchTab('myhabbo')">
                             <div>
-                              <a class="topbar-menu-link" href="/tab/myhabbo" onclick="return false;">Mijn Habbo</a>
+                              <a class="topbar-menu-link" href="/tab/myhabbo" onclick="return false;">My account</a>
                             </div>
                           </li>
 
-                          <li id="mycredits" onmouseout="fadeTab('myhabbo')" onmouseover="if (switchTab('mycredits') &amp;&amp; document.habboLoggedIn) updateCredits()">
+                          <li id="mycredits" onmouseout="fadeTab('myhabbo')" onmouseover="if (switchTab('mycredits') && document.habboLoggedIn) updateCredits()">
                             <div>
-                              <a class="topbar-menu-link" href="/tab/credits" onclick="return false;">Mijn Credits</a>
+                              <a class="topbar-menu-link" href="/tab/credits" onclick="return false;">My Credits</a>
                             </div>
                           </li>
 
-                          <li id="habboclub" onmouseout="fadeTab('myhabbo')" onmouseover="if (switchTab('habboclub') &amp;&amp; document.habboLoggedIn) updateHabboClub()">
+                          <li id="habboclub" onmouseout="fadeTab('myhabbo')" onmouseover="if (switchTab('habboclub') && document.habboLoggedIn) updateHabboClub()">
                             <div>
-                              <a class="topbar-menu-link" href="/tab/habboclub" onclick="return false;">Habbo Club</a>
+                              <a class="topbar-menu-link" href="/tab/habboclub" onclick="return false;">Club</a>
                             </div>
                           </li>
                         </ul>
                       </td>
 
                       <td class="notloggedin" id="topbar-status">
-                        <!-- Welkom <b>PEjump<b>! -->
-                        Niet ingelogd
+                        <!-- Welcome <b>PEjump<b>! -->
+                        Not logged in
                       </td>
                     </tr>
                 </tbody>
@@ -107,14 +107,14 @@
                   <img alt="" class="tabmenu-image" height="85" src="/web-gallery/images/top_bar/myhabbo_frank.gif" width="60">
 
                   <h3>
-                    Welkom! Log in of maak een account
+                    Welcome! Please sign in or register
                   </h3>
 
                   <div class="tabmenu-inner-content">
                     <p>
                       <a class="colorlink orange" href="/login">
                         <span>
-                          Registreren is gratis!
+                          Register, it's free!
                         </span>
                       </a>
                     </p>
@@ -122,7 +122,7 @@
                     <p>
                       <a class="colorlink orange last" href="/login">
                         <span>
-                          Log in
+                          Sign in
                         </span>
                       </a>
                     </p>
