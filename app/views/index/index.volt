@@ -62,7 +62,7 @@ The <span style="font-weight: bold;">Sports </span>range is here - catch it whil
 <div id="newsbox">
 	<div id="newsbox-header">
 		<h2>What's New</h2>
-		<a href="/web/20070329131433/http://www.habbo.co.uk:80/news/rss.xml"><img src="https://web.archive.org/web/20070329131433im_/http://images.habbohotel.co.uk/web/web-3.0.1-b19/images/promo_area/feed-icon.gif" alt="" border="0"></a>
+		<a href="/web/20070329131433/http://www.habbo.co.uk:80/news/rss.xml"><img src="/c_images/images/promo_area/feed-icon.gif" alt="" border="0"></a>
 	</div>
 	<div id="newsbox-text">
 		<div class="newsitem">
