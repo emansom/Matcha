@@ -1,3 +1,8 @@
+{% extends 'templates/default.volt' %}
+
+{% block title %}Page not found{% endblock %}
+
+{% block content %}
 <div id="page-headline">
 <div id="page-headline-breadcrums">
 </div>
@@ -90,3 +95,4 @@
 </tbody></table>
 
 <br style="clear: both;">
+{% endblock %}

@@ -194,4 +194,9 @@ class PageElements extends Component
     {
 
     }
+
+    public function getFooterText()
+    {
+        return $this->config->application->footerText;
+    }
 }

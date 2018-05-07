@@ -4,6 +4,7 @@ class HotelController extends ControllerBase
 {
     public function indexAction()
     {
+        
     }
 
     public function welcomeAction()
