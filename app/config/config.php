@@ -9,7 +9,7 @@ defined('APP_PATH') || define('APP_PATH', BASE_PATH . '/app');
 return new \Phalcon\Config([
     'database' => [
         'adapter'     => 'Sqlite',
-        'dbname'      => '../Kepler/Kepler.db'
+        'dbname'      => BASE_PATH . '/../Kepler/Kepler.db'
     ],
     'application' => [
         'appDir'           => APP_PATH . '/',

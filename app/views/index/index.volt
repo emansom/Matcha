@@ -107,11 +107,11 @@ The <span style="font-weight: bold;">Sports </span>range is here - catch it whil
 				<tr>
 					<td valign="top" style="width: 215px; height: 400px;" class="habboPage-col">
 <div class="v3box orange light">
-	<div class="v3box-top"><h3>Welcome To Habbo</h3></div>
+	<div class="v3box-top"><h3>Welcome!</h3></div>
 
 	<div class="v3box-content"><div class="v3box-body">
 
-<img vspace="0" hspace="0" border="0" align="left" src="/c_images/album1282/frank_welcome1.gif" alt="">Habbo is a virtual community where you can hang out with your friends, meet new ones, create and decorate your own personal space and take part in a wide variety of games, activities and competitions.<br><br><a href="https://web.archive.org/web/20070329131433/http://www.habbo.co.uk/client" target="client" onclick="openOrFocusHabbo(this); return false;">Check In Now!</a><br><br><a target="_self" href="https://web.archive.org/web/20070329131433/http://www.habbo.co.uk/hotel/welcome_to_habbo_hotel/">New to Habbo?</a><br><br>
+<img vspace="0" hspace="0" border="0" align="left" src="/c_images/album1282/frank_welcome1.gif" alt="">This is an testing ground for the new emulation server being build, <a href="https://github.com/Quackster/Kepler">Kepler</a>, feel free to create and decorate your own personal space and take part in a wide variety of games, activities and competitions. If you encounter any bugs, please report them <a href="http://forum.ragezone.com/f333/some-bug-report-thread-for-kepler/">here</a>.<br><br><a href="https://web.archive.org/web/20070329131433/http://www.habbo.co.uk/client" target="client" onclick="openOrFocusHabbo(this); return false;">Check in now!</a><br><br><a target="_self" href="https://web.archive.org/web/20070329131433/http://www.habbo.co.uk/hotel/welcome_to_habbo_hotel/">New here?</a><br><br>
 		<div class="clear"></div></div>
 	</div>
 	<div class="v3box-bottom"><div></div></div>
@@ -210,11 +210,11 @@ The <span style="font-weight: bold;">Sports </span>range is here - catch it whil
 	<div class="v3box-bottom"><div></div></div>
 </div>
 <div class="v3box green light">
-	<div class="v3box-top"><h3>Habbo Homes</h3></div>
+	<div class="v3box-top"><h3>Homepages</h3></div>
 
 	<div class="v3box-content"><div class="v3box-body">
 
-<img vspace="0" hspace="0" border="0" align="right" src="/c_images/album1356/Habbo_sitting_on_notes_003.gif" alt="">Habbo Homes, your own fully customizable page in Habbo - now with a funky guestbook!<br><br><ul>
+<img vspace="0" hspace="0" border="0" align="right" src="/c_images/album1356/Habbo_sitting_on_notes_003.gif" alt="">Homepages, your own fully customizable page - now with a funky guestbook!<br><br><ul>
 	<li><a href="/web/20070329131433/http://www.habbo.co.uk:80/home/stooka">stooka</a></li>
 	<li><a href="/web/20070329131433/http://www.habbo.co.uk:80/home/stacey-magic">stacey-magic</a></li>
 	<li><a href="/web/20070329131433/http://www.habbo.co.uk:80/home/CJVX">CJVX</a></li>
@@ -258,7 +258,7 @@ The <span style="font-weight: bold;">Sports </span>range is here - catch it whil
 <thead>
 <tr class="scores-header">
 	<th class="scores-position"></th>
-	<th class="scores-name">Habbo name</th>
+	<th class="scores-name">Username</th>
 	<th class="scores-total">Score</th>
 </tr>
 </thead>
