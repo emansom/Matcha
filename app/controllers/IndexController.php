@@ -4,7 +4,7 @@ class IndexController extends ControllerBase
 {
     public function indexAction()
     {
-        $this->view->pick('index/index');
+        $this->view->pick('home');
     }
 
     public function notFoundAction()
@@ -38,6 +38,11 @@ class IndexController extends ControllerBase
             // Update in view
             $this->view->user->sso_ticket = $token;
         }
+
+        // Assign gamedata
+        $this->view->dcr = $this->config->client->dcr;
+        $this->view->external_variables = $this->config->client->external_variables;
+        $this->view->external_texts = $this->config->client->external_texts;
 
         $this->view->pick('client');
     }

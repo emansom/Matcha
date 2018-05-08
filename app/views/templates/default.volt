@@ -120,7 +120,7 @@
 
                   <div class="tabmenu-inner-content">
                     <p>
-                      <a class="colorlink orange" href="/login">
+                      <a class="colorlink orange" href="/register">
                         <span>
                           Register, it's free!
                         </span>
@@ -197,7 +197,7 @@
                             <a href="<?php echo("$sitepath"); ?>profile" class="arrow"><span>Edit your settings</span></a>
                         </p>
                         <p>
-                            <a href="<?php echo("$sitepath"); ?>account/logout" class="colorlink orange last"><span>Sign Out</span></a>
+                            <a href="{{ url('/account/logout') }}" class="colorlink orange last"><span>Sign Out</span></a>
                         </p>
                     </div>
                 </div>
