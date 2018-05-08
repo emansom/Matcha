@@ -50,15 +50,13 @@ class RemoteConnection extends Injectable
             return $cachedCount;
         }
 
-        if (!!$this->_connect()) {
+        if ($this->_connect() === false) {
             return 0;
         }
 
         fwrite($this->_connection, RCONRequestID::OnlineCount);
         $onlineCount = intval(fgets($this->_connection, 10));
 
-        // Valid for half a minute
-        // TODO: make this configurable
         $this->cache->save('online-count', $onlineCount, $this->_ttl);
 
         return $onlineCount;
@@ -72,10 +70,10 @@ class RemoteConnection extends Injectable
             return $cachedPing;
         }
 
-        $conn = $this->_connect();
-        $this->cache->save('emulator-ping', !!$conn, $this->_ttl);
+        $online = $this->_connect() !== false;
+        $this->cache->save('emulator-ping', $online, $this->_ttl);
 
-        return !!$conn;
+        return $online;
     }
 
     public function sendAlert(string $message): bool
