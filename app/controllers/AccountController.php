@@ -28,10 +28,11 @@ class AccountController extends ControllerBase
             }
 
             $user = Users::findFirst([
-                "conditions" => "username = ?0",
-                "bind" == [
-                    0 => $username
-                ]
+                "username = :username:",
+                "bind" => [
+                    'username' => $username
+                ],
+                'limit' => 1
             ]);
 
             if ($user) {

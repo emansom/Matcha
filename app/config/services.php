@@ -160,6 +160,13 @@ $di->setShared('db', function () {
         }
     }
 
+    // $logger = new \Phalcon\Logger\Adapter\File(BASE_PATH . 'sql.log');
+    // $eventsManager = new \Phalcon\Events\Manager();
+    // $eventsManager->attach('db', function($event, $connection) use ($logger) {
+    //     $logger->log($connection->getSQLStatement().' '.join(', ', $connection->getSQLVariables()));
+    // });
+    // $connection->setEventsManager($eventsManager);
+
     return $connection;
 });
 

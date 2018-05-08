@@ -2,3 +2,4 @@
 /config/development/
 c_images/
 web-gallery/
+*.log
