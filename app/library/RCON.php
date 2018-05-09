@@ -6,8 +6,9 @@ use \Phalcon\Di\Injectable as Injectable;
 abstract class RCONRequestID
 {
     const OnlineCount = 1;
-    const HotelAlert = 2;
-    const RoomAlert = 3;
+    const RefreshAppearance = 2;
+    const HotelAlert = 3;
+    const RoomAlert = 4;
 }
 
 class RemoteConnection extends Injectable
@@ -74,6 +75,15 @@ class RemoteConnection extends Injectable
         $this->cache->save('emulator-ping', $online, $this->_ttl);
 
         return $online;
+    }
+
+    public function updateLook(int $user_id)
+    {
+        if ($this->_connect() === false) {
+            return;
+        }
+
+        fwrite($this->_connection, RCONRequestID::RefreshAppearance . $user_id);
     }
 
     public function sendAlert(string $message): bool

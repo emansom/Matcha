@@ -15,12 +15,12 @@ class AccountController extends ControllerBase
 
             if ($username === "") {
                 $this->view->login_errors = ['Please enter your username'];
-                return $this->view->pick("login");
+                return $this->view->setMainView("login");
             }
 
             if ($password === "") {
                 $this->view->login_errors = ['Please enter your password'];
-                return $this->view->pick("login");
+                return $this->view->setMainView("login");
             }
 
             $user = Users::findFirst([
@@ -55,7 +55,7 @@ class AccountController extends ControllerBase
             $this->view->login_errors = ['Wrong username or password'];
         }
 
-        return $this->view->pick("login");
+        return $this->view->setMainView("login");
     }
 
     public function logoutAction()

@@ -253,7 +253,7 @@ The <span style="font-weight: bold;">Sports </span>range is here - catch it whil
 	</div>
 	<div class="v3box-bottom"><div></div></div>
 </div>
-<div class="v3box blue light">
+{# <div class="v3box blue light">
 	<div class="v3box-top"><h3>SnowStorm Challenge</h3></div>
 
 	<div class="v3box-content"><div class="v3box-body">
@@ -303,7 +303,7 @@ The <span style="font-weight: bold;">Sports </span>range is here - catch it whil
 		<div class="clear"></div></div>
 	</div>
 	<div class="v3box-bottom"><div></div></div>
-</div>
+</div> #}
 <div class="v3box blue light">
 	<div class="v3box-top"><h3>Your Thursday Highlights</h3></div>
 

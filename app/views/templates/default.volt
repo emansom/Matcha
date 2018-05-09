@@ -44,6 +44,9 @@
     {% block custom_styles %}
     {% endblock %}
 
+    {% block custom_javascript %}
+    {% endblock %}
+
     <!--<link href="/web-gallery/styles/style_custom_nl.css" rel="stylesheet" type="text/css">-->
     <link href="/news/rss.xml" rel="alternate" title="Habbo Vandaag" type="application/rss+xml">
 
@@ -111,117 +114,117 @@
             <div id="tabmenu" onmouseout="fadeTab('myhabbo')" onmouseover="lockCurrentTab();" style="left: 260px;">
               <div id="tabmenu-content">
                 {% if not logged_in %}
-                <div class="tabmenu-inner selected" id="myhabbo-content">
-                  <img alt="" class="tabmenu-image" height="85" src="/web-gallery/images/top_bar/myhabbo_frank.gif" width="60">
+                    <div class="tabmenu-inner selected" id="myhabbo-content">
+                      <img alt="" class="tabmenu-image" height="85" src="/web-gallery/images/top_bar/myhabbo_frank.gif" width="60">
 
-                  <h3>
-                      Welcome! Please sign in or register
-                  </h3>
+                      <h3>
+                          Welcome! Please sign in or register
+                      </h3>
 
-                  <div class="tabmenu-inner-content">
-                    <p>
-                      <a class="colorlink orange" href="/register">
-                        <span>
-                          Register, it's free!
-                        </span>
-                      </a>
-                    </p>
+                      <div class="tabmenu-inner-content">
+                        <p>
+                          <a class="colorlink orange" href="/register">
+                            <span>
+                              Register, it's free!
+                            </span>
+                          </a>
+                        </p>
 
-                    <p>
-                      <a class="colorlink orange last" href="/login">
-                        <span>
-                          Sign in
-                        </span>
-                      </a>
-                    </p>
-                  </div>
-                </div>
+                        <p>
+                          <a class="colorlink orange last" href="/login">
+                            <span>
+                              Sign in
+                            </span>
+                          </a>
+                        </p>
+                      </div>
+                    </div>
 
-                <div class="tabmenu-inner" id="mycredits-content">
-                  <h3>
-                    Please {{ link_to('/login', 'sign in') }} to see your balance
-                  </h3>
+                    <div class="tabmenu-inner" id="mycredits-content">
+                      <h3>
+                        Please {{ link_to('/login', 'sign in') }} to see your balance
+                      </h3>
 
-                  <div class="tabmenu-inner-content">
-                    <p>
-                      <img alt="" class="tabmenu-image coins" height="21" src="/web-gallery/images/top_bar/mycredits_coins.gif" width="47">
+                      <div class="tabmenu-inner-content">
+                        <p>
+                          <img alt="" class="tabmenu-image coins" height="21" src="/web-gallery/images/top_bar/mycredits_coins.gif" width="47">
 
-                      <a class="arrow" href="/credits">
-                        <span>
-                          Buy more credits
-                        </span>
-                      </a>
-                    </p>
+                          <a class="arrow" href="/credits">
+                            <span>
+                              Buy more credits
+                            </span>
+                          </a>
+                        </p>
 
-                    <p>
-                      <a class="arrow" href="/credits">
-                        <span>
-                            Redeem a voucher code
-                        </span>
-                      </a>
-                    </p>
-                  </div>
-                </div>
+                        <p>
+                          <a class="arrow" href="/credits">
+                            <span>
+                                Redeem a voucher code
+                            </span>
+                          </a>
+                        </p>
+                      </div>
+                    </div>
 
-                <div class="tabmenu-inner" id="habboclub-content">
-                  <h3>
-                    Please {{ link_to('/login', 'sign in') }} to see your Club status
-                  </h3>
+                    <div class="tabmenu-inner" id="habboclub-content">
+                      <h3>
+                        Please {{ link_to('/login', 'sign in') }} to see your Club status
+                      </h3>
 
-                  <div class="tabmenu-inner-content">
-                    <p>
-                      Habbo Club gives you the best benefits as a Habbo.
-                    </p>
+                      <div class="tabmenu-inner-content">
+                        <p>
+                          Habbo Club gives you the best benefits as a Habbo.
+                        </p>
 
-                    <p>
-                      <a class="arrow" href="/club">
-                        <span>
-                            More on Habbo Club
-                        </span>
-                      </a>
-                    </p>
-                  </div>
-                </div>
+                        <p>
+                          <a class="arrow" href="/club">
+                            <span>
+                                More on Habbo Club
+                            </span>
+                          </a>
+                        </p>
+                      </div>
+                    </div>
                 {% else %}
-                <div id="myhabbo-content" class="tabmenu-inner selected">
-                    <h3>Welcome {{ user.username }}</h3>
+                    <div id="myhabbo-content" class="tabmenu-inner selected">
+                        <h3>Welcome {{ user.username }}</h3>
 
-                    <div class="tabmenu-inner-content">
-                        <p>
-                            <a href="<?php echo("$sitepath"); ?>client" class="arrow" target="client" onclick="openOrFocusHabbo(this); return false;"><span>Enter the Hotel</span></a>
-                        </p>
-                        <p>
-                            <a href="<?php echo("$sitepath"); ?>home/<?php echo("$habboname"); ?>" class="arrow"><span>View your personal homepage</span></a>
-                        </p>
-                        <p>
-                            <a href="<?php echo("$sitepath"); ?>profile" class="arrow"><span>Edit your settings</span></a>
-                        </p>
-                        <p>
-                            <a href="{{ url('/account/logout') }}" class="colorlink orange last"><span>Sign Out</span></a>
-                        </p>
+                        <div class="tabmenu-inner-content">
+                            <p>
+                                <a href="{{ url('/client') }}" class="arrow" target="client" onclick="openOrFocusHabbo(this); return false;"><span>Enter the Hotel</span></a>
+                            </p>
+                            <p>
+                                <a href="{{ url('/home/') ~ user.username }}" class="arrow"><span>View your personal homepage</span></a>
+                            </p>
+                            <p>
+                                <a href="{{ url('/profile') }}" class="arrow"><span>Edit your settings</span></a>
+                            </p>
+                            <p>
+                                <a href="{{ url('/account/logout') }}" class="colorlink orange last"><span>Sign Out</span></a>
+                            </p>
+                        </div>
                     </div>
-                </div>
-                <div id="mycredits-content" class="tabmenu-inner">
-                    <h3>My Credits</h3>
+                    <div id="mycredits-content" class="tabmenu-inner">
+                        <h3>My Credits</h3>
 
-                    <div class="tabmenu-inner-content">
-                        <p id="credits-status">
-                            <img src="<?php echo("$imgpath") ?>images/progress_bubbles.gif" alt="" width="29" height="6" />
-                        </p>
-    <p>
-                            <img src="<?php echo("$imgpath"); ?>images/top_bar/mycredits_coins.gif" alt="" width="47" height="21" class="tabmenu-image coins" />
-                            <a href="<?php echo("$sitepath"); ?>credits" class="arrow"><span>Redeem a Coin or Furni Code</span></a>
-                        </p>
+                        <div class="tabmenu-inner-content">
+                            <p id="credits-status">
+                                <img src="/web-gallery/images/progress_bubbles.gif" alt="" width="29" height="6" />
+                            </p>
+        <p>
+                                <img src="/web-gallery/images/top_bar/mycredits_coins.gif" alt="" width="47" height="21" class="tabmenu-image coins" />
+                                <a href="/credits" class="arrow"><span>Redeem a Coin or Furni Code</span></a>
+                            </p>
+                        </div>
                     </div>
-                </div>
-                <div id="habboclub-content" class="tabmenu-inner">
-                    <h3>My <?php echo("$name"); ?> Club status</h3>
-                    <div class="tabmenu-inner-content">
-                    <p id="habboclub-status">
-                            <img src="<?php echo("$imgpath"); ?>images/top_bar/mycredits_coins.gif" alt="" width="47" height="21" class="tabmenu-image coins" />
-                        </p>
+                    <div id="habboclub-content" class="tabmenu-inner">
+                        <h3>My Club status</h3>
+                        <div class="tabmenu-inner-content">
+                        <p id="habboclub-status">
+                                <img src="/web-gallery/images/top_bar/mycredits_coins.gif" alt="" width="47" height="21" class="tabmenu-image coins" />
+                            </p>
+                        </div>
                     </div>
-                </div>
                 {% endif %}
 
                 <div class="clear"></div>
@@ -285,41 +288,6 @@
     $("ad-leader-container").appendChild($("ad-leader"));
   </script>-->
 </div>
-
-<script>
-var playPreview;
-playPreview = function(target) {
-  audio = target.querySelector('audio');
-
-  if (audio == null) {
-    audio = new Audio();
-
-    audio.preload = 'none';
-    audio.src = target.href;
-    audio.hidden = true;
-    audio.style.display = 'none';
-
-    // TODO: custom icon for error
-    audio.onpause = audio.onerror = audio.onended = function() {
-      this.parentElement.querySelector('img').src = "/c_images/album2304/musicsample_icon.gif";
-    }
-
-    audio.onplaying = function() {
-      this.parentElement.querySelector('img').src = "/c_images/album2304/musicsample_pause.png";
-    }
-
-    target.appendChild(audio);
-  }
-
-  if (audio.paused) {
-    audio.play();
-  } else {
-    audio.pause();
-  }
-
-  return false;
-};
-</script>
 
 </body>
 </html>
