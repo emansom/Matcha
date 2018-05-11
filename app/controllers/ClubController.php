@@ -1,24 +1,18 @@
 <?php
 class ClubController extends ControllerBase
 {
-    public function initialize()
-    {
-        parent::initialize();
-        $this->view->setTemplateAfter('default');
-    }
-    
     public function indexAction()
     {
-
+        $this->view->setMainView('club/index');
     }
 
     public function joinAction()
     {
-
+        $this->view->setMainView('club/join');
     }
 
     public function shopAction()
     {
-
+        $this->view->setMainView('club/shop');
     }
 }
