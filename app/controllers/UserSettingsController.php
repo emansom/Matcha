@@ -43,7 +43,7 @@ class UserSettingsController extends ControllerBase
                 $this->modelsCache->delete('user-' . $this->session->getId());
 
                 // Update in hotel via RCON
-                $this->rcon->updateLook($user->id);
+                $this->rcon->refreshLook($user->id);
 
                 // Update in view
                 $this->view->user->figure = $figure;

@@ -7,8 +7,9 @@ abstract class RCONRequestID
 {
     const OnlineCount = 1;
     const RefreshAppearance = 2;
-    const HotelAlert = 3;
-    const RoomAlert = 4;
+    const RefreshBadges = 3;
+    const HotelAlert = 99;
+    const RoomAlert = 100;
 }
 
 class RemoteConnection extends Injectable
@@ -77,13 +78,22 @@ class RemoteConnection extends Injectable
         return $online;
     }
 
-    public function updateLook(int $user_id)
+    public function refreshLook(int $user_id)
     {
         if ($this->_connect() === false) {
             return;
         }
 
         fwrite($this->_connection, RCONRequestID::RefreshAppearance . $user_id);
+    }
+
+    public function refreshBadges(int $user_id)
+    {
+        if ($this->_connect() === false) {
+            return;
+        }
+
+        fwrite($this->_connection, RCONRequestID::RefreshBadges . $user_id);
     }
 
     public function sendAlert(string $message): bool
