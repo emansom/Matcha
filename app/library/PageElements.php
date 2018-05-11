@@ -3,12 +3,14 @@ namespace Kepler;
 
 use \Phalcon\Tag as Tag;
 use \Phalcon\Mvc\User\Component as Component;
+use \SiteMenu as SiteMenu;
 
 class PageElements extends Component
 {
     // TODO: refactor the shit out of this function
     public function getMainMenu()
     {
+        // TODO: cache whole generated menu instead of the ORM object
         $controllerName = $this->view->getControllerName();
         $actionName = $this->view->getActionName();
         $cacheKey = 'mainmenu-' . $controllerName;
@@ -76,6 +78,7 @@ class PageElements extends Component
 
     public function getSubMenu()
     {
+        // TODO: cache whole generated menu instead of the ORM object
         $controllerName = $this->view->getControllerName();
         $actionName = $this->view->getActionName();
         $cacheKey = 'submenu-' . $controllerName;
@@ -85,10 +88,17 @@ class PageElements extends Component
             $cacheKey .= '-' . $this->session->get('user_id');
         }
 
-        $menus = \SiteMenu::find([
-            'conditions' => 'parent_id != 0 AND controller = ?1',
+        $parent = \SiteMenu::findFirst([
+            'parent_id = 0 AND controller = ?0',
             'bind' => [
-                1 => $controllerName
+                0 => $controllerName
+            ]
+        ]);
+
+        $menus = \SiteMenu::find([
+            'conditions' => 'parent_id = ?1',
+            'bind' => [
+                1 => $parent->id
             ],
             'order' => 'order_id ASC',
             'cache' => [
