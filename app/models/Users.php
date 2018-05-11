@@ -104,12 +104,33 @@ class Users extends \Phalcon\Mvc\Model
     public $sso_ticket;
 
     /**
+     *
+     * @var integer
+     * @Column(column="club_subscribed", type="integer", nullable=false)
+     */
+    public $club_subscribed;
+
+    /**
+     *
+     * @var integer
+     * @Column(column="club_expiration", type="integer", nullable=false)
+     */
+    public $club_expiration;
+
+    /**
+     *
+     * @var string
+     * @Column(column="active_badge", type="string", nullable=false)
+     */
+    public $active_badge;
+
+    /**
      * Initialize method for model.
      */
     public function initialize()
     {
         $this->setSource("users");
-        $this->allowEmptyStringValues(['pool_figure', 'motto', 'console_motto']);
+        $this->allowEmptyStringValues(['pool_figure', 'motto', 'console_motto', 'active_badge']);
     }
 
     /**
