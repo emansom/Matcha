@@ -71,29 +71,6 @@ Redis will be used for session storage and caching of various components
 $ sudo apt install redis-server
 ```
 
-#### Configure Redis
-We need to configure Redis to use UNIX sockets only
-
-Open `/etc/redis/redis.conf` and search for `port 6379`, then replace with `port 0`
-
-Run these commands to open that file for editing
-```
-$ export EDITOR=nano
-$ sudoedit /etc/redis/redis.conf
-```
-
-Then search for `unixsocket`, uncomment it (remove the first `#` character) and set it to `/run/redis/redis.sock`
-```
-unixsocket /run/redis/redis.sock
-```
-
-Now search for `unixsocketperm`, uncomment it (remove the first `#` character) and set it to `666`
-```
-unixsocketperm 666
-```
-
-Now save the file (Ctrl + X, hit y, then Enter)
-
 #### Install PHP
 
 ```
