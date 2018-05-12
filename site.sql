@@ -17,7 +17,7 @@ INSERT INTO `site_menu` VALUES (1,0,1,'Home','/','index','index','tab_icon_01_ho
 INSERT INTO `site_menu` VALUES (2,0,1,'New?','/hotel','hotel','index','tab_icon_02_hotel.gif',1);
 INSERT INTO `site_menu` VALUES (3,2,1,'New here?','/hotel','hotel','index','',1);
 INSERT INTO `site_menu` VALUES (4,2,1,'Guides','/hotel/welcome','hotel','welcome','',1);
-INSERT INTO `site_menu` VALUES (5,2,1,'Hotel tour','/hotel/tour','hotel','tour','',1);
+INSERT INTO `site_menu` VALUES (5,2,1,'Getting Started','/hotel/tour','hotel','tour','',1);
 INSERT INTO `site_menu` VALUES (6,2,1,'Furniture','/hotel/furniture','hotel','furniture','',1);
 INSERT INTO `site_menu` VALUES (7,2,1,'Pets','/hotel/pets','hotel','pets','',1);
 INSERT INTO `site_menu` VALUES (8,2,1,'Homepages','/hotel/homes','hotel','homes','',1);
