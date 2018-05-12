@@ -64,6 +64,110 @@ $ sudo apt update
 $ sudo apt install nano
 ```
 
+#### Install nginx
+First configure your package manager to download NGINX from the official repositories
+
+Put the contents below in `/etc/apt/sources.list.d/nginx.list`
+
+Run these commands to open that file for editing
+```
+$ export EDITOR=nano
+$ sudoedit /etc/apt/sources.list.d/nginx.list
+```
+
+Run `lsb_release --codename --short` to see what `$release` needs to be replaced with
+```
+## Replace $release with your corresponding Ubuntu release.
+deb http://nginx.org/packages/ubuntu/ $release nginx
+deb-src http://nginx.org/packages/ubuntu/ $release nginx
+```
+
+Then install nginx by running these commands
+```
+$ sudo apt update
+$ sudo apt install nginx-mainline
+```
+
+#### Configure nginx
+Put the contents below in `/etc/nginx/sites-available/`**your-domain-here**
+
+Run these commands to open that file for editing
+<pre>
+$ export EDITOR=nano
+$ sudoedit /etc/nginx/sites-available/<b>your-domain-here</b>
+</pre>
+
+Then put these contents in that file
+
+<pre>
+server {
+    listen [::]:80;
+    listen 80;
+
+    # The host name to respond to
+    server_name <b>your-domain-here</b>;
+
+    # Path for static files
+    root /srv/http/<b>your-domain-here</b>/public;
+
+    # Specify a charset
+    charset utf-8;
+
+    # Allow upload size to be 1 megabyte
+    client_max_body_size 1m;
+
+    # Wait 60s for PHP process to finish
+    fastcgi_read_timeout 60s;
+
+    index index.php index.html index.htm;
+
+    access_log /srv/http/<b>your-domain-here</b>/access.log;
+    error_log /srv/http/<b>your-domain-here</b>/error.log;
+
+    # Represents the root of the domain
+    location / {
+        # Matches URLS `$_GET['_url']`
+        try_files $uri $uri/ /index.php?_url=$uri&$args;
+    }
+
+    # When the HTTP request does not match the above
+    # and the file ends in .php
+    location ~ [^/]\.php(/|$) {
+        # try_files $uri =404;
+
+        fastcgi_pass 127.0.0.1:9000;
+
+        fastcgi_index /index.php;
+
+        include fastcgi_params;
+        fastcgi_split_path_info ^(.+?\.php)(/.*)$;
+        if (!-f $document_root$fastcgi_script_name) {
+            return 404;
+        }
+
+        # Mitigate HTTPoxy vulnerability
+        fastcgi_param HTTP_PROXY "";
+
+        # Fix path info
+        fastcgi_param PATH_INFO       $fastcgi_path_info;
+        # fastcgi_param PATH_TRANSLATED $document_root$fastcgi_path_info;
+        # and set php.ini cgi.fix_pathinfo=0
+
+        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+    }
+
+    location ~ /\.ht {
+        deny all;
+    }
+}
+</pre>
+
+Replace **your-domain-here** with your domain name (e.g. `ragehotel.com`)
+
+Replace **your-domain-here-without-tld** with your domain name without the last `.com/es/de/nl/etc` part
+
+Now save the file
+
 #### Install Redis
 Redis will be used for session storage and caching of various components
 
@@ -186,104 +290,6 @@ Replace **your-domain-here-without-tld** with your domain name without the last 
 Replace **your-linux-username** with your previous created linux user
 
 Replace **number-of-cpu-cores** with the number of CPU cores your PC/server/VM has
-
-Now save the file
-
-#### Install nginx
-First configure your package manager to download NGINX from the official repositories
-
-Put the contents below in `/etc/apt/sources.list.d/nginx.list`
-
-Run `lsb_release --codename --short` to see what `$release` needs to be replaced with
-```
-## Replace $release with your corresponding Ubuntu release.
-deb http://nginx.org/packages/ubuntu/ $release nginx
-deb-src http://nginx.org/packages/ubuntu/ $release nginx
-```
-
-Then install nginx by running these commands
-```
-$ sudo apt update
-$ sudo apt install nginx-mainline
-```
-
-#### Configure nginx
-Put the contents below in `/etc/nginx/sites-available/`**your-domain-here**
-
-Run these commands to open that file for editing
-<pre>
-$ export EDITOR=nano
-$ sudoedit /etc/nginx/sites-available/<b>your-domain-here</b>
-</pre>
-
-Then put these contents in that file
-
-<pre>
-server {
-    listen [::]:80;
-    listen 80;
-
-    # The host name to respond to
-    server_name <b>your-domain-here</b>;
-
-    # Path for static files
-    root /srv/http/<b>your-domain-here</b>/public;
-
-    # Specify a charset
-    charset utf-8;
-
-    # Allow upload size to be 1 megabyte
-    client_max_body_size 1m;
-
-    # Wait 60s for PHP process to finish
-    fastcgi_read_timeout 60s;
-
-    index index.php index.html index.htm;
-
-    access_log /srv/http/<b>your-domain-here</b>/access.log;
-    error_log /srv/http/<b>your-domain-here</b>/error.log;
-
-    # Represents the root of the domain
-    location / {
-        # Matches URLS `$_GET['_url']`
-        try_files $uri $uri/ /index.php?_url=$uri&$args;
-    }
-
-    # When the HTTP request does not match the above
-    # and the file ends in .php
-    location ~ [^/]\.php(/|$) {
-        # try_files $uri =404;
-
-        fastcgi_pass 127.0.0.1:9000;
-
-        fastcgi_index /index.php;
-
-        include fastcgi_params;
-        fastcgi_split_path_info ^(.+?\.php)(/.*)$;
-        if (!-f $document_root$fastcgi_script_name) {
-            return 404;
-        }
-
-        # Mitigate HTTPoxy vulnerability
-        fastcgi_param HTTP_PROXY "";
-
-        # Fix path info
-        fastcgi_param PATH_INFO       $fastcgi_path_info;
-        # fastcgi_param PATH_TRANSLATED $document_root$fastcgi_path_info;
-        # and set php.ini cgi.fix_pathinfo=0
-
-        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
-    }
-
-    location ~ /\.ht {
-        deny all;
-    }
-}
-</pre>
-
-Replace **your-domain-here** with your domain name (e.g. `ragehotel.com`)
-
-Replace **your-domain-here-without-tld** with your domain name without the last `.com/es/de/nl/etc` part
 
 Now save the file
 
