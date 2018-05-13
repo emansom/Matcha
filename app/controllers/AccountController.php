@@ -62,8 +62,10 @@ class AccountController extends ControllerBase
     {
         $this->view->disable();
 
-        // Redirect to homepage if already logged in
+        // Destroy session and cache
         if ($this->session->has("user_id")) {
+            $this->cache->delete('user-' . $this->session->getId());
+
             $this->session->regenerateId(true);
             $this->session->destroy(true);
         }
