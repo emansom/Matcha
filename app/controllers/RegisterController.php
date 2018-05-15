@@ -5,6 +5,9 @@ class RegisterController extends ControllerBase
     {
         parent::initialize();
 
+        // Never cache the served page
+	$this->response->setHeader("Cache-Control", "private, no-cache, no-store, max-age=0, must-revalidate");
+
         // Redirect to homepage if already logged in
         if ($this->session->has("user_id")) {
             return $this->response->redirect("/");
