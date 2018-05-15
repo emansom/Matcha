@@ -3,3 +3,4 @@
 c_images/
 web-gallery/
 *.log
+/public/static
