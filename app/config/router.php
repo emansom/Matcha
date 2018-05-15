@@ -126,4 +126,6 @@ $router->notFound(array(
     "action" => "notFound"
 ));
 
+$router->removeExtraSlashes(true);
+
 return $router;
