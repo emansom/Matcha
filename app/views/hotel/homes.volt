@@ -63,7 +63,7 @@ Habbo Homes
 	<div class="v3box-content">
 		<div class="v3box-body">
 
-<img align="right" src="https://web.archive.org/web/20071015045249im_/http://community.habbohotel.jp/content/images/mgm_icon.gif" alt="">Habbo Credits allow you to decorate your room with Habbo <a target="_self" href="/web/20071015045249/http://www.habbo.co.uk:80/hotel/furniture/index.html">Furni</a>, buy gifts for your friends, join <a target="_self" href="/web/20071015045249/http://www.habbo.co.uk:80/club/index.html">Habbo Club</a> play <a target="_self" href="/web/20071015045249/http://www.habbo.co.uk:80/games/battleball">Battle Ball</a> and more! <p>
+<img align="right" src="/c_images//content/mgm_icon.gif" alt="">Habbo Credits allow you to decorate your room with Habbo <a target="_self" href="/web/20071015045249/http://www.habbo.co.uk:80/hotel/furniture/index.html">Furni</a>, buy gifts for your friends, join <a target="_self" href="/web/20071015045249/http://www.habbo.co.uk:80/club/index.html">Habbo Club</a> play <a target="_self" href="/web/20071015045249/http://www.habbo.co.uk:80/games/battleball">Battle Ball</a> and more! <p>
 			</p><div class="clear"></div>
 		</div>
 	</div>
@@ -79,7 +79,7 @@ Habbo Homes
 
 <table width="100%" border="0" id="table1">
 	<tbody><tr>
-		<td valign="top"><img alt="The image “http://images.habbohotel.co.uk/c_images/album1357/inst_Introduction.gif” cannot be displayed, because it contains errors." src="https://web.archive.org/web/20071015045249im_/http://images.habbohotel.co.uk/c_images/album1357/inst_Introduction.gif"></td>
+		<td valign="top"><img alt="" src="/c_images/album1357/inst_Introduction.gif"></td>
 		<td valign="top"><b>Introduction</b><p>To get to your Habbo Home, simply click the 'view my Habbo Home' link on your Habbo toolbar.</p>
 		<p>Once you arrive at your Habbo Home just click the edit button to
 		start editing! Alternatively, if you are feeling guilty you can report
@@ -91,7 +91,7 @@ Habbo Homes
 </p><table width="100%" border="0" id="table2">
 	<tbody><tr>
 		<td valign="top">
-		<img alt="The image “http://images.habbohotel.co.uk/c_images/album1357/inst_inventory_purchasing.gif” cannot be displayed, because it contains errors." src="https://web.archive.org/web/20071015045249im_/http://images.habbohotel.co.uk/c_images/album1357/inst_inventory_purchasing.gif"> </td>
+		<img alt="" src="/c_images/album1357/inst_inventory_purchasing.gif"> </td>
 		<td valign="top"><b>Your Inventory</b><p>Once in editing mode you can
 		edit the layout of your Homepage. Clicking the Notes, Stickers, Widgets
 		or Backgrounds button opens up your inventory for that type of accessory. Your inventory is where
@@ -110,7 +110,7 @@ Habbo Homes
 		<td style="width: 4px;"></td>
 		<td valign="top" style="width: 176px;">
 <div id="ad_sidebar" style="display: none !important;">
-<div class="cooperation"><table height="120" width="168" valign="middle" align="center" border="0" cellpadding="0" cellspacing="0" background="https://web.archive.org/web/20071015045249im_/http://images.habbohotel.ch/c_images/themes/partner_box.gif">
+<div class="cooperation"><table height="120" width="168" valign="middle" align="center" border="0" cellpadding="0" cellspacing="0" background="/c_images/themes/partner_box.gif">
 <tbody><tr><td>
 
 

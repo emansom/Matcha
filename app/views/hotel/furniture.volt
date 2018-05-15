@@ -110,7 +110,7 @@ To buy Furni:
 	<div class="v3box-content">
 		<div class="v3box-body">
 
-<p><img width="33" height="39" border="0" align="right" src="https://web.archive.org/web/20071017112636im_/http://images.habbohotel.co.uk/c_images/album98/hc_badge.gif" alt="">Join <a href="/web/20071017112636/http://habbo.co.uk:80/club/" target="_self">Habbo Club</a>, the VIP members only club, and enjoy exclusive room layouts, furni, priority access, cool clothes and commands for just 30 Credits a month!</p><p></p><p>
+<p><img width="33" height="39" border="0" align="right" src="/c_images/album98/hc_badge.gif" alt="">Join <a href="/web/20071017112636/http://habbo.co.uk:80/club/" target="_self">Habbo Club</a>, the VIP members only club, and enjoy exclusive room layouts, furni, priority access, cool clothes and commands for just 30 Credits a month!</p><p></p><p>
 			</p><div class="clear"></div>
 		</div>
 	</div>
@@ -121,7 +121,7 @@ To buy Furni:
 	<div class="v3box-content">
 		<div class="v3box-body">
 
-<img width="38" height="33" border="0" align="right" id="galleryImage" src="https://web.archive.org/web/20071017112636im_/http://images.habbohotel.co.uk/c_images/album129/Bushy_woofer_small.gif" alt="">Have you got a <a href="/web/20071017112636/http://habbo.co.uk:80/hotel/pets/" target="_self">Pet</a> yet? They're cute, cuddly and near capable of scaring away intruders!
+<img width="38" height="33" border="0" align="right" id="galleryImage" src="/c_images/album129/Bushy_woofer_small.gif" alt="">Have you got a <a href="/web/20071017112636/http://habbo.co.uk:80/hotel/pets/" target="_self">Pet</a> yet? They're cute, cuddly and near capable of scaring away intruders!
 			<div class="clear"></div>
 		</div>
 	</div>
@@ -135,7 +135,7 @@ To buy Furni:
 	<div class="v3box-content">
 		<div class="v3box-body">
 
-<img width="99" vspace="0" hspace="0" height="118" border="0" align="right" src="https://web.archive.org/web/20071017112636im_/http://images.habbohotel.co.uk/c_images/album209/choice_newsie.gif" id="galleryImage" alt="">Habbo Furni is furniture that you put in your Guest Room to spruce it up a bit. There are loads of different types and brands of Habbo Furni, from television sets and teleporters to fridges and hatches.<br><br>Habbo Furni allows you to express your creativity and create your own unique space in Habbo. You can entertain your friends and build your own Pleasure Spa, Games Arena and Discussion Rooms. You can even - if you think you're up to it - build your own example of modern art.<br><br>On these pages you can find out all about the different types of Furni available to buy in the Habbo Catalogue and what different kind of rooms you can make. But remember: our examples are only that, the key to Habbo is creativity and originality. Your room, whatever it is, should stand out to get noticed. <br><br>If you build it, they will come. Unless you have locked it.<br><br><br>
+<img width="99" vspace="0" hspace="0" height="118" border="0" align="right" src="/c_images/album209/choice_newsie.gif" id="galleryImage" alt="">Habbo Furni is furniture that you put in your Guest Room to spruce it up a bit. There are loads of different types and brands of Habbo Furni, from television sets and teleporters to fridges and hatches.<br><br>Habbo Furni allows you to express your creativity and create your own unique space in Habbo. You can entertain your friends and build your own Pleasure Spa, Games Arena and Discussion Rooms. You can even - if you think you're up to it - build your own example of modern art.<br><br>On these pages you can find out all about the different types of Furni available to buy in the Habbo Catalogue and what different kind of rooms you can make. But remember: our examples are only that, the key to Habbo is creativity and originality. Your room, whatever it is, should stand out to get noticed. <br><br>If you build it, they will come. Unless you have locked it.<br><br><br>
 			<div class="clear"></div>
 		</div>
 	</div>
@@ -146,7 +146,7 @@ To buy Furni:
 	<div class="v3box-content">
 		<div class="v3box-body">
 
-<strong><img vspace="0" hspace="0" border="0" align="right" src="https://web.archive.org/web/20071017112636im_/http://images.habbohotel.co.uk/c_images/common/404_G.gif" alt="">How do I buy Habbo Furni?</strong><br>The buy Furni you need Habbo Credits. Click on the Buy Credits tab to find out more. Once you have Habbo Credits you need to log into the Hotel. Once in click on the Habbo Catalogue on the tool bar (pictured). Click on any page in the Catalogue to see the different types of Furni and start thinking of what you're going to make!<br><br><strong>What If I have bought something I don't like?<br></strong>Sadly, Furni is not refundable. However you can trade your Furni with other users: Click on the Trade Rooms category on the navigator to find hundreds of different trade rooms!<br><br><strong>I have a great idea for a piece of Furni, who do I email?<br></strong>If you have a great idea for Habbo Furni that you think will revolutionize the site you can email us via the Habbo Help Tool: Just select 'Idea' on the drop down menu and tell us!<br>If we end up using your idea we will give you 50 Habbo Credits and a Gold Trophy!<br><br><strong>How much will it cost to have my own piece of personalised Furni?</strong><br>Sorry, but we don't accept requests from users: Building Furni takes our team a long time and a lot of money and we are unable to do it.<br><br><strong>How do I get ___? I can't find it in the catalogue anywhere!<br></strong>Quite often you will see Furni in another Habbo's room which isn't in the catalogue. This is because the Furni is either a Rare, a Prize or a Seasonal piece of Habbo Furni.<br>Rares are released sporadically, often only for a week or less and cost 25 Habbo Credits, Prizes are given to users who take part in Official Habbo competitions and Seasonal Furni is released only during Easter, Habboween, Valentines and Christmas.<br><br>
+<strong><img vspace="0" hspace="0" border="0" align="right" src="/c_images/common/404_G.gif" alt="">How do I buy Habbo Furni?</strong><br>The buy Furni you need Habbo Credits. Click on the Buy Credits tab to find out more. Once you have Habbo Credits you need to log into the Hotel. Once in click on the Habbo Catalogue on the tool bar (pictured). Click on any page in the Catalogue to see the different types of Furni and start thinking of what you're going to make!<br><br><strong>What If I have bought something I don't like?<br></strong>Sadly, Furni is not refundable. However you can trade your Furni with other users: Click on the Trade Rooms category on the navigator to find hundreds of different trade rooms!<br><br><strong>I have a great idea for a piece of Furni, who do I email?<br></strong>If you have a great idea for Habbo Furni that you think will revolutionize the site you can email us via the Habbo Help Tool: Just select 'Idea' on the drop down menu and tell us!<br>If we end up using your idea we will give you 50 Habbo Credits and a Gold Trophy!<br><br><strong>How much will it cost to have my own piece of personalised Furni?</strong><br>Sorry, but we don't accept requests from users: Building Furni takes our team a long time and a lot of money and we are unable to do it.<br><br><strong>How do I get ___? I can't find it in the catalogue anywhere!<br></strong>Quite often you will see Furni in another Habbo's room which isn't in the catalogue. This is because the Furni is either a Rare, a Prize or a Seasonal piece of Habbo Furni.<br>Rares are released sporadically, often only for a week or less and cost 25 Habbo Credits, Prizes are given to users who take part in Official Habbo competitions and Seasonal Furni is released only during Easter, Habboween, Valentines and Christmas.<br><br>
 			<div class="clear"></div>
 		</div>
 	</div>
@@ -156,7 +156,7 @@ To buy Furni:
 		<td style="width: 4px;"></td>
 		<td valign="top" style="width: 176px;">
 <div id="ad_sidebar" style="display: none !important;">
-<div class="cooperation"><table height="120" width="168" valign="middle" align="center" border="0" cellpadding="0" cellspacing="0" background="https://web.archive.org/web/20071017112636im_/http://images.habbohotel.ch/c_images/themes/partner_box.gif">
+<div class="cooperation"><table height="120" width="168" valign="middle" align="center" border="0" cellpadding="0" cellspacing="0" background="/c_images/themes/partner_box.gif">
 <tbody><tr><td>
 
 

@@ -69,7 +69,7 @@ Getting Started
 <table width="100%" border="0">
 	<tbody><tr>
 		<td width="159">
-				<a target="_blank" href="https://web.archive.org/web/20071016051254/http://sdc.shockwave.com/shockwave/download/frameset.fhtml"><img src="https://web.archive.org/web/20071016051254im_/http://images.habbohotel.co.uk/c_images/album209/1_G.gif" alt=""></a><br></td>
+				<a target="_blank" href="https://web.archive.org/web/20071016051254/http://sdc.shockwave.com/shockwave/download/frameset.fhtml"><img src="/c_images/album209/1_G.gif" alt=""></a><br></td>
 		<td>To use Habbo Hotel you need Shockwave. <a target="_blank" href="https://web.archive.org/web/20071016051254/http://sdc.shockwave.com/shockwave/download/frameset.fhtml" title="Get
 
 Shockwave">Download It Here.</a> Shockwave is <span style="font-weight: bold;">FREE</span>,
@@ -77,20 +77,20 @@ Shockwave">Download It Here.</a> Shockwave is <span style="font-weight: bold;">F
 		program.</td>
 	</tr>
 	<tr>
-		<td width="159"> <br><img src="https://web.archive.org/web/20071016051254im_/http://images.habbohotel.co.uk/c_images/album209/2_G.gif" alt=""><br></td>
+		<td width="159"> <br><img src="/c_images/album209/2_G.gif" alt=""><br></td>
 		<td>Click the gold shiny symbol to load Habbo Hotel; a nice pop up window
 		will appear and the site will load. You are now ready to begin the <span style="font-weight: bold;">FREE </span>registration process.</td>
 	</tr>
 	<tr>
 		<td width="159">
-				<img src="https://web.archive.org/web/20071016051254im_/http://images.habbohotel.co.uk/c_images/album209/3_G.gif" alt=""><br></td>
+				<img src="/c_images/album209/3_G.gif" alt=""><br></td>
 		<td>Follow the on screen registration instructions during which you will choose your clothes, a name for your Habbo, input your
 
 valid email address, agree to the terms and conditions - you will become a Habbo!<br></td>
 	</tr>
 	<tr>
 		<td width="159">
-				<img src="https://web.archive.org/web/20071016051254im_/http://images.habbohotel.co.uk/c_images/album209/4_G.gif" alt=""><br></td>
+				<img src="/c_images/album209/4_G.gif" alt=""><br></td>
 		<td>You then simply click Enter Habbo Hotel and the Hotel will load! Please be patient as Habbo Hotel may take a minute to load the first time you visit. A virtual world of adventure, delight and
 
 wonder awaits! Just watch out for the bears...  <br><br><br><a target="_self" href="/web/20071016051254/http://www.habbo.co.uk:80/hotel/welcome_to_habbo_hotel/navigator">Continue The Tour &gt;&gt;</a><br><span style="font-weight: bold;">Exploring Habbo Hotel</span><br><br></td>
@@ -106,7 +106,7 @@ wonder awaits! Just watch out for the bears...  <br><br><br><a target="_self" hr
 		<td style="width: 4px;"></td>
 		<td valign="top" style="width: 176px;">
 <div id="ad_sidebar" style="display: none !important;">
-<div class="cooperation"><table height="120" width="168" valign="middle" align="center" border="0" cellpadding="0" cellspacing="0" background="https://web.archive.org/web/20071016051254im_/http://images.habbohotel.ch/c_images/themes/partner_box.gif">
+<div class="cooperation"><table height="120" width="168" valign="middle" align="center" border="0" cellpadding="0" cellspacing="0" background="/c_images/themes/partner_box.gif">
 <tbody><tr><td>
 
 

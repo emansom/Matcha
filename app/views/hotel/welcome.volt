@@ -25,7 +25,7 @@ Welcome To Habbo
 		<div class="content-white-body">
 
 <div class="content-white-content">
-<center><img vspace="0" hspace="0" border="0" src="https://web.archive.org/web/20071017112648im_/http://images.habbohotel.co.uk/c_images/shark_tale/hotelmans_nosd.gif" alt=""></center><br>You made it! Come inside<br><br>To the right you will find some very useful guides on Habbo.<br><br>They are short and to the point so the fun is just moments away!<br>
+<center><img vspace="0" hspace="0" border="0" src="/c_images/shark_tale/hotelmans_nosd.gif" alt=""></center><br>You made it! Come inside<br><br>To the right you will find some very useful guides on Habbo.<br><br>They are short and to the point so the fun is just moments away!<br>
 
 </div>
 		<div class="clear"></div>
@@ -47,29 +47,29 @@ Welcome To Habbo
 	<tbody>
 	<tr>
 		<td>
-		<img src="https://web.archive.org/web/20071017112648im_/http://images.habbohotel.co.uk/c_images/album1356/Welcome_2_Hotel_001.gif" alt="The image “http://images.habbohotel.co.uk/c_images/album1356/Welcome_2_Hotel_001.gif” cannot be displayed, because it contains errors."></td>
+		<img src="/c_images/album1356/Welcome_2_Hotel_001.gif"></td>
 		<td>Habbo Hotel is the virtual meeting space for all Habbos. This is where you can meet friends and explore the navigator. The Using Habbo Hotel guide will help you login to Habbo Hotel and show you how to explore the many features that await you.<br><p><a target="_self" href="https://web.archive.org/web/20071017112648/http://www.habbo.co.uk/hotel/welcome_to_habbo_hotel">Using Habbo Hotel</a></p></td>
 	</tr>
 <tr>
 		<td>
-		<img src="https://web.archive.org/web/20071017112648im_/http://images.habbohotel.co.uk/c_images/album1054/welcome_7.png" alt=""><br></td>
+		<img src="/c_images/album1054/welcome_7.png" alt=""><br></td>
 		<td>Habbo Hotel is also the place where you can build your own Guest Room and invite your friends round for a chat! There are loads of Furni items for you to choose from and decorate your Guest Room with as the Furni Guide will show.<br><p><a target="_self" href="https://web.archive.org/web/20071017112648/http://www.habbo.co.uk/hotel/furniture">Habbo Hotel Furni</a></p></td>
 	</tr>
 	<tr>
 		<td>
-		<img src="https://web.archive.org/web/20071017112648im_/http://images.habbohotel.co.uk/c_images/album1356/Welcome_3_stickers_001.gif" alt="The image “http://images.habbohotel.co.uk/c_images/album1356/Welcome_3_stickers_001.gif” cannot be displayed, because it contains errors."></td>
+		<img src="/c_images/album1356/Welcome_3_stickers_001.gif" alt=""></td>
 		<td>Habbo Homes is where your own personal Habbo Home page is located.
 		You can decorate your Home page with all kinds of cool stickers, skins
 		and backgrounds, it can be viewed by other Habbos and you can write your own notes.<p><a href="https://web.archive.org/web/20071017112648/http://www.habbo.co.uk/hotel/homes">Creating a Habbo Home</a></p></td>
 	</tr>
 	<tr>
 		<td>
-		<img src="https://web.archive.org/web/20071017112648im_/http://images.habbohotel.co.uk/c_images/album1356/Welcome_4_games_001.gif" alt="The image “http://images.habbohotel.co.uk/c_images/album1356/Welcome_4_games_001.gif” cannot be displayed, because it contains errors."></td>
+		<img src="/c_images/album1356/Welcome_4_games_001.gif" alt="The image “http://images.habbohotel.co.uk/c_images/album1356/Welcome_4_games_001.gif” cannot be displayed, because it contains errors."></td>
 		<td>Habbo Hotel hosts a nifty collection of fun, team based and challenging games, from the bounce-tastic Battle Ball to the soaking madness of Wobble Squabble. You can even take a dive into the Habbo Hotel swimming pool!<br><br><a target="_self" href="https://web.archive.org/web/20071017112648/http://www.habbo.co.uk/hotel/games">Playing Habbo Games</a><br><br></td>
 	</tr>
 	<tr>
 		<td>
-		<img src="https://web.archive.org/web/20071017112648im_/http://images.habbohotel.co.uk/c_images/album1356/Welcome_5_Random.gif" alt="The image “http://images.habbohotel.co.uk/c_images/album1356/Welcome_5_Random.gif” cannot be displayed, because it contains errors."></td>
+		<img src="/c_images/album1356/Welcome_5_Random.gif" alt="The image “http://images.habbohotel.co.uk/c_images/album1356/Welcome_5_Random.gif” cannot be displayed, because it contains errors."></td>
 		<td>To find out how to use the Habbo website in more detail, from using the Credits
 		pages and purchasing items of Furni to updating your Habbo Profile's look and motto simply click the link to enlightenment below.<br><br><a target="_self" href="https://web.archive.org/web/20071017112648/http://www.habbo.co.uk/hotel/web">Using The Habbo Website</a><br></td>
 	</tr>
@@ -83,7 +83,7 @@ Welcome To Habbo
 		<td style="width: 4px;"></td>
 		<td valign="top" style="width: 176px;">
 <div id="ad_sidebar" style="display: none !important;">
-<div class="cooperation"><table height="120" width="168" valign="middle" align="center" border="0" cellpadding="0" cellspacing="0" background="https://web.archive.org/web/20071017112648im_/http://images.habbohotel.ch/c_images/themes/partner_box.gif">
+<div class="cooperation"><table height="120" width="168" valign="middle" align="center" border="0" cellpadding="0" cellspacing="0" background="/c_images/themes/partner_box.gif">
 <tbody><tr><td>
 
 

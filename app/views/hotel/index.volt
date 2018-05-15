@@ -31,7 +31,7 @@
 	<div class="v3box-content">
 		<div class="v3box-body">
 
-<img src="https://web.archive.org/web/20071017045724im_/http://images.habbohotel.co.uk/c_images/album209/alt_1.gif" alt=""><br>Check into Habbo Hotel!<br><img src="https://web.archive.org/web/20071017045724im_/http://images.habbohotel.co.uk/c_images/album209/alt_2.gif" alt=""><br><br>Make Your Habbo!<br><br><br><img vspace="0" hspace="0" border="0" src="https://web.archive.org/web/20071017045724im_/http://images.habbohotel.co.uk/c_images/album1357/3_G.gif" alt=""><br><br>Enter Habbo Hotel<br><br><img vspace="0" hspace="0" border="0" src="https://web.archive.org/web/20071017045724im_/http://images.habbohotel.co.uk/c_images/album1357/home4.gif" alt=""><br>Make your Habbo Home!<br><br><span style="font-weight: bold;">Confused?</span> <span style="font-weight: bold;">Not working?</span><span style="text-decoration: underline;"><br></span><a href="https://web.archive.org/web/20071017045724/http://www.habbo.co.uk/hotel/welcome_to_habbo_hotel" target="_self">Click Here</a><br><br>
+<img src="/c_images/album209/alt_1.gif" alt=""><br>Check into Habbo Hotel!<br><img src="/c_images/album209/alt_2.gif" alt=""><br><br>Make Your Habbo!<br><br><br><img vspace="0" hspace="0" border="0" src="/c_images/album1357/3_G.gif" alt=""><br><br>Enter Habbo Hotel<br><br><img vspace="0" hspace="0" border="0" src="/c_images/album1357/home4.gif" alt=""><br>Make your Habbo Home!<br><br><span style="font-weight: bold;">Confused?</span> <span style="font-weight: bold;">Not working?</span><span style="text-decoration: underline;"><br></span><a href="https://web.archive.org/web/20071017045724/http://www.habbo.co.uk/hotel/welcome_to_habbo_hotel" target="_self">Click Here</a><br><br>
 			<div class="clear"></div>
 		</div>
 	</div>
@@ -44,7 +44,7 @@
 	<div class="v3box-content">
 		<div class="v3box-body">
 
-<center><img src="https://web.archive.org/web/20071017045724im_/http://images.habbohotel.co.uk/c_images/album1054/help_and_safety_004.gif" alt=""></center><ul><li><a href="https://web.archive.org/web/20071017045724/http://www.habbo.co.uk/hotel/welcome_to_habbo_hotel" target="_self">Using Habbo Hotel</a></li><li><a target="_self" href="https://web.archive.org/web/20071017045724/http://www.habbo.co.uk/hotel/furniture">Habbo Hotel Furni</a></li><li><a href="https://web.archive.org/web/20071017045724/http://www.habbo.co.uk/hotel/homes" target="_self">Creating a Habbo Home</a></li><li><a target="_self" href="https://web.archive.org/web/20071017045724/http://www.habbo.co.uk/hotel/games">Playing Habbo Games</a></li><li><a href="https://web.archive.org/web/20071017045724/http://www.habbo.co.uk/hotel/web" target="_self">Using The Habbo Website</a></li></ul><br>
+<center><img src="/c_images/album1054/help_and_safety_004.gif" alt=""></center><ul><li><a href="https://web.archive.org/web/20071017045724/http://www.habbo.co.uk/hotel/welcome_to_habbo_hotel" target="_self">Using Habbo Hotel</a></li><li><a target="_self" href="https://web.archive.org/web/20071017045724/http://www.habbo.co.uk/hotel/furniture">Habbo Hotel Furni</a></li><li><a href="https://web.archive.org/web/20071017045724/http://www.habbo.co.uk/hotel/homes" target="_self">Creating a Habbo Home</a></li><li><a target="_self" href="https://web.archive.org/web/20071017045724/http://www.habbo.co.uk/hotel/games">Playing Habbo Games</a></li><li><a href="https://web.archive.org/web/20071017045724/http://www.habbo.co.uk/hotel/web" target="_self">Using The Habbo Website</a></li></ul><br>
 			<div class="clear"></div>
 		</div>
 	</div>
@@ -60,30 +60,30 @@ Not sure what the little icons in the Hotel mean? Well read on, and you will do.
  <table width="100%" border="0" id="table1">
 	<tbody><tr>
 		<td><a href="https://web.archive.org/web/20071017045724/http://www.habbo.co.uk/hotel/welcome_to_habbo_hotel/meeting"><span style="font-weight: bold;"> Habbo Console</span></a><br>Stay in touch with all your friends.<br><br></td>
-		<td><span style="font-weight: bold;"><img vspace="5" hspace="5" border="0" align="right" src="https://web.archive.org/web/20071017045724im_/http://images.habbohotel.ch/c_images/album923/news_icon_02.gif" alt=""></span></td>
+		<td><span style="font-weight: bold;"><img vspace="5" hspace="5" border="0" align="right" src="/c_images/album923/news_icon_02.gif" alt=""></span></td>
 	</tr>
 	<tr>
 		<td><a href="https://web.archive.org/web/20071017045724/http://www.habbo.co.uk/credits"><span style="font-weight: bold;"> Habbo Purse</span></a><br>
  Keeping your Habbo Credits shiny.<br><br></td>
-		<td><span style="font-weight: bold;"><img vspace="5" hspace="5" border="0" align="right" src="https://web.archive.org/web/20071017045724im_/http://images.habbohotel.com/c_images/album923/news_icon_03.gif" alt=""></span></td>
+		<td><span style="font-weight: bold;"><img vspace="5" hspace="5" border="0" align="right" src="/c_images/album923/news_icon_03.gif" alt=""></span></td>
 	</tr>
 	<tr>
 		<td><a href="https://web.archive.org/web/20071017045724/http://www.habbo.co.uk/hotel/welcome_to_habbo_hotel/navigator"><span style="font-weight: bold;"> Hotel Navigator</span></a><br>Explore every last corner of the Hotel.<br><br></td>
-		<td><span style="font-weight: bold;"><img vspace="5" hspace="5" border="0" align="right" src="https://web.archive.org/web/20071017045724im_/http://images.habbohotel.co.uk/c_images/album1356/navigator_icon.png" alt=""></span></td>
+		<td><span style="font-weight: bold;"><img vspace="5" hspace="5" border="0" align="right" src="/c_images/album1356/navigator_icon.png" alt=""></span></td>
 	</tr>
 	<tr>
 		<td><a href="https://web.archive.org/web/20071017045724/http://www.habbo.co.uk/hotel/welcome_to_habbo_hotel/help_safety.html"><span style="font-weight: bold;"> Being Bothered?</span></a><br>
  Find out how to send a call for help!<br><br></td>
-		<td><span style="font-weight: bold;"><img vspace="5" hspace="5" border="0" align="right" src="https://web.archive.org/web/20071017045724im_/http://images.habbohotel.ch/c_images/album778/hvimage6.gif" alt=""></span></td>
+		<td><span style="font-weight: bold;"><img vspace="5" hspace="5" border="0" align="right" src="/c_images/album778/hvimage6.gif" alt=""></span></td>
 	</tr>
 	<tr>
 		<td><a href="https://web.archive.org/web/20071017045724/http://www.habbo.co.uk/hotel/furniture"><b>Habbo Catalogue</b></a><br>Discover how to buy Habbo Furni!<br><br></td>
 		<td>
-		<img align="right" alt="The image “http://images.habbohotel.co.uk/c_images/album923/news_icon_01.gif” cannot be displayed, because it contains errors." src="https://web.archive.org/web/20071017045724im_/http://images.habbohotel.co.uk/c_images/album923/news_icon_01.gif"></td>
+		<img align="right" src="/c_images/album923/news_icon_01.gif"></td>
 	</tr>
 <tr>
 		<td><a href="https://web.archive.org/web/20071017045724/http://www.habbo.co.uk/hotel/games"><span style="font-weight: bold;"> Habbo Games</span></a><br> Find out how to master all our games!<br><br></td>
-		<td><span style="font-weight: bold;"><img src="https://web.archive.org/web/20071017045724im_/http://images.habbohotel.co.uk/c_images/album923/news_icon_15b.gif" alt=""><br></span></td>
+		<td><span style="font-weight: bold;"><img src="/c_images/album923/news_icon_15b.gif" alt=""><br></span></td>
 	</tr>
 </tbody></table>
 
@@ -128,7 +128,7 @@ Not sure what the little icons in the Hotel mean? Well read on, and you will do.
 <p>
 </p><table width="100%" border="0" id="table2">
 	<tbody><tr>
-		<td valign="top" bgcolor="#9dd1e7" align="left"><img vspace="5" hspace="10" border="0" align="bottom" src="https://web.archive.org/web/20071017045724im_/http://images.habbohotel.fi/c_images/album209/welcome_icon.png" alt=""></td>
+		<td valign="top" bgcolor="#9dd1e7" align="left"><img vspace="5" hspace="10" border="0" align="bottom" src="/c_images/album209/welcome_icon.png" alt=""></td>
 		<td valign="top" bgcolor="#9dd1e7" align="left"><b>Welcome Lounge</b><br>New to Habbo? This is the place to go! <br>
 		<a href="https://web.archive.org/web/20071017045724/http://www.habbo.co.uk/client?forwardId=1&amp;roomId=46" target="client" onclick="roomForward(this, '46', 'public'); return false;">
  Meet The Locals
@@ -138,7 +138,7 @@ Not sure what the little icons in the Hotel mean? Well read on, and you will do.
 		</td>
 	</tr>
 	<tr>
-		<td valign="top" bgcolor="#e6efef" align="left"> <img vspace="5" hspace="10" border="0" src="https://web.archive.org/web/20071017045724im_/http://images.habbohotel.fi/c_images/album1528/lido_icon.png" alt=""></td>
+		<td valign="top" bgcolor="#e6efef" align="left"> <img vspace="5" hspace="10" border="0" src="/c_images/album1528/lido_icon.png" alt=""></td>
 		<td valign="top" bgcolor="#e6efef" align="left"><b>Habbo Lido</b><br>Don't worry! All our pools are nicely heated.<br>
 		<a href="https://web.archive.org/web/20071017045724/http://www.habbo.co.uk/client?forwardId=1&amp;roomId=22" target="client" onclick="roomForward(this, '22', 'public'); return false;">
  Jump Straight In
@@ -147,7 +147,7 @@ Not sure what the little icons in the Hotel mean? Well read on, and you will do.
 		</td>
 	</tr>
 	<tr>
-		<td valign="top" bgcolor="#9dd1e7" align="left"> <img vspace="5" hspace="10" border="0" src="https://web.archive.org/web/20071017045724im_/http://images.habbohotel.fi/c_images/album1528/bb_redicon.png" alt=""></td>
+		<td valign="top" bgcolor="#9dd1e7" align="left"> <img vspace="5" hspace="10" border="0" src="/c_images/album1528/bb_redicon.png" alt=""></td>
 		<td valign="top" bgcolor="#9dd1e7" align="left"><b>Theatredrome</b><br>Introduce yourself to the community, on stage!<br><a href="https://web.archive.org/web/20071017045724/http://www.habbo.co.uk/client?forwardId=1&amp;roomId=41" target="client" onclick="roomForward(this, '41', 'public'); return false;">
  Introduce Yourself
  </a>
@@ -171,7 +171,7 @@ Not sure what the little icons in the Hotel mean? Well read on, and you will do.
 
 		<td rowspan="2" valign="top" style=" margin-left: 4px; width: 176px;">
 <div id="ad_sidebar" style="display: none !important;">
-<div class="cooperation"><table height="120" width="168" valign="middle" align="center" border="0" cellpadding="0" cellspacing="0" background="https://web.archive.org/web/20071017045724im_/http://images.habbohotel.ch/c_images/themes/partner_box.gif">
+<div class="cooperation"><table height="120" width="168" valign="middle" align="center" border="0" cellpadding="0" cellspacing="0" background="/c_images/themes/partner_box.gif">
 <tbody><tr><td>
 
 
