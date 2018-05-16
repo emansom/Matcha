@@ -1,0 +1,81 @@
+version: '3.2'
+services:
+    #tmp:
+    #    image: busybox
+    #    command: chmod -R 777 /tmp/docker
+    #    volumes:
+    #        - /tmp/docker/
+    kepler:
+        build:
+            context: kepler
+            dockerfile: Dockerfile
+        restart: always
+        ports:
+            - "12321:12321"
+        expose:
+            - "12321"
+            - "12309"
+        volumes:
+            - db:/usr/src/kepler/db
+                #- type: volume
+                #  source: db
+                #target: /usr/src/Kepler/data
+                #volume:
+                #  nocopy: true
+
+    matcha:
+        build:
+            context: .
+            dockerfile: docker/Dockerfile
+        image: emansom/matcha:latest
+        depends_on:
+            - redis
+        links:
+            - redis
+            - kepler
+        restart: always
+        sysctls:
+            net.core.somaxconn: 1024
+            net.ipv4.tcp_syncookies: 0
+            net.core.somaxconn: 65536
+        ulimits:
+            nofile:
+                soft: 20000
+                hard: 40000
+        environment:
+            - REDIS_HOST=redis
+            - REDIS_PORT=6379
+        volumes:
+            - ./public:/srv/http/matcha/public:ro
+            - ./app:/srv/http/matcha/app:ro
+            - db:/srv/http/matcha/data
+              #- type: volume
+              #  source: db
+              # target: /usr/src/Kepler/data
+              # volume:
+              #    nocopy: true
+
+    nginx:
+        image: nginx:mainline
+        restart: always
+        ports:
+            - "1337:80"
+        volumes:
+            - ./public:/srv/http/matcha/public:ro
+            - ./app:/srv/http/matcha/app:ro
+            - ./nginx.conf:/etc/nginx/nginx.conf:ro
+            - ./h5bp/h5bp:/etc/nginx/h5bp:ro
+            - ./h5bp/mime.types:/etc/nginx/mime.types:ro
+       
+    redis:
+        image: redis:latest
+        restart: always
+        sysctls:
+            net.core.somaxconn: 1024
+        #command: redis-server /etc/redis.conf
+        #volumes:
+        #    - /redis/redis.conf:/etc/redis.conf
+        #volumes_from:
+        #    - tmp
+volumes:
+    db:
