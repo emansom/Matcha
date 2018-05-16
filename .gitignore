@@ -4,3 +4,4 @@ c_images/
 web-gallery/
 *.log
 /public/static
+/data/Kepler.db

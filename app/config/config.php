@@ -26,7 +26,7 @@ return new \Phalcon\Config([
         // of the webpspace.  This will break if the public/index.php entry point is moved or
         // possibly if the web server rewrite rules are changed. This can also be set to a static path.
         //'baseUri'          => preg_replace('/public([\/\\\\])index.php$/', '', $_SERVER["PHP_SELF"]),
-        'baseUri'          => '/',
+	'baseUri'          => '/',
         'defaultLanguage'  => 'en',
         'footerText'       => 'oldHabbo is not affiliated with, endorsed, sponsored, or specifically approved by Sulake Corporation Oy or its Affiliates.\nSulake is not responsible for any content on oldHabbo and the views and opinions expressed herein are not necessarily the views and opinions of Sulake.',
     ],
