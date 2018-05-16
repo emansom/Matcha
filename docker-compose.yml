@@ -9,6 +9,7 @@ services:
         build:
             context: kepler
             dockerfile: Dockerfile
+        image: quackster/kepler:latest
         restart: always
         ports:
             - "12321:12321"
