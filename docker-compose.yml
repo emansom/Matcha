@@ -18,11 +18,6 @@ services:
             - "12309"
         volumes:
             - db:/usr/src/kepler/db
-                #- type: volume
-                #  source: db
-                #target: /usr/src/Kepler/data
-                #volume:
-                #  nocopy: true
 
     matcha:
         build:
@@ -50,11 +45,6 @@ services:
             - ./public:/srv/http/matcha/public:ro
             - ./app:/srv/http/matcha/app:ro
             - db:/srv/http/matcha/data
-              #- type: volume
-              #  source: db
-              # target: /usr/src/Kepler/data
-              # volume:
-              #    nocopy: true
 
     nginx:
         image: nginx:mainline
