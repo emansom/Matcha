@@ -91,8 +91,8 @@ class Users extends \Phalcon\Mvc\Model
 
     /**
      *
-     * @var string
-     * @Column(column="last_online", type="string", nullable=false)
+     * @var integer
+     * @Column(column="last_online", type="integer", nullable=false)
      */
     public $last_online;
 
@@ -120,36 +120,31 @@ class Users extends \Phalcon\Mvc\Model
     /**
      *
      * @var string
-     * @Column(column="active_badge", type="string", nullable=false)
+     * @Column(column="badge", type="string", nullable=false)
      */
-    public $active_badge;
+    public $badge;
 
     /**
-     * Initialize method for model.
+     *
+     * @var integer
+     * @Column(column="badge_active", type="integer", nullable=false)
      */
+    public $badge_active;
+
+
     public function initialize()
     {
         $this->setSource("users");
-        $this->allowEmptyStringValues(['pool_figure', 'motto', 'console_motto', 'active_badge']);
+        $this->allowEmptyStringValues(['pool_figure', 'motto', 'console_motto', 'badge']);
     }
 
-    /**
-     * Allows to query a set of records that match the specified conditions
-     *
-     * @param mixed $parameters
-     * @return Users[]|Users|\Phalcon\Mvc\Model\ResultSetInterface
-     */
+
     public static function find($parameters = null)
     {
         return parent::find($parameters);
     }
 
-    /**
-     * Allows to query the first record that match the specified conditions
-     *
-     * @param mixed $parameters
-     * @return Users|\Phalcon\Mvc\Model\ResultInterface
-     */
+
     public static function findFirst($parameters = null)
     {
         return parent::findFirst($parameters);
