@@ -9,7 +9,7 @@ defined('APP_PATH') || define('APP_PATH', BASE_PATH . '/app');
 return new \Phalcon\Config([
     'database' => [
         'adapter'     => 'Sqlite',
-	'dbname'      => BASE_PATH . '/data/Kepler.db'
+	'dbname'      => getenv('KEPLER_DB') ?: BASE_PATH . '/../Kepler/Kepler.db'
     ],
     'application' => [
         'appDir'           => APP_PATH . '/',
@@ -43,7 +43,7 @@ return new \Phalcon\Config([
     ],
     'emulator' => [
         // TODO: use unix sockets
-        'host' => getenv('RCON_HOST') ?: 'kepler',
+        'host' => getenv('RCON_HOST') ?: '127.0.0.1',
         'port' => getenv('RCON_PORT') ?: 12309,
         'rconTTL' => 30 // 30 seconds TTL of RCON cache
     ],
