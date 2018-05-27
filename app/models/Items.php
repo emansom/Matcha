@@ -57,7 +57,7 @@ class Items extends \Phalcon\Mvc\Model
     /**
      *
      * @var string
-     * @Column(column="wall_position", type="string", length=255, nullable=true)
+     * @Column(column="wall_position", type="string", length=255, nullable=false)
      */
     public $wall_position;
 
@@ -71,7 +71,7 @@ class Items extends \Phalcon\Mvc\Model
     /**
      *
      * @var string
-     * @Column(column="custom_data", type="string", length=255, nullable=true)
+     * @Column(column="custom_data", type="string", length=255, nullable=false)
      */
     public $custom_data;
 
