@@ -1,0 +1,21 @@
+{
+    "name": "ewout/matcha",
+    "description": "A content management system with as goal to emulate the '07 era of Habbo Hotel as close as possible",
+    "type": "project",
+    "require-dev": {
+        "phalcon/ide-stubs": "^3.3",
+        "fabfuel/prophiler": "^1.6",
+        "phalcon/devtools": "^3.2"
+    },
+    "license": "AGPL-3.0-or-later",
+    "authors": [
+        {
+            "name": "Ewout van Mansom",
+            "email": "ewout@freedom.nl"
+        }
+    ],
+    "minimum-stability": "alpha",
+    "require": {
+        "grpc/grpc": "^1.12"
+    }
+}

@@ -21,4 +21,13 @@ $loader->registerClasses(
     ]
 );
 
+/**
+ * Register Files, composer autoloader
+ */
+$loader->registerFiles(
+    [
+        APP_PATH . '/vendor/autoload.php'
+    ]
+);
+
 $loader->register();

@@ -234,8 +234,7 @@
             </div>
         </div>
 
-        {{ elements.getMainMenu() }}
-        {{ elements.getSubMenu() }}
+        {{ elements.getMenu() }}
       </div>
     </div>
 
@@ -246,35 +245,35 @@
     <div id="outer">
       <div id="outer-content">
           <div id="footer">
-          	<div id="footer-top"><div id="footer-content">				<p>
+              <div id="footer-top"><div id="footer-content">				<p>
                                 {{ link_to("/", "Home") }}
-          						|
+                                  |
                                 {{ link_to("/hotel", "New?") }}
-          						|
+                                  |
                                 {{ link_to("/club", "Club") }}
-          						|
+                                  |
                                 {{ link_to("/community", "Community") }}
-          						|
+                                  |
                                 {{ link_to("/games", "Games") }}
-          						|
+                                  |
                                 {{ link_to("/entertainment", "Entertainment") }}
-          						|
+                                  |
                                 {{ link_to("/credits", "Credits") }}
-          						|
+                                  |
                                 {{ link_to("/help", "Help") }}
-          				</p>
-          				<p>
+                          </p>
+                          <p>
                             {{ link_to("/credits", "Get credits") }} |
                             {{ link_to("/club", "Club") }}
-          				</p>
-          	    		<p>
+                          </p>
+                          <p>
                             {{ link_to("/footer_pages/privacy_policy", "Privacy Policy") }} |
                             {{ link_to("/help/parents_guide", "Parents' Guide") }} |
                             {{ link_to("/footer_pages/terms_and_conditions", "Terms &amp; Conditions") }}
                         </p>
-          	    		<p class="footer-legal">{{ elements.getFooterText() }}</p>
+                          <p class="footer-legal">{{ elements.getFooterText() }}</p>
           </div></div>
-          	<div id="footer-bottom"><div id="footer-bottom-content"></div></div>
+              <div id="footer-bottom"><div id="footer-bottom-content"></div></div>
           </div>
       </div>
     </div>
@@ -287,6 +286,7 @@
     <!--<script type="text/javascript">
     $("ad-leader-container").appendChild($("ad-leader"));
   </script>-->
+  <script src="js/tabmenu.js"></script>
 </div>
 
 </body>

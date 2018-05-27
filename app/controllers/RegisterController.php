@@ -6,7 +6,7 @@ class RegisterController extends ControllerBase
         parent::initialize();
 
         // Never cache the served page
-	$this->response->setHeader("Cache-Control", "private, no-cache, no-store, max-age=0, must-revalidate");
+        $this->response->setHeader("Cache-Control", "private, no-cache, no-store, max-age=0, must-revalidate");
 
         // Redirect to homepage if already logged in
         if ($this->session->has("user_id")) {
@@ -98,7 +98,8 @@ class RegisterController extends ControllerBase
             $user->pool_figure = '';
             $user->club_subscribed = 0;
             $user->club_expiration = 0;
-            $user->active_badge = '';
+            $user->badge = '';
+            $user->badge_active = 0;
 
             if ($this->session->has('register-gender')) {
                 $user->sex = $this->session->get('register-gender');

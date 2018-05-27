@@ -6,24 +6,18 @@ class HotelController extends ControllerBase
     {
         // Cache page for 30 seconds, with a 1 hour grace period
         $this->response->setHeader("Cache-Control", "max-age=30, stale-while-revalidate=3600");
-
-        $this->view->setMainView('hotel/index');
     }
 
     public function welcomeAction()
     {
         // Cache page for 30 seconds, with a 1 hour grace period
         $this->response->setHeader("Cache-Control", "max-age=30, stale-while-revalidate=3600");
-
-        $this->view->setMainView('hotel/welcome');
     }
 
     public function tourAction()
     {
         // Cache club page for 30 seconds, with a 1 hour grace period
         $this->response->setHeader("Cache-Control", "max-age=30, stale-while-revalidate=3600");
-
-        $this->view->setMainView('hotel/tour');
     }
 
     public function furnitureAction()

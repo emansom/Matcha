@@ -5,14 +5,14 @@ use Phalcon\Mvc\View;
 use Phalcon\Mvc\View\Engine\Php as PhpEngine;
 use Phalcon\Mvc\Url as UrlResolver;
 use Phalcon\Mvc\View\Engine\Volt as VoltEngine;
-use Phalcon\Mvc\Model\Metadata\Memory as MetaDataAdapter;
+use Phalcon\Mvc\Model\Metadata\Apcu as ApcMetaData;
 use Phalcon\Session\Adapter\Files as SessionAdapter;
 use Phalcon\Flash\Direct as Flash;
 use Phalcon\Mvc\Dispatcher as MvcDispatcher;
 use Phalcon\Events\Event;
 use Phalcon\Events\Manager as EventsManager;
 use Phalcon\Text;
-use Phalcon\Cache\Frontend\Igbinary as DataFrontend;
+use Phalcon\Cache\Frontend\Data as DataFrontend;
 use Phalcon\Cache\Frontend\Output as OutputFrontend;
 use Phalcon\Cache\Multiple as MultiLevelCache;
 use Phalcon\Cache\Backend\Apcu as SharedMemoryCache;
@@ -105,7 +105,7 @@ $di->setShared('view', function () {
 
 $di->set('dispatcher', function () {
     // Create an EventsManager
-    $eventsManager = new EventsManager();
+    $eventsManager = $this->get('eventsManager');
 
     // Camelize actions
     $eventsManager->attach(
@@ -139,12 +139,13 @@ $di->setShared('db', function () {
 
     $class = 'Phalcon\Db\Adapter\Pdo\\' . $config->database->adapter;
     $params = [
-        'dbname'   => $config->database->dbname
+        'dbname'   => $config->database->dbname,
+        'host'     => $config->database->host,
+        'port'     => $config->database->port,
+        'username' => $config->database->username,
+        'password' => $config->database->password,
+        'charset'  => $config->database->charset
     ];
-
-    if (strtolower($config->database->adapter) == 'postgresql') {
-        unset($params['charset']);
-    }
 
     $connection = new $class($params);
 
@@ -161,12 +162,14 @@ $di->setShared('db', function () {
         }
     }
 
-    // $logger = new \Phalcon\Logger\Adapter\File(BASE_PATH . 'sql.log');
-    // $eventsManager = new \Phalcon\Events\Manager();
-    // $eventsManager->attach('db', function($event, $connection) use ($logger) {
-    //     $logger->log($connection->getSQLStatement().' '.join(', ', $connection->getSQLVariables()));
-    // });
-    // $connection->setEventsManager($eventsManager);
+    // Enforce utf8mb4 encoding in MySQL/MariaDB
+    if (strtolower($config->database->adapter) == 'mysql') {
+        if ($connection->execute('SET NAMES utf8mb4 COLLATE utf8mb4_unicode_ci') !== true) {
+            throw new \Phalcon\Exception('Could not set charset to UTF-8 in MySQL/MariaDB');
+        }
+    }
+
+    $connection->setEventsManager($this->get('eventsManager'));
 
     return $connection;
 });
@@ -178,11 +181,11 @@ $di->set('cache', function() {
     $config = $this->getConfig();
 
     // Cache data for one hour in shared memory
-    $ultraFastFrontend = new DataFrontend(
-        [
-            'lifetime' => 3600,
-        ]
-    );
+    // $ultraFastFrontend = new DataFrontend(
+    //     [
+    //         'lifetime' => 3600,
+    //     ]
+    // );
 
     // Cache data for one day in Redis
     $fastFrontend = new DataFrontend(
@@ -191,28 +194,41 @@ $di->set('cache', function() {
         ]
     );
 
-    // Memcached connection settings
-    $cache = new MultiLevelCache(
+    // $cache = new MultiLevelCache(
+    //     [
+    //         new SharedMemoryCache(
+    //             $ultraFastFrontend,
+    //             [
+    //                 'prefix' => 'matcha-cache'
+    //             ]
+    //         ),
+    //         new RedisCache(
+    //             $fastFrontend,
+    //             [
+    //                 'host'       => $config->redis->host,
+    //                 'port'       => $config->redis->port,
+    //                 'persistent' => true,
+    //                 'index'      => 1
+    //             ]
+    //         )
+    //     ]
+    // );
+
+    $cache = new RedisCache(
+        $fastFrontend,
         [
-            new SharedMemoryCache(
-                $ultraFastFrontend,
-                [
-                    'prefix' => 'matcha-cache'
-                ]
-            ),
-            new RedisCache(
-                $fastFrontend,
-                [
-                    'host'       => $config->redis->host,
-                    'port'       => $config->redis->port,
-                    'persistent' => true,
-                    'index'      => 1
-                ]
-            )
+            'host'       => $config->redis->host,
+            'port'       => $config->redis->port,
+            'persistent' => true,
+            'index'      => 1
         ]
     );
 
-    return $cache;
+    if ($config->application->debug) {
+        return new \Fabfuel\Prophiler\Decorator\Phalcon\Cache\BackendDecorator($cache, $this->get('profiler'));
+    } else {
+        return $cache;
+    }
 });
 
 /*
@@ -222,11 +238,11 @@ $di->set('modelsCache', function () {
     $config = $this->getConfig();
 
     // Cache data for one hour in shared memory
-    $ultraFastFrontend = new DataFrontend(
-        [
-            'lifetime' => 3600,
-        ]
-    );
+    // $ultraFastFrontend = new DataFrontend(
+    //     [
+    //         'lifetime' => 3600,
+    //     ]
+    // );
 
     // Cache data for one day in Redis
     $fastFrontend = new DataFrontend(
@@ -235,28 +251,43 @@ $di->set('modelsCache', function () {
         ]
     );
 
-    // Memcached connection settings
-    $cache = new MultiLevelCache(
+    // $cache = new MultiLevelCache(
+    //     [
+    //         new SharedMemoryCache(
+    //             $ultraFastFrontend,
+    //             [
+    //                 'prefix' => 'matcha-models-cache'
+    //             ]
+    //         ),
+    //         new RedisCache(
+    //             $fastFrontend,
+    //             [
+    //                 'host'       => $config->redis->host,
+    //                 'port'       => $config->redis->port,
+    //                 'persistent' => true,
+    //                 'index'      => 3,
+    //                 'prefix' => 'matcha-models-cache'
+    //             ]
+    //         )
+    //     ]
+    // );
+
+    $cache = new RedisCache(
+        $fastFrontend,
         [
-            new SharedMemoryCache(
-                $ultraFastFrontend,
-                [
-                    'prefix' => 'matcha-models-cache'
-                ]
-            ),
-            new RedisCache(
-                $fastFrontend,
-		[
-                    'host'       => $config->redis->host,
-                    'port'       => $config->redis->port,
-                    'persistent' => true,
-                    'index'      => 3
-                ]
-            )
+            'host'       => $config->redis->host,
+            'port'       => $config->redis->port,
+            'persistent' => true,
+            'index'      => 3
         ]
     );
 
-    return $cache;
+    // TODO: make BackendDecorator work with MultiLevelCache
+    if ($config->application->debug) {
+        return new \Fabfuel\Prophiler\Decorator\Phalcon\Cache\BackendDecorator($cache, $this->get('profiler'));
+    } else {
+        return $cache;
+    }
 });
 
 /*
@@ -266,20 +297,19 @@ $di->set('viewCache', function() {
     $config = $this->getConfig();
 
     // Cache data for one hour in shared memory
-    $ultraFastFrontend = new OutputFrontend(
-        [
-            'lifetime' => 3600,
-        ]
-    );
+    // $ultraFastFrontend = new OutputFrontend(
+    //     [
+    //         'lifetime' => 3600,
+    //     ]
+    // );
 
     // Cache data for one day in Redis
-    /*$fastFrontend = new OutputFrontend(
+    $fastFrontend = new OutputFrontend(
         [
             'lifetime' => 86400,
         ]
-    );*/
-    //
-    // // Memcached connection settings
+    );
+
     // $cache = new MultiLevelCache(
     //     [
     //         new SharedMemoryCache(
@@ -300,31 +330,32 @@ $di->set('viewCache', function() {
     //     ]
     // );
 
-    $cache = new SharedMemoryCache(
-        $ultraFastFrontend,
+    $cache = new RedisCache(
+        $fastFrontend,
         [
-            'prefix' => 'matcha-view-cache'
+            'host'       => $config->redis->host,
+            'port'       => $config->redis->port,
+            'persistent' => true,
+            'index'      => 2
         ]
     );
 
-    //$cache = new RedisCache(
-    //    $fastFrontend,
-    //    [
-    //        'host'       => $config->redis->host,
-    //        'port'       => $config->redis->port,
-    //        'persistent' => true,
-    //        'index'      => 2
-    //    ]
-    //);
-
-    return $cache;
+    return new \Fabfuel\Prophiler\Decorator\Phalcon\Cache\BackendDecorator($cache, $this->get('profiler'));
 });
 
 /**
  * If the configuration specify the use of metadata adapter use it or use memory otherwise
  */
 $di->setShared('modelsMetadata', function () {
-    return new MetaDataAdapter();
+    // Create a metadata manager with APC
+    $metadata = new ApcMetaData(
+        [
+            'lifetime' => 86400,
+            // 'prefix'   => 'matcha-models-metadata',
+        ]
+    );
+
+    return $metadata;
 });
 
 /**
@@ -364,8 +395,8 @@ $di->setShared('rcon', function() {
 
     return new RemoteConnection(
         [
-            'host' => $config->emulator->host,
-            'port' => $config->emulator->port,
+            'host' => $config->emulator->serverHost,
+            'port' => $config->emulator->serverPort,
             'ttl' => $config->emulator->rconTTL
         ]
     );

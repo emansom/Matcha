@@ -13,7 +13,18 @@
                 text-align: center;
         }
         </style>
-
+        <script>
+        function log() {
+            console.log(arguments);
+        }
+        var ClientMessageHandler = {};
+        ClientMessageHandler.call = function() {
+            console.log(arguments);
+        };
+        ClientMessageHandler.clientInit = function() {
+            console.log(arguments);
+        };
+        </script>
 </head>
 <body>
         <div id="client">
@@ -29,16 +40,18 @@
                             <param name='sw6' value='use.sso.ticket=1;sso.ticket={{ user.sso_ticket }}'>
                         {% endif %}
 
-                        <param name='sw2' value='connection.info.host=beta.oldhabbo.com;connection.info.port=12321'>
-                        <param name='sw4' value='connection.mus.host=beta.oldhabbo.com;connection.mus.port=12322'>
+                        <!-- TODO: forwardId room etc -->
+
+                        <param name='sw2' value='connection.info.host={{ server_host }};connection.info.port={{ server_port }}'>
+                        <param name='sw4' value='connection.mus.host={{ mus_host }};connection.mus.port={{ mus_port }}'>
                         <param name='sw3' value='client.reload.url=https://beta.oldhabbo.com/client'>
                         <param name='sw1' value='site.url=https://beta.oldhabbo.com;url.prefix=https://beta.oldhabbo.com'>
                         <param name='sw5' value='external.variables.txt={{ external_variables }};external.texts.txt={{ external_texts }}'>
 
                         <embed src='{{ dcr }}' bgColor='#000000' width='720' height='540' swRemote='swSaveEnabled='true' swVolume='true' swRestart='false' swPausePlay='false' swFastForward='false' swTitle='Habbo Hotel' swContextMenu='true'' swStretchStyle='none' swText='' type='application/x-director' pluginspage='http://www.macromedia.com/shockwave/download/'
                         {% if logged_in %}sw6='use.sso.ticket=1;sso.ticket={{ user.sso_ticket }}'{% endif %}
-                        sw2='connection.info.host=beta.oldhabbo.com;connection.info.port=12321'
-                        sw4='connection.mus.host=beta.oldhabbo.com;connection.mus.port=12322'
+                        sw2='connection.info.host={{ server_host }};connection.info.port={{ server_port }}'
+                        sw4='connection.mus.host={{ mus_host }};connection.mus.port={{ mus_port }}'
                         sw3='client.reload.url=https://beta.oldhabbo.com/client'
                         sw1='site.url=https://beta.oldhabbo.com;url.prefix=https://beta.oldhabbo.com'
                         sw5='external.variables.txt={{ external_variables }};external.texts.txt={{ external_texts }}'></embed>

@@ -114,6 +114,22 @@ $router->add(
 )->setName('topbar-club');
 
 $router->add(
+    '/topbar/online-count[/]{0,1}(\/?\?{0}|\/?\?{1}.*)',
+    [
+        'controller' => 'topbar',
+        'action'     => 'online-count'
+    ]
+)->setName('topbar-online-count');
+
+$router->add(
+    '/topbar/user-details[/]{0,1}(\/?\?{0}|\/?\?{1}.*)',
+    [
+        'controller' => 'topbar',
+        'action'     => 'user-details'
+    ]
+)->setName('topbar-user-details');
+
+$router->add(
     '/profile[/]{0,1}(\/?\?{0}|\/?\?{1}.*)',
     [
         'controller' => 'user-settings',
