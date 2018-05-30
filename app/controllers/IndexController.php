@@ -31,6 +31,12 @@ class IndexController extends ControllerBase
     {
         $this->response->setHeader("Cache-Control", "private, no-cache, no-store, max-age=0, must-revalidate");
 
+        // Redirect to homepage if not logged in
+        if (!$this->view->logged_in) {
+            // Use temporary redirect (302) so the browser/user-agent doesn't cache this redirect
+            return $this->response->redirect('/', false, 302);
+        }
+
         // TODO: show hotel closed page
         if (!$this->rcon->ping()) {
             $this->view->hotel_closed = true;
