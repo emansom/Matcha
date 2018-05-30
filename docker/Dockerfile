@@ -120,8 +120,5 @@ RUN groupadd -g 1000 matcha && \
 
 VOLUME /srv/http/matcha/data
 
-COPY docker/docker-entrypoint.sh /usr/local/bin/
-ENTRYPOINT ["docker-entrypoint.sh"]
-
 EXPOSE 9000
 CMD ["php-fpm"]
