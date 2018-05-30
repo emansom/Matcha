@@ -48,7 +48,7 @@
                             </div>
                             <div class="content-top">
                                 <div class="content">
-                                    <div id="process-errors">
+                                    {# <div id="process-errors">
                                         <div class="content-red">
                                             <div class="content-red-body" id="process-errors-content"> validation errors go here
                                                 <div class="clear"></div>
@@ -57,7 +57,7 @@
                                         <div class="content-red-bottom">
                                             <div class="content-red-bottom-body"></div>
                                         </div>
-                                    </div>
+                                    </div> #}
 
                                     <br clear="all"/>
 
@@ -77,7 +77,11 @@
                                                     swfobj.addVariable("localization_url", "/web-gallery/xml/figure_editor.xml");
                                                     swfobj.addVariable("figure", "{{ user.figure }}");
                                                     swfobj.addVariable("gender", "{{ user.sex }}");
+                                                    {% if user.isClubMember() %}
+                                                    swfobj.addVariable("showClubSelections", "1");
+                                                    {% else %}
                                                     swfobj.addVariable("showClubSelections", "0");
+                                                    {% endif %}
                                                     swfobj.write("flashcontent");
                                                     </script>
 
