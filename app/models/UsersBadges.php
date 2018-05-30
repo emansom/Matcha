@@ -22,6 +22,15 @@ class UsersBadges extends \Phalcon\Mvc\Model
     {
         $this->setSchema("kepler");
         $this->setSource("users_badges");
+
+        $this->belongsTo(
+            'user_id',
+            'Users',
+            'id',
+            [
+                'foreignKey' => true
+            ]
+        );
     }
 
 

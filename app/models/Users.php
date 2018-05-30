@@ -143,6 +143,12 @@ class Users extends \Phalcon\Mvc\Model
     {
         $this->setSource("users");
         $this->allowEmptyStringValues(['pool_figure', 'motto', 'console_motto', 'badge', 'sso_ticket']);
+
+        $this->hasMany(
+            'id',
+            'UsersBadges',
+            'user_id'
+        );
     }
 
 
