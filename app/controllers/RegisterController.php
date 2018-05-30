@@ -59,19 +59,25 @@ class RegisterController extends ControllerBase
 
             $registrationErrors = [];
 
-            // TODO: view errors
+            // Validate if username is provided
+            // Uses multibyte (UTF-8) string length check
             if (mb_strlen($username) == 0) {
                 $registrationErrors[] = 'Please enter your username';
             }
 
+            // Validate if password is provided
+            // Uses multibyte (UTF-8) string length check
             if (mb_strlen($password) == 0) {
                 $registrationErrors[] = 'Please enter your password';
             }
 
+            // Validate if retypedPassword is provided
+            // Uses multibyte (UTF-8) string length check
             if (mb_strlen($retypedPassword) == 0) {
                 $registrationErrors[] = 'Please retype your password';
             }
 
+            // Check if password and retypedPassword equal
             if ($password != $retypedPassword) {
                 $registrationErrors[] = 'Passwords don\'t match';
             }
