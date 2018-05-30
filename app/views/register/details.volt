@@ -72,7 +72,7 @@ window.addEventListener("load", function(e) {
 
                             <div class="content-column2">
 
-                                <div id="process-errors">
+                                {# <div id="process-errors">
                                     <div class="content-red">
                                         <div class="content-red-body" id="process-errors-content">
                                             <div class="clear"></div>
@@ -81,12 +81,34 @@ window.addEventListener("load", function(e) {
                                     <div class="content-red-bottom">
                                         <div class="content-red-bottom-body"></div>
                                     </div>
+                                </div> #}
+
+                                <div id="process-errors" {% if register_errors is defined %}style="display: block;"{% endif %}>
+                                    {% if register_errors is defined %}
+                                        {% for id, error in register_errors %}
+                                            <div class="content-red">
+                                                <div class="content-red-body" id="process-errors-content">
+                                                    {{ error }}
+                                                </div>
+                                                <div class="clear"></div>
+                                            </div>
+                                            <div class="content-red-bottom"><div class="content-red-bottom-body"></div></div>
+                                        {% endfor %}
+                                    {% else %}
+                                        <div class="content-red">
+                                            <div class="content-red-body" id="login-errors-content">
+                                                <div class="clear"></div>
+                                            </div>
+                                        </div>
+                                        <div class="content-red-bottom"><div class="content-red-bottom-body"></div></div>
+                                    {% endif %}
                                 </div>
+
                                 <div class="content-white-outer">
                                     <div class="content-white">
                                         <div class="content-white-body">
                                             <div class="content-white-content">
-                                                <form method="post" action="/register/register" id="stepform">
+                                                <form method="post" action="/register/enter-details" id="stepform">
 
 
                                                     <p>
@@ -96,7 +118,7 @@ window.addEventListener("load", function(e) {
 
                                                     <p>
                                                         <label for="username" class="registration-text">Username</label><br />
-                                                        <input type="text" name="username" id="username" maxlength="14" value="" class="registration-text required-avatarName" />
+                                                        <input type="text" name="username" id="username" maxlength="14" {% if username is defined %}value="{{ username }}"{% else %}value=""{% endif %} class="registration-text required-avatarName" />
                                                     </p>
 
                                                     <hr />
@@ -107,14 +129,14 @@ window.addEventListener("load", function(e) {
 
                                                     <p>
                                                         <label for="password" class="registration-text">Password</label><br />
-                                                        <input type="password" name="password" id="password" maxlength="32" class="registration-text required-password required-password2" />
+                                                        <input type="password" name="password" id="password" maxlength="32" {% if password is defined %}value="{{ password }}"{% else %}value=""{% endif %} class="registration-text required-password required-password2" />
                                                     </p>
 
                                                     <div id="pwStatus"></div>
 
                                                     <p>
                                                         <label for="retypedPassword" class="registration-text">Retype password</label><br />
-                                                        <input type="password" name="retypedPassword" id="retypedPassword" maxlength="32" class="registration-text required-retypedPassword required-retypedPassword2" />
+                                                        <input type="password" name="retypedPassword" id="retypedPassword" maxlength="32" {% if retypedPassword is defined %}value="{{ retypedPassword }}"{% else %}value=""{% endif %} class="registration-text required-retypedPassword required-retypedPassword2" />
                                                     </p>
 
                                                     <div id="pwRetypeStatus"></div>

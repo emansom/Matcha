@@ -1,6 +1,6 @@
 <?php
 
-class AccountController extends ControllerBase
+class AuthenticationController extends ControllerBase
 {
     public function loginAction()
     {
@@ -12,30 +12,40 @@ class AccountController extends ControllerBase
             return $this->response->redirect("/");
         }
 
+        $this->view->setMainView("login");
+
         if ($this->request->isPost()) {
-            $username = $this->request->getPost("username");
-            $password = $this->request->getPost("password");
+            // Sanitize input
+            $username = $this->filter->sanitize($this->request->getPost('username', 'string'), 'alphanum');
+            $password = $this->request->getPost("password", 'striptags');
 
-            if ($username === "") {
-                $this->view->login_errors = ['Please enter your username'];
-                return $this->view->setMainView("login");
+            // Assign sanitized input to view
+            $this->view->username = $username;
+            $this->view->password = $password;
+
+            $loginErrors = [];
+
+            if (mb_strlen($username) == 0 || mb_strlen($password) == 0) {
+                $loginErrors[] = 'Please enter your username and password';
             }
 
-            if ($password === "") {
-                $this->view->login_errors = ['Please enter your password'];
-                return $this->view->setMainView("login");
+            // Do not continue if there are validation errors
+            if (count($loginErrors) > 0) {
+                $this->view->login_errors = $loginErrors;
+                return;
             }
 
+            // Check if username exists (match case-insensitive)
             $user = Users::findFirst([
-                "username = :username:",
+                "LOWER(username) = :username:",
                 "bind" => [
-                    'username' => $username
+                    'username' => mb_strtolower($username)
                 ],
                 'limit' => 1
             ]);
 
             // If a user is found, check if password matches
-            if ($user !== null && $this->security->checkHash($password, $user->password)) {
+            if ($user && $this->security->checkHash($password, $user->password)) {
                 // Check if we need a rehash
                 if ($this->security->needsRehash($user->password)) {
                     $user->password = $this->security->hash($password);
@@ -57,8 +67,6 @@ class AccountController extends ControllerBase
 
             $this->view->login_errors = ['Wrong username or password'];
         }
-
-        return $this->view->setMainView("login");
     }
 
     public function logoutAction()

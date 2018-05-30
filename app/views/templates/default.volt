@@ -51,7 +51,7 @@
     <link href="/news/rss.xml" rel="alternate" title="Habbo Vandaag" type="application/rss+xml">
 
     <meta content="6.0.7 - 20070914090134 - nl" name="build">
-
+    <meta name="vindretros" content="rolp2f9qm8ewb7c564ygjnhkt3xa10is" />
 </head>
 
 <body {% block body_attributes %}{% endblock %}>
