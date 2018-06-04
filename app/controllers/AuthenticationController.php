@@ -16,6 +16,7 @@ class AuthenticationController extends ControllerBase
 
         if ($this->request->isPost()) {
             // Sanitize input
+            // TODO: handle -=?!@:. in username
             $username = $this->filter->sanitize($this->request->getPost('username', 'string'), 'alphanum');
             $password = $this->request->getPost("password", 'striptags');
 
