@@ -4,6 +4,7 @@
         <meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
         <title>Kepler</title>
 
+        <link rel="icon" href="/favicon.png" sizes="16x16">
         <style>
         body {
                 background-color: black;
@@ -15,7 +16,7 @@
         </style>
         <script type="text/javascript">
         document.habboLoggedIn = true;
-        var habboName = "{{ user.username }}";
+        var habboName = "{% if logged_in %}{{ user.username }}{% endif %}";
         var ad_keywords = "";
         var habboReqPath = "https://beta.oldhabbo.com";
         var habboStaticFilePath = "https://beta.oldhabbo.com/web-gallery";

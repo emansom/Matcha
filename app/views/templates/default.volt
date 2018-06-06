@@ -21,6 +21,7 @@
 
     <!-- TODO: favicon x2 (xBR or HQx scaled) -->
     <!--<link rel="icon" sizes="64x64" href="/favicon-x2.png">-->
+    <link rel="icon" href="/favicon.png" sizes="16x16">
     <link href="/web-gallery/styles/style.css" rel="stylesheet" type="text/css">
     <link href="/web-gallery/styles/ads.css" rel="stylesheet" type="text/css">
     <link href="/web-gallery/styles/boxes.css" rel="stylesheet" type="text/css">

@@ -395,7 +395,7 @@ $di->setShared('rcon', function() {
 
     return new RemoteConnection(
         [
-            'host' => $config->emulator->serverHost,
+            'host' => $config->emulator->serverInternalHost,
             'port' => $config->emulator->serverPort,
             'ttl' => $config->emulator->rconTTL
         ]

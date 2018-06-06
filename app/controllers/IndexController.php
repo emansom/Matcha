@@ -32,10 +32,10 @@ class IndexController extends ControllerBase
         $this->response->setHeader("Cache-Control", "private, no-cache, no-store, max-age=0, must-revalidate");
 
         // Redirect to homepage if not logged in
-        if (!$this->view->logged_in) {
-            // Use temporary redirect (302) so the browser/user-agent doesn't cache this redirect
-            return $this->response->redirect('/', false, 302);
-        }
+        // if (!$this->view->logged_in) {
+        //     // Use temporary redirect (302) so the browser/user-agent doesn't cache this redirect
+        //     return $this->response->redirect('/', false, 302);
+        // }
 
         // TODO: show hotel closed page
         if (!$this->rcon->ping()) {
@@ -50,7 +50,7 @@ class IndexController extends ControllerBase
             // Update in database
             $user = \Users::findFirst($this->session->get('user_id'));
             $user->sso_ticket = $token;
-            $user->update(); // TODO: throw exception if doesn't return true, and disable SSO in view
+            $user->update(); // TODO: disable SSO in view if update() doesn't return true
 
             // Update in view
             $this->view->user->sso_ticket = $token;
@@ -58,11 +58,11 @@ class IndexController extends ControllerBase
 
         // Assign gamedata
         $this->view->dcr = $this->config->client->dcr;
-        $this->view->external_variables = $this->config->client->external_variables;
-        $this->view->external_texts = $this->config->client->external_texts;
-        $this->view->server_host = $this->config->emulator->serverHost;
+        $this->view->external_variables = $this->config->client->externalVariables;
+        $this->view->external_texts = $this->config->client->externalTexts;
+        $this->view->server_host = $this->config->emulator->serverExternalHost;
         $this->view->server_port = $this->config->emulator->serverPort;
-        $this->view->mus_host = $this->config->emulator->musHost;
+        $this->view->mus_host = $this->config->emulator->serverExternalHost;
         $this->view->mus_port = $this->config->emulator->musPort;
 
         $this->view->setMainView('client');
