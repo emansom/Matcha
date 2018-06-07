@@ -17,7 +17,7 @@
     }
     </style>
 
-    <title>Habbo ~ {% block title %}{% endblock %}</title>
+    <title>oldHabbo ~ {% block title %}{% endblock %}</title>
 
     <!-- TODO: favicon x2 (xBR or HQx scaled) -->
     <!--<link rel="icon" sizes="64x64" href="/favicon-x2.png">-->
