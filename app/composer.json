@@ -16,6 +16,7 @@
     ],
     "minimum-stability": "alpha",
     "require": {
-        "grpc/grpc": "^1.12"
+        "grpc/grpc": "^1.12",
+        "whichbrowser/parser": "^2.0"
     }
 }
