@@ -121,8 +121,9 @@ RUN crudini --set /etc/php/php.ini opcache opcache.enable 1 \
     && crudini --set /etc/php/php.ini Session session.save_path '"tcp://redis:6379?weight=1&database=0"' \
     && crudini --set /etc/php/php.ini Session session.use_strict_mode 1 \
     && crudini --set /etc/php/php.ini Session session.use_cookies 1 \
+    && crudini --set /etc/php/php.ini Session session.cookie_lifetime 2678400 \
     && crudini --set /etc/php/php.ini Session session.cookie_httponly 1 \
-    && crudini --set /etc/php/php.ini Session session.gc_maxlifetime 86400 \
+    && crudini --set /etc/php/php.ini Session session.gc_maxlifetime 2678400 \
     && crudini --set /etc/php/php.ini Session session.sid_length 52 \
     && rm /etc/php/conf.d/* \
     && echo 'extension=apcu.so' > /etc/php/conf.d/apcu.ini \

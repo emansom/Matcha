@@ -8,6 +8,7 @@
 
     <link rel="icon" href="/favicon.png" sizes="16x16">
     <link href="/web-gallery/styles/style.css" type="text/css" rel="stylesheet"/>
+    <link href="/css/client.css" type="text/css" rel="stylesheet"/>
 
     <script language="JavaScript" type="text/javascript">
     var habboClient = true;
@@ -55,6 +56,9 @@
 
     </div>
 
+    <script language="JavaScript" type="text/javascript" src="/js/polyfill.min.js"></script>
+    <!-- TODO: better fetch API polyfill that works in Pale Moon -->
+    <script language="JavaScript" type="text/javascript" src="/js/unfetch.umd.js"></script>
     <script language="JavaScript" type="text/javascript" src="/js/client.js"></script>
 </body>
 </html>

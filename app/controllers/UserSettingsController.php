@@ -19,13 +19,16 @@ class UserSettingsController extends ControllerBase
     {
         $this->view->setMainView('profile/update-look');
 
+        // Let view know if we're online or not
+        $this->view->user_online = $this->rcon->isUserOnline($this->session->get('user_id'));
+
+        // If this request is a POST request, then..
         if ($this->request->isPost()) {
             // Get submitted gender and figure, default to current user' figure and gender
             $figure = $this->request->getPost("figure", null, $this->view->user->figure);
             $gender = strtoupper($this->request->getPost("gender", null, $this->view->user->sex));
 
-            // TODO: validate gender
-            // TODO: output error to view
+            // TODO: log scripting attempt
             if ($gender != 'M' && $gender != 'F') {
                 return;
             }
@@ -50,8 +53,10 @@ class UserSettingsController extends ControllerBase
                 // TODO: check if cache exists first
                 $this->modelsCache->delete('user-' . $this->session->getId());
 
-                // Update in hotel via RCON
-                $this->rcon->refreshLook($user->id);
+                // Update in hotel via RCON and let view know when successful
+                if ($this->rcon->refreshLook($user->id)) {
+                    $this->view->refreshed_in_hotel = true;
+                }
 
                 // Update in view
                 $this->view->user->figure = $figure;

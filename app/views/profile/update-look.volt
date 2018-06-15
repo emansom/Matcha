@@ -59,6 +59,23 @@
                                         </div>
                                     </div> #}
 
+                                    {% if refreshed is defined %}
+                                        <div class="content-green">
+                                            <div class="content-green-body">
+                                                Your look has been updated!
+                                                {# TODO: get text from PHPRetro #}
+
+                                                {% if refreshed_in_hotel is not defined and user_online %}
+                                                Use :poof
+                                                {% endif %}
+                                                <div class="clear"></div>
+                                            </div>
+                                        </div>
+                                        <div class="content-red-bottom">
+                                            <div class="content-red-bottom-body"></div>
+                                        </div>
+                                    {% endif %}
+
                                     <br clear="all"/>
 
                                     <div class="content-white-outer">

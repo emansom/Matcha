@@ -112,6 +112,9 @@ class RegisterController extends ControllerBase
             if ($user) {
                 $this->view->register_errors = ['Sorry, the name you picked is already in use.'];
             } else {
+                // Start a transaction
+                $this->db->begin();
+
                 $user = new \Users();
                 $user->username = $username;
                 $user->password = $this->security->hash($password);
@@ -129,6 +132,7 @@ class RegisterController extends ControllerBase
                 $user->badge = $this->config->newUser->badges[0];
                 $user->badge_active = sizeof($this->config->newUser->badges) > 0;
                 $user->allow_stalking = $this->config->newUser->allowStalking;
+                $user->sound_enabled = $this->config->newUser->soundEnabled;
 
                 // If user chose an gender in the previous page, use that, else use default
                 if ($this->session->has('register-gender')) {
@@ -146,8 +150,9 @@ class RegisterController extends ControllerBase
 
                 // Try to create user, if this fails; show error in view
                 // TODO: log create error
-                if (!$user->create()) {
+                if ($user->create() === false) {
                     $this->view->register_errors = ['Unable to create user, contact administrator'];
+                    $this->db->rollback();
                 } else {
                     // User has been created!
 
@@ -166,6 +171,9 @@ class RegisterController extends ControllerBase
                     // Let ORM know about badges
                     $user->badges = $badges;
                     $user->update();
+
+                    // Commit the transaction
+                    $this->db->commit();
 
                     // Regenerate session id to protect from session hijacking
                     $this->session->regenerateId(true);

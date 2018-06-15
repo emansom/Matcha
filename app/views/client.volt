@@ -8,6 +8,7 @@
 
     <link rel="icon" href="/favicon.png" sizes="16x16">
     <link href="/web-gallery/styles/style.css" type="text/css" rel="stylesheet"/>
+    <link href="/css/client.css" type="text/css" rel="stylesheet"/>
 
     <script language="JavaScript" type="text/javascript">
     var habboClient = true;
@@ -70,7 +71,7 @@
                 <param name='sw1' value='site.url=https://beta.oldhabbo.com;url.prefix=https://beta.oldhabbo.com'>
                 <param name='sw5' value='external.variables.txt={{ external_variables }};external.texts.txt={{ external_texts }}'>
                 <param name='sw8' value='client.allow.cross.domain=1;client.notify.cross.domain=0'>
-                <param name='sw7' value='forward.type=2;forward.id=1049'>
+                {# <param name='sw7' value='forward.type=2;forward.id=1049'> #}
 
                 {# You need Shockwave plugin (free and safe to download) in order to enter Habbo Hotel. <a href="/hotel/tour" target="habboMain">Read more >></a> #}
 
@@ -80,13 +81,16 @@
                 sw4='connection.mus.host={{ mus_host }};connection.mus.port={{ mus_port }}'
                 sw3='client.reload.url=https://beta.oldhabbo.com/client'
                 sw1='site.url=https://beta.oldhabbo.com;url.prefix=https://beta.oldhabbo.com'
-                sw7='forward.type=2;forward.id=1049'
+                {# sw7='forward.type=2;forward.id=1049' #}
                 sw8='client.allow.cross.domain=1;client.notify.cross.domain=0'
                 sw5='external.variables.txt={{ external_variables }};external.texts.txt={{ external_texts }}'></embed>
                 <noembed>You need Shockwave plugin (free and safe to download) in order to enter Habbo Hotel. <a href="/hotel/tour" target="habboMain">Read more >></a></noembed>
         </object>
     </div>
 
+    <script language="JavaScript" type="text/javascript" src="/js/polyfill.min.js"></script>
+    <!-- TODO: better fetch API polyfill that works in Pale Moon -->
+    <script language="JavaScript" type="text/javascript" src="/js/unfetch.umd.js"></script>
     <script language="JavaScript" type="text/javascript" src="/js/client.js"></script>
 </body>
 </html>
