@@ -391,7 +391,7 @@ $di->setShared('security', function() {
 $di->setShared('rcon', function() {
     $config = $this->getConfig();
 
-    return new \Kepler\Rcon\RemoteConnection(
+    return new \RetroRCON\RemoteConnection(
         [
             'host' => $config->emulator->serverInternalHost,
             'port' => $config->emulator->rconPort

@@ -22,6 +22,8 @@
             return;
         }
 
+        // TODO: only show animation if user count is higher
+
         // Init keyframe animation
         d.querySelector('#habboCountUpdateTarget').classList.add('updated');
 

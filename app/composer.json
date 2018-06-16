@@ -17,6 +17,6 @@
     "minimum-stability": "alpha",
     "require": {
         "whichbrowser/parser": "^2.0",
-        "ewout/retrorcon": "^1.5"
+        "ewout/retrorcon": "^1.0"
     }
 }
