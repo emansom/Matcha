@@ -38,7 +38,11 @@ class IndexController extends ControllerBase
 
         $result = new WhichBrowser\Parser($this->request->getHeaders());
 
-        if (!$result->isBrowser('Pale Moon') || !$result->isOs('Windows')) {
+        // Check if we're using an NPAPI capable browser
+        $capableBrowser = $result->isBrowser('Pale Moon') || $result->isBrowser('Chrome', '<=', '44') || $result->isBrowser('Firefox', '<=', '52');
+
+        // If browser is not an NPAPI capable browser or if platform is not Windows, serve client instructions
+        if (!$capableBrowser || !$result->isOs('Windows')) {
             $this->view->setMainView('client-instructions');
             return;
         }
