@@ -11,7 +11,7 @@ RUN composer install \
     --no-scripts \
     --prefer-dist
 
-FROM ewout/phalconphp:3.4.1
+FROM ewout/phalconphp:3.4.2
 LABEL maintainer="ewout@freedom.nl"
 
 # Install shared libraries and PHP extensions needed by our code
